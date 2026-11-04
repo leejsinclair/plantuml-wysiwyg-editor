@@ -1,0 +1,29 @@
+@startuml insert-and-arrange
+|User|
+start
+:Select a container, cell or component;
+:Choose a component from the palette
+(click, Enter or drag);
+|Editor|
+if (Valid insertion point?) then (yes)
+  :Insert the component at the insertion point;
+  :Select and focus it, and announce the change;
+else (no)
+  :Do not offer the target, or explain
+  what is wrong and how to fix it;
+  :Leave the wireframe unchanged;
+endif
+|User|
+if (Move a component?) then (yes)
+  :Drag it, or use the move shortcut or "Move to…";
+  |Editor|
+  if (Valid destination?) then (yes)
+    :Move it and keep focus on it;
+  else (no)
+    :Do not offer the destination, or explain why;
+  endif
+else (no)
+endif
+|User|
+stop
+@enduml

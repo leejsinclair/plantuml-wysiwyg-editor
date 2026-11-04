@@ -1,0 +1,9 @@
+@startsalt Styled
+{+
+  Outer
+  {#!
+  a | b
+  c | d
+  }
+}
+@endsalt

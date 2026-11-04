@@ -1,0 +1,35 @@
+@startuml undo-redo
+|User|
+start
+if (Kind of change?) then (visual edit or project operation)
+  |Editor|
+  :Record one history entry, including any linked
+  changes (link updates, lane moves, re-division);
+elseif (Kind of change?) then (typing in a property field)
+  |Editor|
+  :Record one entry when the field loses
+  focus or the user presses Enter;
+else (typing in the source)
+  |Editor|
+  :Group the typing into one entry, ending when
+  the user pauses or leaves the source view;
+endif
+|User|
+:Choose Undo or Redo, which names the action;
+|Editor|
+if (Typing in progress in a focused text field?) then (yes)
+  :Undo typing within that field first;
+else (no)
+  :Open the affected screen or flow;
+  :Restore its structure, properties and source together;
+  :Select the affected element and announce what changed;
+  if (Restored source valid?) then (yes)
+    :The canvas is editable;
+  else (no)
+    :Show the block as invalid: last working
+    version, read-only, with the problem;
+  endif
+endif
+|User|
+stop
+@enduml

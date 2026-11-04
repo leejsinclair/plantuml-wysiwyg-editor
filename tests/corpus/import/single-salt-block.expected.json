@@ -1,0 +1,12 @@
+{
+  "comment": "A file with a single @startsalt block is a single-screen project without conversion (FR-011/AC4).",
+  "flowIndex": null,
+  "blocks": [
+    {
+      "kind": "screen",
+      "status": "Editable",
+      "name": null,
+      "nameFlag": null
+    }
+  ]
+}

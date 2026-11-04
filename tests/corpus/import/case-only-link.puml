@@ -1,0 +1,11 @@
+@startsalt Login
+{
+  Email | "            "
+  [Sign in] | .
+}
+@endsalt
+@startuml Screen-flow
+start
+:[[#login Sign in]];
+stop
+@enduml

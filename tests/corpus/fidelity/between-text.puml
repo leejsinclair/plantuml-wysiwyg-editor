@@ -1,0 +1,23 @@
+Free text before the first block is kept.
+
+' A full-line comment directly above the screen moves with it
+@startsalt Form
+{
+  ' a comment inside the grid
+  Name | "          "
+  /' a block
+     comment '/
+  [ ] Subscribe | .
+}
+@endsalt
+
+   indented notes between blocks, with trailing spaces   
+
+
+@startuml Screen-flow
+start
+' comment in the flow
+:[[#Form Fill in the form]];
+stop
+@enduml
+Trailing text after the last block, no blank line before it.

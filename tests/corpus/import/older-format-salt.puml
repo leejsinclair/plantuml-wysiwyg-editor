@@ -1,0 +1,8 @@
+@startuml Login
+salt
+{
+  Login    | "MyName   "
+  Password | "****     "
+  [Cancel] | [  OK   ]
+}
+@enduml

@@ -1,0 +1,24 @@
+{
+  "comment": "A sequence diagram and two current-syntax activity diagrams: the first activity block is the flow, the second is other content (FR-006/AC14).",
+  "flowIndex": 1,
+  "blocks": [
+    {
+      "kind": "other",
+      "status": "Source only",
+      "name": "Handshake",
+      "nameFlag": null
+    },
+    {
+      "kind": "flow",
+      "status": "Editable",
+      "name": "Checkout",
+      "nameFlag": null
+    },
+    {
+      "kind": "other",
+      "status": "Source only",
+      "name": "Returns",
+      "nameFlag": null
+    }
+  ]
+}

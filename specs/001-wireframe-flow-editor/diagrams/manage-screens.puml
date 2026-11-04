@@ -1,0 +1,79 @@
+@startuml manage-screens
+|User|
+start
+if (Action?) then (add)
+  |Editor|
+  :Create "Screen-n" (lowest unused n) and open it;
+elseif (Action?) then (duplicate)
+  |Editor|
+  :Place a copy after the original, named "Copy-of-<name>"
+  (with "-2", "-3" if in use), with no incoming links;
+elseif (Action?) then (rename in the project panel or properties)
+  :Type the new name;
+  |Editor|
+  :Show "Will be saved as …" without altering the typed text;
+  |User|
+  :Commit with Enter or by leaving the field;
+  |Editor|
+  :Convert the name: spaces become "-", disallowed
+  characters are removed, cut to 64 characters;
+  if (Converted name empty?) then (yes)
+    :Keep the previous name, with a message;
+  elseif (Same as another block's name, ignoring case?) then (yes)
+    :Refuse, naming that block; keep the previous name;
+  elseif (Do steps link to the screen?) then (yes)
+    :Warn and show the affected steps;
+    |User|
+    if (Proceed?) then (yes)
+      |Editor|
+      :Rename and update every linking step,
+      in one undoable step;
+    else (cancel)
+      |Editor|
+      :Leave the project unchanged;
+    endif
+  else (no)
+    :Rename (undoable);
+  endif
+elseif (Action?) then (edit the name line in the source view)
+  :Leave the source view;
+  |Editor|
+  if (New name allowed and unique?) then (yes)
+    :Update linking steps in the same undo step,
+    with a notice ("Updated 3 steps");
+  else (no)
+    :Keep the typed name and flag the screen; links keep
+    the previous name and show as broken; notice with
+    "Undo" states the cause and how many links broke;
+  endif
+elseif (Action?) then (delete)
+  |Editor|
+  if (Last block in the project?) then (yes)
+    :Refuse and say why;
+  elseif (Do steps link to the screen?) then (yes)
+    :Warn and show the affected steps;
+    |User|
+    if (Proceed?) then (yes)
+      |Editor|
+      :Delete the screen (undoable); keep the steps
+      and flag their links as broken;
+    else (cancel)
+      |Editor|
+      :Leave the project unchanged;
+    endif
+  else (no)
+    :Delete the screen and announce it with "Undo";
+  endif
+  :If the deleted screen was open, open its neighbour;
+else (reorder)
+  |Editor|
+  :Move the screen in file order (undoable);
+endif
+|Editor|
+if (A link differs from a screen's name only in letter case?) then (yes)
+  :Show the link as broken, with a suggested fix;
+else (no)
+endif
+|User|
+stop
+@enduml

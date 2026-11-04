@@ -1,0 +1,7 @@
+@startuml Screen-flow
+start
+:Sign in;
+-> credentials checked;
+:Load home;
+stop
+@enduml

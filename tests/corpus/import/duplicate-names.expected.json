@@ -1,0 +1,30 @@
+{
+  "comment": "Two screens whose names are equal after case folding, and a flow sharing a screen's name: all flagged duplicate (FR-011/AC11, EC-11).",
+  "flowIndex": 3,
+  "blocks": [
+    {
+      "kind": "screen",
+      "status": "Editable",
+      "name": "Login",
+      "nameFlag": "duplicate"
+    },
+    {
+      "kind": "screen",
+      "status": "Editable",
+      "name": "LOGIN",
+      "nameFlag": "duplicate"
+    },
+    {
+      "kind": "screen",
+      "status": "Editable",
+      "name": "Home",
+      "nameFlag": "duplicate"
+    },
+    {
+      "kind": "flow",
+      "status": "Editable",
+      "name": "Home",
+      "nameFlag": "duplicate"
+    }
+  ]
+}

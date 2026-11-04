@@ -1,0 +1,11 @@
+@startsalt Start
+{
+  Email | "            "
+  [Sign in] | .
+}
+@endsalt
+@startuml Old-flow
+(*) --> "Open app"
+"Open app" --> "Sign in"
+"Sign in" --> (*)
+@enduml

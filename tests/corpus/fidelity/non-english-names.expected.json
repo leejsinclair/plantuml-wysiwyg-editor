@@ -1,0 +1,29 @@
+{
+  "flowIndex": 3,
+  "blocks": [
+    {
+      "kind": "screen",
+      "status": "Editable",
+      "name": "Écran-connexion",
+      "nameFlag": null
+    },
+    {
+      "kind": "screen",
+      "status": "Editable",
+      "name": "日本語画面",
+      "nameFlag": null
+    },
+    {
+      "kind": "screen",
+      "status": "Editable",
+      "name": "Ελληνικά_2",
+      "nameFlag": null
+    },
+    {
+      "kind": "flow",
+      "status": "Editable",
+      "name": "Flux-écran",
+      "nameFlag": null
+    }
+  ]
+}

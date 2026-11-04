@@ -1,0 +1,18 @@
+{
+  "comment": "Only other diagram types: the project holds only other content, with a status explaining why (EC-01).",
+  "flowIndex": null,
+  "blocks": [
+    {
+      "kind": "other",
+      "status": "Source only",
+      "name": "Classes",
+      "nameFlag": null
+    },
+    {
+      "kind": "other",
+      "status": "Source only",
+      "name": "Ideas",
+      "nameFlag": null
+    }
+  ]
+}

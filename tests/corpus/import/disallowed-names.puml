@@ -1,0 +1,18 @@
+@startsalt 1st-screen
+{
+  Email | "            "
+  [Sign in] | .
+}
+@endsalt
+@startsalt Sign.in
+{
+  Email | "            "
+  [Sign in] | .
+}
+@endsalt
+@startsalt Home😀
+{
+  Email | "            "
+  [Sign in] | .
+}
+@endsalt

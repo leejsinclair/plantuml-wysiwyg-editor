@@ -1,0 +1,12 @@
+{
+  "comment": "{{salt … }} inside a step: a locked part (EC-10).",
+  "flowIndex": 0,
+  "blocks": [
+    {
+      "kind": "flow",
+      "status": "Has locked parts",
+      "name": "Screen-flow",
+      "nameFlag": null
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+@startuml Screen-flow
+start
+:Fill in the form
+{{salt
+{
+  Name | "     "
+  [OK]
+}
+}}
+;
+stop
+@enduml

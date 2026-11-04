@@ -1,0 +1,23 @@
+@startsalt Login
+{
+  Email | "            "
+  [Sign in] | .
+}
+@endsalt
+@startsalt LOGIN
+{
+  Email | "            "
+  [Sign in] | .
+}
+@endsalt
+@startsalt Home
+{
+  Email | "            "
+  [Sign in] | .
+}
+@endsalt
+@startuml Home
+start
+:[[#Home Go home]];
+stop
+@enduml

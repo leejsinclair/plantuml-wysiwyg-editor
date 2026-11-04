@@ -1,0 +1,47 @@
+@startuml download-export-copy
+|User|
+start
+if (Choose?) then (download project)
+  |Editor|
+  :Write every block unchanged into one .puml file
+  named after the project;
+  if (Blocks that cannot be rendered, or not yet checked?) then (yes)
+    :Non-blocking notice listing them, saying how many
+    are not yet checked and that standard PlantUML
+    will report errors for them;
+  else (no)
+  endif
+  if (Screen flow invalid or source-only?) then (yes)
+    :Non-blocking notice that the flow will be
+    imported as other content if re-imported;
+  else (no)
+  endif
+  |Storage|
+  :Record the last-downloaded time and
+  clear the "not downloaded" indicator;
+elseif (Choose?) then (export SVG or PNG)
+  |Editor|
+  if (Can the open screen or flow be rendered?) then (yes)
+    |Renderer|
+    :Render it as SVG;
+    if (Render succeeded?) then (yes)
+      :For PNG, rasterise the same SVG at 2× size;
+      |Editor|
+      :Save the image, matching the preview;
+    else (no)
+      |Editor|
+      :Explain the rendering problem; no image is saved;
+    endif
+  else (no: invalid, older format or depends on !include)
+    :Prevent the export and explain why;
+    :Source download and copy remain available;
+  endif
+else (copy source)
+  |Editor|
+  :Copy the open block's source, or the
+  whole project's, to the clipboard;
+  :Confirm that it was copied;
+endif
+|User|
+stop
+@enduml

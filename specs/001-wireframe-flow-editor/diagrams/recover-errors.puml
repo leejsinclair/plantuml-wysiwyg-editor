@@ -1,0 +1,68 @@
+@startuml recover-errors
+|Editor|
+start
+if (Problem?) then (source invalid)
+  :Show the last working version read-only, and a message
+  naming the block, the line and the problem;
+  |User|
+  if (Choose?) then (Fix in source)
+    |Editor|
+    :Focus the source view on the problem line;
+    |User|
+    :Edit the source and leave the source view;
+    |Parser|
+    if (Valid now?) then (yes)
+      |Editor|
+      :The canvas becomes editable again;
+    else (no)
+      |Editor|
+      :Keep the text exactly as typed, autosave it,
+      and keep the block locked;
+    endif
+  elseif (Choose?) then (Revert to last working version)
+    |Editor|
+    if (Has a last working version?) then (yes)
+      :Restore it as one undoable step;
+    else (no: never valid)
+      :No revert action; the status is "Error";
+    endif
+  else (reload later)
+    |Storage|
+    :Keep the invalid text and the last working version;
+    |Editor|
+    :After reload, show the last working version,
+    with revert still available;
+  endif
+elseif (Problem?) then (block start or end line changed while typing)
+  :Treat only that block as invalid;
+  |User|
+  :Leave the source view;
+  |Editor|
+  if (Would re-division remove the last block?) then (yes)
+    :Refuse and say why; the block stays invalid;
+  elseif (Would it remove a screen that steps link to?) then (yes)
+    :Warn and show the affected steps;
+    |User|
+    if (Proceed?) then (yes)
+      |Editor|
+      :Re-divide the file once, as one undoable step,
+      and report the result;
+    else (cancel)
+      |Editor|
+      :Keep the text; the block stays invalid;
+    endif
+  else (no)
+    :Re-divide the file once, as one undoable step,
+    and report the result;
+  endif
+else (render failed)
+  |Renderer|
+  :Report the failure;
+  |Editor|
+  :Keep the editable wireframe and its source;
+  :Keep the last preview, marked out of date, with the
+  rendering problem shown in the preview pane;
+endif
+|User|
+stop
+@enduml

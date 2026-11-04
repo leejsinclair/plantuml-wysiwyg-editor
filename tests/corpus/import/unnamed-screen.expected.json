@@ -1,0 +1,18 @@
+{
+  "comment": "An unnamed @startsalt block keeps no name and is not flagged (FR-011/AC10).",
+  "flowIndex": null,
+  "blocks": [
+    {
+      "kind": "screen",
+      "status": "Editable",
+      "name": null,
+      "nameFlag": null
+    },
+    {
+      "kind": "screen",
+      "status": "Editable",
+      "name": "Named",
+      "nameFlag": null
+    }
+  ]
+}

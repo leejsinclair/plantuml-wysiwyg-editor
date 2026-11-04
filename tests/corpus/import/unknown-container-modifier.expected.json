@@ -1,0 +1,12 @@
+{
+  "comment": "A nested container with an unknown modifier ({Q): well-formed but unsupported, so a locked part, never Error (FR-010/AC10).",
+  "flowIndex": null,
+  "blocks": [
+    {
+      "kind": "screen",
+      "status": "Has locked parts",
+      "name": "Odd",
+      "nameFlag": null
+    }
+  ]
+}

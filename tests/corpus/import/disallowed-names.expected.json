@@ -1,0 +1,24 @@
+{
+  "comment": "Imported names that are not allowed (leading digit, a dot, an emoji) are flagged, never changed (FR-011/AC11, EC-11).",
+  "flowIndex": null,
+  "blocks": [
+    {
+      "kind": "screen",
+      "status": "Editable",
+      "name": "1st-screen",
+      "nameFlag": "not-allowed"
+    },
+    {
+      "kind": "screen",
+      "status": "Editable",
+      "name": "Sign.in",
+      "nameFlag": "not-allowed"
+    },
+    {
+      "kind": "screen",
+      "status": "Editable",
+      "name": "Home😀",
+      "nameFlag": "not-allowed"
+    }
+  ]
+}

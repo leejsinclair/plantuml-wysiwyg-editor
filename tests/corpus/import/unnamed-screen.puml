@@ -1,0 +1,11 @@
+@startsalt
+{
+  Hello
+}
+@endsalt
+@startsalt Named
+{
+  Email | "            "
+  [Sign in] | .
+}
+@endsalt

@@ -1,0 +1,12 @@
+{
+  "comment": "An empty file creates a project with one new screen (EC-01). The blocks listed are the project after import; this is the one file whose project differs from its bytes.",
+  "flowIndex": null,
+  "blocks": [
+    {
+      "kind": "screen",
+      "status": "Editable",
+      "name": "Screen-1",
+      "nameFlag": null
+    }
+  ]
+}

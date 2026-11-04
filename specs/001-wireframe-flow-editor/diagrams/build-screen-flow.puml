@@ -1,0 +1,86 @@
+@startuml build-screen-flow
+|User|
+start
+if (Project has a screen flow?) then (no)
+  :Choose "Add screen flow";
+  |Editor|
+  :Create "Screen-flow" with start and stop, and open it;
+else (yes)
+  |Editor|
+  :Open the screen flow;
+endif
+|User|
+:Select an element, branch or empty slot: Up and Down
+along the path, Left and Right between branches,
+Enter into a decision or loop, Esc out;
+if (Action?) then (insert step, decision, loop or stop)
+  |Editor|
+  if (Can the result be written in activity syntax?) then (yes)
+    :Insert at the insertion point, in the lane of the
+    element before it; select and focus it;
+  else (no)
+    :Do not offer the target, or explain why;
+  endif
+elseif (Action?) then (add or edit a note)
+  |Editor|
+  :Attach the note to the selected element, or to the
+  beginning of the selected branch or loop body;
+elseif (Action?) then (move)
+  |Editor|
+  if (Initial start or final stop?) then (yes)
+    :Refuse and explain;
+  elseif (Keyboard move at the start or end\nof a branch or loop body?) then (yes)
+    :Move nothing; suggest "Move to…";
+  else (no)
+    :Move it with its notes, keeping its lane;
+  endif
+elseif (Action?) then (delete)
+  |Editor|
+  if (Initial start or final stop?) then (yes)
+    :Refuse and explain;
+  elseif (Decision or loop?) then (yes)
+    :Delete it with its contents (undoable), and
+    announce what was removed;
+  else (no)
+    :Delete it (undoable);
+  endif
+elseif (Action?) then (add or remove a branch)
+  |Editor|
+  if (Would leave fewer than two branches?) then (yes)
+    :Refuse and explain;
+  else (no)
+    :Add the branch, or remove it with its
+    contents (undoable);
+  endif
+elseif (Action?) then (change lanes)
+  |Editor|
+  if (Change?) then (add the first lane)
+    :Place every existing element in it;
+  elseif (Change?) then (delete a lane in use)
+    |User|
+    :Choose the lane its elements move to;
+    |Editor|
+    :Move them and delete the lane (undoable);
+  elseif (Change?) then (delete the only lane)
+    :Return the flow to having no lanes;
+  else (set an element's lane, add, rename or reorder)
+    :Apply it; only that element's rendered lane changes,
+    and renaming updates every element in the lane;
+  endif
+else (delete the screen flow)
+  :Ask for confirmation;
+  |User|
+  if (Confirm?) then (yes)
+    |Editor|
+    :Delete it (undoable); the project panel
+    shows "Add screen flow" again;
+  else (cancel)
+    |Editor|
+    :Leave the flow unchanged;
+  endif
+endif
+|Editor|
+:Update the flow, its source and the preview;
+|User|
+stop
+@enduml

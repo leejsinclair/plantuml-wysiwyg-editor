@@ -1,0 +1,9 @@
+.claude/settings.local.json
+__pycache__/
+node_modules/
+dist/
+dev-dist/
+test-results/
+playwright-report/
+tools/*.jar
+.specify/extensions/grill-specify/

@@ -1,0 +1,18 @@
+{
+  "comment": "A name written in decomposed form (e + U+0301) is flagged not-nfc and kept byte-identical (EC-11).",
+  "flowIndex": null,
+  "blocks": [
+    {
+      "kind": "screen",
+      "status": "Editable",
+      "name": "Café",
+      "nameFlag": "not-nfc"
+    },
+    {
+      "kind": "screen",
+      "status": "Editable",
+      "name": "Thé",
+      "nameFlag": null
+    }
+  ]
+}

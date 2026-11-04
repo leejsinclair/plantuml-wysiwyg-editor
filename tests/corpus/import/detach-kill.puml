@@ -1,0 +1,10 @@
+@startuml Screen-flow
+start
+:Sign in;
+if (Blocked?) then (yes)
+  :Show warning;
+  kill
+endif
+:Load home;
+detach
+@enduml

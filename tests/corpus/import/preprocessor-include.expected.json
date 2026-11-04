@@ -1,0 +1,18 @@
+{
+  "comment": "!include: depends on an external file, detected without rendering, so the screen cannot be rendered (EC-13).",
+  "flowIndex": null,
+  "blocks": [
+    {
+      "kind": "screen",
+      "status": "Cannot be rendered",
+      "name": "Header",
+      "nameFlag": null
+    },
+    {
+      "kind": "screen",
+      "status": "Editable",
+      "name": "Sign-in",
+      "nameFlag": null
+    }
+  ]
+}

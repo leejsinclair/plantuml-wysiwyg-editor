@@ -1,0 +1,538 @@
+# PlantUML Wireframe and Screen Flow Editor: Product Specification
+
+This document is the input to Speckit `/specify`. The product principles are in [constitution.md](constitution.md); the specification process, validation steps and required diagrams are in [setup.md](setup.md).
+
+## 1. Product vision
+
+Create a browser-based visual editor that enables business analysts and product owners to design low-fidelity user-interface wireframes using PlantUML Salt.
+
+The application must allow users to construct interfaces visually using structured layouts and reusable UI components. The application manages the underlying Salt syntax and generates a valid, portable PlantUML Salt representation of the wireframe.
+
+Users must also be able to describe how people move between screens using **screen flows**: PlantUML activity diagrams whose steps link to the wireframes in the same project. A project of screens plus a screen flow is exchanged as a single standard PlantUML file.
+
+The product is intended for requirements analysis, stakeholder discussions, process and interface design, and communication of intended application behaviour to development teams.
+
+**Reference product:** [mermaid-editor-wysiwyg](https://github.com/leejsinclair/mermaid-editor-wysiwyg) is the primary reference for **user experience only**: interaction patterns, panel layout, terminology and presentation of feedback. Its technical implementation, in particular its rendering pipeline, is not assumed to be reusable: Mermaid renders natively in the browser, whereas this product depends on an in-browser PlantUML build (section 3.5).
+
+## 2. Target users and use cases
+
+### Primary users
+
+Business analysts and product owners who need to communicate screen layouts, capture requirements, discuss interface behaviour and validate proposed workflows before development.
+
+### Secondary users
+
+Developers, UX practitioners and other stakeholders who review, refine or implement the resulting wireframes.
+
+### Core use cases
+
+- Create a wireframe for a new application screen.
+- Model an existing screen as a structured wireframe.
+- Add and configure form fields, buttons, tables and other UI components.
+- Arrange components into rows, columns, grids and nested sections.
+- Reorganise a screen as requirements change.
+- Demonstrate selected states, available options and representative data.
+- Preview the rendered PlantUML Salt output.
+- Export the project as PlantUML source, or screens and flows as images, for documentation, version control or further development.
+- Open and edit an existing Salt document, including source produced outside the application.
+- Create several screens within one project.
+- Describe the flow between screens, including decisions (for example "credentials valid?") and alternative paths.
+- Navigate from a step in a screen flow to the wireframe it refers to.
+- Walk stakeholders through a user journey using the screen flow and its linked wireframes.
+
+## 3. Scope of the initial release
+
+The initial release must deliver a reliable structured wireframe editor and a structured screen-flow editor, rather than attempting to reproduce every PlantUML capability.
+
+### 3.1 Application workspace
+
+Provide an integrated workspace containing:
+
+- A component palette organised by category.
+- A structured wireframe editing canvas built from HTML elements (see below).
+- An outline view showing the component hierarchy, usable for selection, reordering and keyboard navigation.
+- A contextual properties panel for the selected component.
+- An optional, collapsible rendered-output pane showing the actual PlantUML render.
+- A PlantUML Salt source view.
+- A project library for creating, opening and managing projects stored in the browser.
+- Clear actions for importing, downloading, undoing and redoing work, and a visible autosave status.
+
+The interface should make the distinction between the editable workspace, generated source and rendered output clear.
+
+**Editing surface (decision):** The editing canvas is an HTML representation of the wireframe model, not the PlantUML-rendered image. Salt constructs are presented as native HTML elements (for example inputs, buttons, checkboxes, tables, fieldsets and CSS grid layouts) with a Salt-like appearance. Users select, insert, move and configure components directly on this canvas; every edit updates the underlying model, which is serialised to Salt source. The editor does not depend on interpreting or hit-testing rendered SVG.
+
+The canvas is an approximation of the final output. Minor differences in spacing, fonts and sizing from the PlantUML render are acceptable; the rendered-output pane is the authoritative view of the final result.
+
+### 3.2 Structured layout editor
+
+Users must construct interfaces using explicit layout structures.
+
+Support the following editing operations:
+
+- Add a row, column, grid or supported container.
+- Insert a component into an existing layout.
+- Move a component to another valid position.
+- Reorder components within a container.
+- Nest supported layouts and components.
+- Remove components or containers.
+- Change component properties without manually editing source.
+- Inspect the structure of the current interface.
+- Receive feedback when an operation would produce an invalid or unsupported layout.
+
+Drag-and-drop may be used to reorder or relocate components, but it must operate within the structured layout model.
+
+The editor must not offer arbitrary canvas coordinates, free positioning or pixel-level placement as core capabilities.
+
+### 3.3 Component palette
+
+Organise components into intuitive categories.
+
+#### Basic elements
+
+- Text and labels.
+- Horizontal separators and spacing.
+
+#### Form controls
+
+- Text input fields.
+- Multiline text areas.
+- Buttons.
+- Checkboxes.
+- Radio buttons.
+- Drop-down lists.
+
+#### Layout elements
+
+**Layout model (decision):** Salt has a single layout construct, the grid, in which every container arranges its children in rows and cells. The editor presents one **Grid** concept (rows × columns, column spans and empty cells) and offers familiar presets that are simply preconfigured grids:
+
+- Grid (choose rows and columns).
+- Row (a 1 × N grid).
+- Column (an N × 1 grid).
+- Form (an N × 2 grid of label and field).
+- Button bar (a 1 × N grid of buttons).
+- Group boxes, borders and table lines, as supported by Salt container modifiers.
+
+The canvas and outline label each grid by its shape (for example a 1 × N grid is shown as "Row"), so files reopen unambiguously without extra metadata. Presets do not introduce constructs beyond the Salt grid.
+
+#### Data presentation
+
+- Tables.
+- Trees.
+
+#### Navigation and advanced elements
+
+- Tabs.
+- Menus.
+- Scrollable areas.
+
+Validate each proposed component against the actual PlantUML Salt grammar and renderer. If an element cannot be faithfully represented in Salt, defer it or provide an explicit limitation rather than inventing incompatible syntax.
+
+### 3.4 Component properties
+
+Selecting a component must expose relevant properties in an understandable form.
+
+Depending on the component, properties may include:
+
+- Display label or text.
+- Initial value or placeholder.
+- Selected, checked or enabled state where supported.
+- Drop-down options.
+- Table headers and representative rows.
+- Child elements and layout membership.
+- Supported component-specific options.
+
+Property controls must reflect the capabilities of the underlying Salt construct. The editor must not expose settings that cannot be represented in the generated source.
+
+### 3.5 Source and preview
+
+In addition to the HTML editing canvas, provide two complementary views:
+
+**Rendered preview:** An optional, collapsible pane that displays the actual PlantUML-rendered wireframe so users can confirm the output that will be shared with stakeholders. It is a read-only check, not an editing surface. Rendering may be debounced or deferred so that it never blocks editing on the canvas.
+
+**Renderer (decision):** Rendering runs entirely in the browser using a JavaScript/WebAssembly build of PlantUML. No diagram content is sent to any server, the application works offline once loaded, and it can be deployed as static files.
+
+- The renderer is loaded lazily (for example when the rendered-output pane is first opened), so it never delays editing.
+- The renderer must not resolve `!include`, URLs or local file references.
+- Rendered SVG must be sanitised before it is inserted into the page.
+- The renderer sits behind an internal interface so that it can be replaced or upgraded without affecting the rest of the application.
+
+**Feasibility gate:** A spike must confirm, before implementation planning is approved, that an available in-browser PlantUML build renders the supported Salt and activity subset correctly, with an acceptable download size and render time. If it does not, this decision must be revisited before planning continues.
+
+**Salt source:** Provide a readable textual representation of the wireframe, with syntax highlighting where practical.
+
+Visual changes must update the generated source and rendered preview. Supported source edits must update the visual representation and preview.
+
+The visual workspace must remain the primary editing experience for the target audience.
+
+### 3.6 Storage and file handling
+
+**Storage model (decision):** Projects are stored in the browser's local storage (for example IndexedDB), not saved to files on disk. Files are used only for exchange: users download a project as a `.puml` file and import a `.puml` file as a project. There is no "Save to file" or save-in-place.
+
+Users must be able to:
+
+- See a **project library** listing all projects stored in this browser, with name and last-modified time.
+- Create, open, rename, duplicate and delete projects. Deletion requires confirmation.
+- Import a `.puml` file as a new project.
+- Download a project as a `.puml` file at any time.
+- Recover from invalid source or rendering errors without losing the last valid working state.
+
+**Autosave:**
+
+- Every change is saved to browser storage automatically; there is no manual save step.
+- The workspace shows the save status (for example "All changes saved" or "Saving…") and reports storage failures, such as a full quota, immediately and prominently.
+- After a refresh, crash or closed tab, reopening the application restores projects exactly as last edited.
+
+**Protecting against storage loss:** Browser storage is local to one browser and device, and can be cleared by the user, browser clean-up or private browsing. The application must:
+
+- Request persistent storage from the browser, and tell the user if it is not granted.
+- Show, for each project, when it was last downloaded, and indicate when it has changes that have not been downloaded.
+- Remind users to download a backup, without interrupting editing.
+- Warn when running in a private/incognito window, or another mode where storage will not persist.
+- Make clear that projects are not synchronised between browsers or devices.
+
+The stored representation of a project is its `.puml` source (plus minimal metadata such as name and timestamps), so storage does not introduce a proprietary format.
+
+**Export and copy:**
+
+- Download the whole project as a `.puml` file.
+- Export the current screen or screen flow as an SVG or PNG image, produced by the in-browser renderer.
+- Copy PlantUML source to the clipboard, for the current screen or flow block, or for the whole project.
+
+**Project file format (decision):** A downloaded project is a single standard `.puml` file containing multiple diagram blocks:
+
+- One named Salt block per screen. The block name is the screen's stable identifier.
+- At most one activity diagram block for the screen flow in the initial release.
+- Flow steps reference screens by their identifier using standard PlantUML syntax; the exact referencing convention is to be confirmed during syntax verification ([setup.md](setup.md)).
+
+The file must remain renderable by standard PlantUML tooling outside the application. A file containing a single Salt block is a valid single-screen project, so existing Salt files open without conversion.
+
+### 3.7 Screen flow editor
+
+Users can visually create and edit a screen flow describing how people move between the project's screens.
+
+**Editing surface:** Consistent with the wireframe canvas, the flow is presented as structured HTML blocks: steps, decision branches, loops and swimlane columns, connected by simple drawn connectors. Users insert, move, nest and configure blocks within this structure. The editor must only allow flows that can be expressed in PlantUML activity syntax; free-form node-and-arrow drawing is not supported. The actual PlantUML render appears in the optional rendered-output pane.
+
+Support the following flow elements, subject to verification against the PlantUML activity grammar:
+
+- Start and end.
+- Steps (actions), optionally linked to a screen.
+- Decisions with labelled branches.
+- Loops (repeat / while).
+- Parallel paths (fork / join), if they prove understandable to the target users.
+- Swimlanes (for example user, system, external party).
+- Notes.
+
+Support the following operations:
+
+- Create, rename, reorder and delete screens.
+- Link a step to a screen, change the link or remove it.
+- Open the linked wireframe from a step, and return to the flow.
+- See which steps reference a screen, and be warned before deleting or renaming a screen that is referenced.
+- Identify steps whose linked screen no longer exists.
+- Keyboard-accessible alternatives to every drag-and-drop operation.
+
+## 4. Source fidelity and error handling
+
+The application must preserve user work when dealing with source that is invalid, incomplete or outside the visual editor's supported subset.
+
+The specification must distinguish between:
+
+1. Valid source (Salt or activity) that the visual editor fully supports.
+2. Valid source containing unsupported constructs.
+3. Invalid or incomplete source.
+4. Source that is valid but cannot currently be rendered.
+
+Section 4.1 defines how each category is handled. It is the single statement of the source fidelity policy; functional requirements reference it rather than restate it.
+
+### 4.1 Source fidelity policy (decision)
+
+This policy applies equally to Salt (screen) blocks and activity (screen flow) blocks.
+
+**Source is authoritative; edits are minimal.**
+
+- The source text is the authoritative record. The visual model is derived from it.
+- A visual edit rewrites only the source for the element(s) it changes. Comments, whitespace, blank lines, ordering and formatting elsewhere in the file are preserved byte-for-byte.
+- Newly created elements are written in a consistent, readable house style.
+- Opening and saving a file without edits produces an identical file.
+
+**Unsupported content becomes a locked block.**
+
+- Valid source that the visual editor does not support is shown on the canvas as a clearly labelled, locked placeholder (for example "Unsupported content — edit in source").
+- A locked block can be selected, moved and deleted as a unit. Its text is preserved exactly, and its contents can only be changed in the source view.
+- Content around a locked block remains visually editable.
+- If unsupported content cannot be isolated safely (for example it affects the structure of the whole block), the affected block opens in source-only mode with an explanation.
+
+**Invalid source locks only the affected block.**
+
+- When a block's source is invalid or incomplete, that block's canvas shows its last valid state as read-only, with a visible message stating that the source has errors.
+- Other blocks in the project remain editable.
+- The user can fix the source or revert the block to its last valid source with a single action.
+- Invalid source text is never replaced or discarded unless the user explicitly asks.
+
+**Other PlantUML content is preserved as locked blocks.**
+
+- An imported file may contain diagram blocks other than Salt and activity diagrams (for example a sequence diagram), `@startuml` blocks containing `salt`, Salt embedded in other diagrams, or preprocessor directives such as `!include`, `!define` and variables.
+- Content the editor does not support is kept exactly as written, shown in the project as a locked block, and editable only in the source view. It is included unchanged when the project is downloaded or copied.
+- Salt written in any form PlantUML accepts (`@startsalt` or `salt` inside `@startuml`) is treated as a screen if it falls within the supported subset; syntax verification ([setup.md](setup.md)) confirms the accepted forms.
+- The renderer never resolves `!include`, URLs or file references (section 3.5); blocks that depend on them are shown as unrenderable with an explanation.
+
+The implementation plan must select a parsing strategy and source representation (for example a concrete syntax tree with source positions) capable of meeting this policy.
+
+## 5. Functional requirements and acceptance criteria
+
+### FR-001: Create a wireframe
+
+**Requirement:** Users can start a new wireframe and build a screen visually.
+
+**Acceptance criteria:**
+
+- Given an empty workspace, when the user creates a new wireframe, an editable workspace is displayed.
+- The user can add supported components from the palette.
+- The user can configure component properties using visible controls.
+- The application generates Salt source corresponding to the current wireframe.
+- The generated source renders successfully in the in-browser renderer and in standard PlantUML tooling.
+
+### FR-002: Construct structured layouts
+
+**Requirement:** Users can organise components through Salt-native layout structures.
+
+**Acceptance criteria:**
+
+- The user can create and edit supported rows, columns, grids and nested containers.
+- The user can insert components into a selected container.
+- The user can reorder components within a container.
+- The user can move a component between compatible containers.
+- The application displays the resulting hierarchy clearly enough for a non-technical user to understand it.
+- Every supported layout operation generates source consistent with the resulting structure.
+- Invalid operations are prevented or explained without corrupting the existing wireframe.
+
+### FR-003: Edit component properties
+
+**Requirement:** Users can configure supported UI components without writing Salt syntax.
+
+**Acceptance criteria:**
+
+- Selecting a component displays its relevant properties.
+- Changing a property updates the visual representation, generated source and rendered preview.
+- Form-control states and options are preserved after reload, and after download and re-import.
+- Unsupported property combinations cannot silently generate invalid source.
+- Component-specific property controls use terminology understandable to the target audience.
+
+### FR-004: Synchronise visual editing and source
+
+**Requirement:** The application maintains a consistent relationship between the structured visual model and Salt source.
+
+**Acceptance criteria:**
+
+- A visual edit updates the source, changing only the text of the affected element(s) (section 4.1).
+- A valid source edit using supported constructs updates the visual model.
+- The rendered preview reflects the latest valid source.
+- Invalid source produces an actionable error message that identifies its location, and locks only the affected block (section 4.1).
+- Switching between visual and source editing never changes the source.
+- Opening and downloading a project without edits produces byte-identical source.
+- Synchronisation failures are visible and recoverable.
+
+### FR-005: Render the wireframe
+
+**Requirement:** Users can inspect the actual PlantUML Salt output.
+
+**Acceptance criteria:**
+
+- The preview displays the result produced by the in-browser PlantUML renderer.
+- Supported visual changes are reflected in the preview.
+- Rendering failures display useful error feedback.
+- A rendering failure does not destroy the editable wireframe or its source.
+- The application clearly distinguishes preview errors from source-editing errors.
+- The user can continue editing while a previous valid preview remains available, where practical.
+
+### FR-006: Store, download and import projects
+
+**Requirement:** Projects persist automatically in browser storage and can be exchanged as standard PlantUML files (section 3.6).
+
+**Acceptance criteria:**
+
+- Every edit is saved to browser storage automatically, and the save status is visible.
+- After a page refresh or browser restart, all projects in the library reopen exactly as last edited.
+- The user can create, open, rename, duplicate and delete projects from the project library; deletion requires confirmation.
+- The user can download any project as a single `.puml` file.
+- A downloaded file can be imported as a new project without losing screens, flow, layout structures or component properties.
+- Importing a file classifies its content (section 4) and applies the source fidelity policy (section 4.1) before any visual editing.
+- Storage failures (for example quota exceeded or persistence denied) are reported immediately and clearly, with advice to download a backup.
+- Each project shows when it was last downloaded and whether it has changes since then.
+
+### FR-007: Undo and redo
+
+**Requirement:** Users can reverse and restore editing operations.
+
+**Acceptance criteria:**
+
+- Adding, deleting, moving or reordering a component can be undone and redone.
+- Changing component properties can be undone and redone.
+- Supported source edits participate in the undo/redo history.
+- Continuous typing in the source view is grouped into a single undo step, ending when the user pauses or leaves the source view; it is not undone one keystroke at a time.
+- Undo and redo restore the corresponding structure, properties and generated source.
+- Each project has its own undo history; switching projects does not mix histories.
+- Undo history lasts for the current session only; after a reload, the project opens with its autosaved content and an empty history.
+- The application does not lose unrelated changes when reverting an operation.
+- The available undo/redo actions are clearly indicated.
+
+### FR-008: Provide understandable feedback
+
+**Requirement:** The application supports non-technical users with clear guidance and feedback.
+
+**Acceptance criteria:**
+
+- Components and layout operations are labelled using familiar terminology.
+- Selection, insertion, reordering and nesting are visually apparent.
+- Invalid operations explain what is wrong and, where practical, how to resolve it.
+- Source and rendering errors are distinguishable.
+- Keyboard focus and interaction states are visible.
+- The core editing workflow is usable without requiring knowledge of Salt syntax.
+
+### FR-009: Support keyboard and touch interaction
+
+**Requirement:** The editor provides accessible alternatives to mouse-driven editing.
+
+**Acceptance criteria:**
+
+- Core component selection and property editing can be performed using a keyboard.
+- Supported layout operations have a keyboard-accessible alternative to drag-and-drop.
+- Interactive controls have meaningful accessible labels.
+- Focus indicators are visible.
+- All editing features are fully usable at viewport widths of 1024px and above (landscape tablet or small laptop), with the palette, outline, properties panel and preview collapsing as needed.
+- Below 1024px, editing is not required; the application must not break, and should at least allow projects to be viewed.
+- Touch support does not introduce accidental component deletion or unintended movement.
+
+### FR-010: Handle unsupported and invalid source
+
+**Requirement:** The application protects user-authored source that cannot be represented completely in the visual model.
+
+**Acceptance criteria:**
+
+- Each of the four source categories (section 4) is detected and reported distinctly.
+- Unsupported content is shown as a locked block and remains byte-identical after visual edits elsewhere and after download (section 4.1).
+- Where unsupported content cannot be isolated, the affected block opens in source-only mode with an explanation.
+- The user can revert a block to its last valid source in a single action.
+- The supported source subset is defined explicitly, and a test corpus covers every category in section 4.
+
+### FR-011: Manage screens in a project
+
+**Requirement:** Users can create and manage several wireframe screens within one project file.
+
+**Acceptance criteria:**
+
+- The user can add, rename, reorder and delete screens.
+- Each screen has a unique, stable identifier that is written to the project file.
+- Downloading and re-importing a project preserves all screens, their order and their identifiers.
+- Opening a file with a single Salt block produces a single-screen project without conversion.
+- Deleting or renaming a screen that a flow step references warns the user and shows the affected steps before proceeding.
+- The exported file renders in standard PlantUML tooling outside the application.
+
+### FR-012: Edit screen flows visually
+
+**Requirement:** Users can build and edit a screen flow without writing activity diagram syntax.
+
+**Acceptance criteria:**
+
+- The user can add, edit, move and delete steps, decisions, loops, swimlanes and notes using the structured flow editor.
+- Every flow the editor allows can be expressed in PlantUML activity syntax; operations that would produce an unrepresentable flow are prevented or explained.
+- Visual flow edits update the generated activity source and rendered preview.
+- Supported source edits to the activity block update the visual flow.
+- Unsupported or invalid activity source is handled according to section 4.1.
+- Flow edits participate in undo/redo (FR-007).
+- Every drag-and-drop flow operation has a keyboard-accessible alternative (FR-009).
+
+### FR-013: Link flow steps to screens
+
+**Requirement:** Users can connect steps in a screen flow to wireframes and navigate between them.
+
+**Acceptance criteria:**
+
+- The user can link a step to an existing screen, change the link or remove it.
+- Linked steps are visually distinguishable from unlinked steps.
+- Activating a linked step opens the referenced wireframe, and the user can return to the flow.
+- Steps whose linked screen no longer exists are flagged and are not silently removed.
+- Links survive save and reopen, and are expressed in standard PlantUML syntax.
+
+### FR-014: Export and copy
+
+**Requirement:** Users can share their work outside the application (section 3.6).
+
+**Acceptance criteria:**
+
+- The user can download the whole project as a single `.puml` file.
+- The user can export the current screen or screen flow as SVG and as PNG.
+- Exported images match the rendered-output pane.
+- The user can copy the PlantUML source of the current screen or flow, or of the whole project, to the clipboard, with confirmation that it was copied.
+- Export of a block that cannot be rendered (invalid, or dependent on `!include`) is prevented with an explanation; source download and copy remain available.
+
+## 6. Quality requirements
+
+### Correctness
+
+Generated source must conform to the supported Salt grammar and render correctly using both the in-browser renderer and standard PlantUML tooling.
+
+### Usability
+
+A business analyst unfamiliar with PlantUML must be able to create a basic form wireframe, configure its fields and download the result without manually writing source code.
+
+**Validation:** A task-based usability test with at least 5 business analysts or product owners who have no PlantUML knowledge. Unaided, each participant must:
+
+1. Build the reference login form wireframe.
+2. Create a three-screen project with a screen flow containing one decision, and download it.
+
+The requirement is met when at least 4 of the 5 participants complete both tasks within 15 minutes without writing source.
+
+### Reliability
+
+Parsing, editing, rendering and storage failures must not cause silent data loss. Autosave must not leave a project partly written: a failed write keeps the previous stored version intact.
+
+### Maintainability
+
+The supported component model, source-generation rules and validation logic must be testable independently of the visual interface.
+
+### Performance
+
+Rendering and source parsing must not block basic interaction. Targets, measured on the reference project on a mid-range laptop:
+
+| Operation | Target |
+| --------- | ------ |
+| Canvas feedback (select, insert, move, property change) | ≤ 100 ms |
+| Source view updated after a visual edit | ≤ 200 ms |
+| Visual model updated after the user pauses typing in the source | ≤ 500 ms |
+| Rendered preview updated (renderer already loaded) | ≤ 3 s |
+
+**Reference project:** 10 screens of approximately 50 components each, plus a screen flow of approximately 30 steps including decisions and swimlanes. It must be created as part of the representative examples ([setup.md](setup.md)).
+
+The initial renderer download and initialisation time is measured by the feasibility spike (section 3.5).
+
+### Accessibility
+
+Follow appropriate web accessibility practices for keyboard navigation, focus management, labels, contrast and assistive technologies.
+
+### Browser support
+
+The latest two major versions of Chromium-based desktop browsers (Google Chrome and Microsoft Edge). Other browsers are not supported in the initial release; the application should detect an unsupported browser and say so rather than fail silently.
+
+## 7. Out of scope for the initial release
+
+Unless investigation identifies a compelling dependency, defer:
+
+- Freeform pixel-positioned canvas editing.
+- High-fidelity visual design and styling.
+- Production application code generation.
+- Interactive application prototypes with working business logic.
+- Collaborative real-time editing.
+- Cloud-based project management and user accounts.
+- Server-side rendering, or sending diagram content to any remote service.
+- Full support for every PlantUML diagram type. Activity diagrams are supported only as screen flows, within the subset defined in section 3.7.
+- Free-form node-and-arrow flowchart drawing.
+- More than one screen flow per project.
+- Projects split across multiple files or folders.
+- Copying, pasting and duplicating individual components, grids or flow steps (duplicating whole projects is in scope).
+- Starter templates for new projects or screens.
+- Named version snapshots of a project.
+- Persisting undo history across reloads.
+- Browsers other than Chromium-based desktop browsers.
+- Automatic conversion of arbitrary UI screenshots into editable Salt.
+- Guaranteed visual editing of every possible Salt source construct.

@@ -1,0 +1,12 @@
+{
+  "comment": "Salt written as `salt` inside @startuml: other content with status Older format, never converted automatically (FR-010/AC7).",
+  "flowIndex": null,
+  "blocks": [
+    {
+      "kind": "other",
+      "status": "Older format",
+      "name": "Login",
+      "nameFlag": null
+    }
+  ]
+}

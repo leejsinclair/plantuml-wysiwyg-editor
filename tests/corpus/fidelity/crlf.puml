@@ -1,0 +1,14 @@
+' Project with Windows line endings
+@startsalt Sign-in
+{^"Sign in"
+  Username | "alice     "
+  Password | "****      "
+  {[Sign in] | [Cancel]}
+}
+@endsalt
+
+@startsalt Welcome
+{
+  Hello there
+}
+@endsalt

@@ -1,0 +1,6 @@
+@startsalt Trailing
+{
+  Visible
+}
+This line is silently ignored
+@endsalt

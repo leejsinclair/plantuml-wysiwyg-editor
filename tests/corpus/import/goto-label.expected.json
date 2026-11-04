@@ -1,0 +1,18 @@
+{
+  "comment": "goto and label: source-only and never chosen as the flow; the later current-syntax activity block is the flow (EC-09, FR-006/AC14).",
+  "flowIndex": 1,
+  "blocks": [
+    {
+      "kind": "other",
+      "status": "Source only",
+      "name": "Jumps",
+      "nameFlag": null
+    },
+    {
+      "kind": "flow",
+      "status": "Editable",
+      "name": "Main-flow",
+      "nameFlag": null
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+@startsalt Settings
+!define LABEL Save changes
+{
+  Theme | ^Light^
+  [LABEL]
+}
+@endsalt

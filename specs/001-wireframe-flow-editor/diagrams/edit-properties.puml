@@ -1,0 +1,49 @@
+@startuml edit-properties
+|User|
+start
+:Select a component on the canvas or in the outline;
+|Editor|
+:Show its properties, in editor terms;
+|User|
+if (How is it changed?) then (properties panel)
+  :Change a property;
+elseif (How is it changed?) then (Enter, F2 or double-click)
+  :Edit the label or value in place;
+  if (Commit or cancel?) then (Esc)
+    |Editor|
+    :Restore the previous text;
+    |User|
+    stop
+  else (Enter or leave the element)
+  endif
+else (Space on a checkbox or radio button)
+  :Toggle its checked state;
+endif
+|Editor|
+if (Editing imported formatted text?) then (yes)
+  |User|
+  if (Choose?) then (Keep formatting)
+    :Edit with the formatting markup visible;
+  else (Remove formatting)
+    :Edit as literal text (undoable);
+  endif
+else (no)
+endif
+|Editor|
+if (Can the change be written as valid source?) then (yes)
+  if (Drop-down with options set to closed?) then (yes)
+    :Remove the other options, with an
+    undoable notice saying how many;
+  else (no)
+  endif
+  :Update the canvas and the source;
+  |Renderer|
+  :Update the preview;
+else (no)
+  |Editor|
+  :Do not offer the setting, or explain what is
+  wrong; leave the component unchanged;
+endif
+|User|
+stop
+@enduml

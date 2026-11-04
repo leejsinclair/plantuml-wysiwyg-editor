@@ -1,0 +1,51 @@
+@startuml create-wireframe
+|User|
+start
+:Open the application;
+|Storage|
+:Restore the project library;
+|User|
+if (Start from?) then (empty library: Create project)
+  |Editor|
+  :Create "Untitled project" with one empty screen
+  and open it;
+else (open project: Add screen)
+  |Editor|
+  :Create an empty screen with a generated name
+  and open it;
+endif
+|Editor|
+:Show a prompt explaining how to add
+the first component;
+|User|
+:Choose a component from the palette;
+|Editor|
+:Insert it into the empty screen,
+then select and focus it;
+|User|
+:Change its properties with visible controls;
+|Editor|
+:Update the canvas and the screen's source;
+|Renderer|
+if (Render succeeds?) then (yes)
+  :Show the rendered preview;
+else (no)
+  :Keep the last preview, marked out of date,
+  and show the rendering problem;
+endif
+|User|
+if (Share the work?) then (download project)
+  |Editor|
+  :Download the project as one .puml file;
+  |Storage|
+  :Record the last-downloaded time;
+elseif (Share the work?) then (export image)
+  |Editor|
+  :Export the screen as SVG or PNG;
+else (not yet)
+  |Storage|
+  :Autosave the project;
+endif
+|User|
+stop
+@enduml

@@ -1,0 +1,75 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Renderer spike</title>
+<body>
+<script type="module">
+  // Renders cases one at a time in the chosen host, with a 10 s limit (worker and iframe hosts are torn down
+  // and restarted on timeout). Main-thread responsiveness is sampled with a 16 ms interval throughout,
+  // including engine start-up.
+  const hosts = {
+    worker: (url) => {
+      let w;
+      return {
+        start() {
+          w = new Worker(url);
+          return new Promise((res, rej) => {
+            w.onmessage = (e) => e.data.type === 'ready' ? res() : e.data.type === 'fatal' && rej(new Error(e.data.message));
+            w.onerror = (e) => rej(new Error('worker error: ' + e.message));
+          });
+        },
+        send(id, text, cb) { w.onmessage = (e) => e.data.id === id && cb(e.data); w.postMessage({ id, text }); },
+        kill() { w.terminate(); },
+      };
+    },
+    iframe: () => {
+      let f, listener;
+      return {
+        start() {
+          f = document.createElement('iframe');
+          f.sandbox = 'allow-scripts';
+          f.src = '/frame.html';
+          f.style.display = 'none';
+          document.body.append(f);
+          return new Promise((res, rej) => {
+            listener = (e) => { if (e.source !== f.contentWindow) return; if (e.data.type === 'ready') res(); if (e.data.type === 'fatal') rej(new Error(e.data.message)); };
+            addEventListener('message', listener);
+          });
+        },
+        send(id, text, cb) {
+          removeEventListener('message', listener);
+          listener = (e) => e.source === f.contentWindow && e.data.id === id && cb(e.data);
+          addEventListener('message', listener);
+          f.contentWindow.postMessage({ id, text }, '*');
+        },
+        kill() { removeEventListener('message', listener); f.remove(); },
+      };
+    },
+    main: () => {
+      let host;
+      return {
+        async start() { host = await import('/host.js'); await host.ready; },
+        send(id, text, cb) { host.render(text).then((r) => cb({ ...r, id })); },
+        kill() {},
+      };
+    },
+  };
+
+  window.runCases = async (cases, mode) => {
+    const host = mode === 'worker' ? hosts.worker('/worker.js') : mode === 'worker-shim' ? hosts.worker('/worker-shim.js') : hosts[mode]();
+    let maxGap = 0, last = performance.now();
+    const probe = setInterval(() => { const n = performance.now(); maxGap = Math.max(maxGap, n - last); last = n; }, 16);
+    const t = performance.now();
+    await host.start();
+    const readyMs = performance.now() - t;
+    const startupGap = maxGap; maxGap = 0;
+    const results = [];
+    for (const c of cases) {
+      results.push(await new Promise((resolve) => {
+        const timer = setTimeout(() => { host.kill(); host.start(); resolve({ id: c.name, type: 'timedOut' }); }, 10000);
+        host.send(c.name, c.text, (r) => { clearTimeout(timer); resolve(r); });
+      }));
+    }
+    clearInterval(probe);
+    return { readyMs, startupMaxGapMs: startupGap, maxMainThreadGapMs: maxGap, results };
+  };
+</script>

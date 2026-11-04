@@ -1,0 +1,28 @@
+# Living specs for this project.
+# Specs go at <area>/<name>.spec.md, next to the code each one describes.
+# Adopt a code area to add the first capability.
+enabled: true
+layout: colocated
+exempt: ["*.config.*", "*.test.*", "**/migrations/**"]
+capabilities:
+  - name: project-library
+    match: ["src/ui/library/**"]
+    spec: src/ui/library/project-library.spec.md
+  - name: wireframe-canvas
+    match: ["src/ui/canvas/**", "src/ui/properties/**", "src/ui/palette/**", "src/core/salt/**"]
+    spec: capabilities/wireframe-canvas/wireframe-canvas.spec.md
+  - name: screen-flow-canvas
+    match: ["src/ui/flow-canvas/**", "src/ui/flow-links/**", "src/core/activity/**"]
+    spec: capabilities/screen-flow-canvas/screen-flow-canvas.spec.md
+  - name: source-editing
+    match: ["src/ui/source-view/**", "src/core/source/**"]
+    spec: src/ui/source-view/source-editing.spec.md
+  - name: diagram-preview
+    match: ["src/ui/preview/**", "src/services/render/**"]
+    spec: capabilities/diagram-preview/diagram-preview.spec.md
+  - name: project-export
+    match: ["src/ui/export/**", "src/ui/storage/**", "src/services/storage/**", "src/services/files/**"]
+    spec: capabilities/project-export/project-export.spec.md
+  - name: block-management
+    match: ["src/ui/project-panel/**", "src/ui/outline/**", "src/ui/workspace/**", "src/core/project/**", "src/ui/app/**"]
+    spec: capabilities/block-management/block-management.spec.md

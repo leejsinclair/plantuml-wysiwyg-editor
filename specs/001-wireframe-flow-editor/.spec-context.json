@@ -1,0 +1,3470 @@
+{
+  "workflow": "companion",
+  "telemetryInstanceId": "70bb6e8b-8104-419a-9c17-907841f38506",
+  "specName": "Wireframe Flow Editor",
+  "branch": "main",
+  "selectedAt": "2026-10-26T12:26:55.347Z",
+  "currentStep": "implement",
+  "status": "completed",
+  "history": [
+    {
+      "step": "specify",
+      "substep": null,
+      "kind": "start",
+      "by": "extension",
+      "at": "2026-10-26T12:26:55.347Z"
+    },
+    {
+      "step": "plan",
+      "substep": null,
+      "kind": "start",
+      "by": "extension",
+      "at": "2026-10-26T14:08:48.623Z"
+    },
+    {
+      "step": "plan",
+      "substep": "research",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-26T14:11:54.262Z"
+    },
+    {
+      "step": "plan",
+      "substep": "design",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-26T14:17:57.486Z"
+    },
+    {
+      "step": "plan",
+      "substep": null,
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-26T14:17:57.715Z"
+    },
+    {
+      "step": "tasks",
+      "substep": null,
+      "kind": "start",
+      "by": "extension",
+      "at": "2026-10-26T18:19:41.454Z"
+    },
+    {
+      "step": "tasks",
+      "substep": "generate",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-26T18:30:19.426Z"
+    },
+    {
+      "step": "tasks",
+      "substep": null,
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-26T18:30:22.644Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "kind": "start",
+      "by": "extension",
+      "at": "2026-10-26T18:30:31.270Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T001",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-26T19:05:48.824Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T002",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-26T19:07:31.490Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T003",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-26T19:09:15.403Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T004",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-26T19:09:15.482Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T005",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-26T19:09:15.559Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T006",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-26T19:09:15.643Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T007",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-26T19:09:15.722Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T008",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-26T19:09:15.800Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T009",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-26T19:10:01.586Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T010",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-26T19:10:15.849Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T014",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-26T19:13:33.895Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T018",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-26T19:17:13.891Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T013",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-26T19:17:21.025Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T017",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-26T19:17:21.089Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T021",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-26T19:17:21.152Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T025",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-26T19:17:21.216Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T026",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-26T19:19:11.434Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T012",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-26T19:20:10.835Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T016",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-26T19:20:10.898Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T020",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-26T19:20:10.962Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T024",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-26T19:20:11.027Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T028",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-26T19:20:11.091Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T011",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-26T19:20:11.404Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T015",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-26T19:20:11.468Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T019",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-26T19:20:11.533Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T023",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-26T19:20:11.597Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T027",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-26T19:20:11.662Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T022",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-26T19:22:10.958Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T029",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-26T19:26:50.130Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T035",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-26T19:28:33.763Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T033",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-26T19:29:46.739Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T039",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-26T19:30:00.640Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T032",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-26T19:31:47.018Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T036",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-26T19:31:47.083Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T040",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-26T19:31:47.148Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T037",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-26T19:32:14.902Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T030",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-26T19:35:31.530Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T034",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-26T19:36:59.230Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T031",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-26T19:38:14.444Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T038",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-27T00:24:33.495Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T042",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-27T00:29:51.212Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T041",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-27T00:30:58.753Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T043",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-27T00:31:36.670Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T044",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-27T00:34:41.301Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T045",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-27T00:35:53.867Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T046",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-27T00:40:04.691Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T050",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-27T00:42:29.705Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T051",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-27T00:43:52.347Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T053",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-27T00:45:11.887Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T048",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-27T00:45:57.816Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T052",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-27T00:45:57.880Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T047",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-27T00:46:59.680Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T049",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-27T00:49:00.719Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T054",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-27T00:50:33.328Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T104",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-27T21:36:07.012Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T109",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-27T21:36:07.083Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T110",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-27T21:36:07.152Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T111",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-27T21:36:07.219Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T105",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-27T21:36:07.313Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T167",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-27T21:36:08.208Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T168",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-27T21:36:08.275Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T169",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-27T21:36:08.342Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T170",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-27T21:36:08.408Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T171",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-27T21:36:08.476Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T172",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-27T21:36:08.543Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T173",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-27T21:36:08.611Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T126",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-27T21:36:57.344Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T127",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-27T21:36:57.412Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T123",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-27T21:37:01.064Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T082",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-27T21:37:40.877Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T083",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-27T21:37:40.945Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T084",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-27T21:37:41.012Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T090",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-27T21:37:41.079Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T091",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-27T21:37:41.146Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T092",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-27T21:37:41.212Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T093",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-27T21:37:41.279Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T061",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-27T21:38:51.767Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T067",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-27T21:38:51.837Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T057",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-27T21:38:51.906Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T068",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-27T21:38:51.972Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T128",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-27T21:39:09.829Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T129",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-27T21:39:09.898Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T130",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-27T21:39:09.968Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T131",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-27T21:39:10.042Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T124",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-27T21:39:10.116Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T125",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-27T21:39:10.189Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T107",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-27T21:39:14.938Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T112",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-27T21:39:15.004Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T113",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-27T21:39:15.086Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T114",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-27T21:39:15.152Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T108",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-27T21:40:56.886Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T059",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-27T21:41:27.311Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T072",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-27T21:41:27.379Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T060",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-27T21:41:27.445Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T070",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-27T21:41:27.512Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T106",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-27T21:41:48.365Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T119",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-27T21:43:14.092Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T115",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-27T21:43:14.158Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T118",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-27T21:43:14.223Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T120",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-27T21:43:14.294Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T121",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-27T21:43:14.369Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T122",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-27T21:43:14.438Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T116",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-27T21:43:14.505Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T117",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-27T21:43:14.570Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T055",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-27T21:45:46.124Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T056",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-27T21:45:46.194Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T058",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-27T21:45:46.260Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T069",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-27T21:45:46.329Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T071",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-27T21:45:46.395Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T073",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-27T21:45:46.465Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T074",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-27T21:45:46.532Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T075",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-27T21:45:46.602Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T076",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-27T21:45:46.672Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T062",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-27T21:48:28.926Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T132",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-28T03:25:38.080Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T133",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-28T03:25:38.148Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T134",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-28T03:25:43.433Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T135",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-28T03:25:43.505Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T136",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-28T03:25:49.399Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T137",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-28T03:25:49.467Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T138",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-28T03:25:49.536Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T141",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-28T03:25:54.220Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T142",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-28T03:25:54.288Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T143",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-28T03:25:59.816Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T144",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-28T03:25:59.883Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T145",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-28T03:26:04.570Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T146",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-28T03:26:04.637Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T147",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-28T03:26:09.645Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T148",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-28T03:26:09.718Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T149",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-28T03:26:16.020Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T150",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-28T03:26:16.088Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T151",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-28T03:26:16.156Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T085",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-28T03:27:47.687Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T086",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-28T03:27:52.598Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T087",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-28T03:27:56.187Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T088",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-28T03:28:00.325Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T089",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-28T03:28:04.557Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T094",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-28T03:28:09.093Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T095",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-28T03:28:12.880Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T096",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-28T03:28:17.618Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T097",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-28T03:28:21.582Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T098",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-28T03:28:25.252Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T099",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-28T03:28:29.980Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T100",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-28T03:28:33.832Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T101",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-28T03:28:38.424Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T102",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-28T03:28:41.615Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T103",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-28T03:28:46.553Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T066",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-28T03:29:52.998Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T139",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-28T03:44:44.731Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T152",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-28T03:44:50.635Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T153",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-28T03:44:50.705Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T154",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-28T03:44:57.342Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T155",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-28T03:44:57.410Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T156",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-28T03:45:07.321Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T140",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-28T03:45:07.392Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T063",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-28T03:50:57.367Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T064",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-28T03:51:00.555Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T065",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-28T03:51:04.028Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T077",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-28T03:51:09.040Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T078",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-28T03:51:17.919Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T079",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-28T03:51:17.983Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T080",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-28T03:51:18.048Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T081",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-28T03:51:18.120Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T157",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-28T09:45:07.676Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T158",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-28T09:45:07.762Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T159",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-28T09:45:07.850Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T160",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-28T09:45:07.935Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T161",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-28T09:45:08.021Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T162",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-28T09:45:08.112Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T163",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-28T09:45:08.199Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T164",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-28T09:45:08.286Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T165",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-28T09:45:08.373Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T166",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-28T09:45:08.461Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T180",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-28T09:47:24.801Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T181",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-28T09:47:24.890Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T182",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-28T09:47:53.324Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T183",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-28T09:47:53.422Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T174",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-28T09:49:54.390Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T175",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-28T09:53:04.144Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T176",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-28T09:53:04.234Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T177",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-28T09:53:04.328Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T178",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-28T09:53:04.421Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T179",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-28T09:53:04.509Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "task": "T184",
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-28T10:12:28.427Z"
+    },
+    {
+      "step": "implement",
+      "substep": null,
+      "kind": "complete",
+      "by": "ai",
+      "at": "2026-10-28T10:12:28.443Z"
+    }
+  ],
+  "coverage": {
+    "FR-001": {
+      "title": "Users can start a new project or screen and build a screen visually",
+      "tasks": [
+        "T044",
+        "T048",
+        "T065",
+        "T069",
+        "T074",
+        "T077",
+        "T078",
+        "T081",
+        "T180"
+      ]
+    },
+    "FR-002": {
+      "title": "Users can organise components through Salt-native layout structures",
+      "tasks": [
+        "T053",
+        "T055",
+        "T056",
+        "T057",
+        "T058",
+        "T059",
+        "T061",
+        "T062",
+        "T063",
+        "T067",
+        "T068",
+        "T069",
+        "T071",
+        "T072",
+        "T073",
+        "T074",
+        "T075",
+        "T076",
+        "T077",
+        "T079",
+        "T081"
+      ]
+    },
+    "FR-003": {
+      "title": "Users can configure supported UI components without writing Salt syntax",
+      "tasks": [
+        "T016",
+        "T040",
+        "T060",
+        "T064",
+        "T070",
+        "T077",
+        "T080"
+      ]
+    },
+    "FR-004": {
+      "title": "The application keeps the visual model and the source of screens and the flow consistent",
+      "tasks": [
+        "T013",
+        "T029",
+        "T030",
+        "T031",
+        "T038",
+        "T045",
+        "T046",
+        "T112",
+        "T115",
+        "T116",
+        "T117",
+        "T119",
+        "T121",
+        "T122"
+      ]
+    },
+    "FR-005": {
+      "title": "Users can inspect the actual PlantUML output of screens and the screen flow",
+      "tasks": [
+        "T022",
+        "T033",
+        "T039",
+        "T054",
+        "T117"
+      ]
+    },
+    "FR-006": {
+      "title": "Projects persist automatically in browser storage and are exchanged as standard PlantUML files",
+      "tasks": [
+        "T012",
+        "T021",
+        "T032",
+        "T044",
+        "T048",
+        "T082",
+        "T083",
+        "T084",
+        "T085",
+        "T086",
+        "T087",
+        "T088",
+        "T089",
+        "T090",
+        "T091",
+        "T092",
+        "T093",
+        "T094",
+        "T095",
+        "T096",
+        "T097",
+        "T098",
+        "T099",
+        "T100",
+        "T101",
+        "T102",
+        "T103"
+      ]
+    },
+    "FR-007": {
+      "title": "Users can reverse and restore editing operations",
+      "tasks": [
+        "T041",
+        "T046",
+        "T050",
+        "T052",
+        "T088",
+        "T116",
+        "T181"
+      ]
+    },
+    "FR-008": {
+      "title": "The application supports non-technical users with clear guidance and feedback",
+      "tasks": [
+        "T027",
+        "T030",
+        "T036",
+        "T063",
+        "T066",
+        "T109",
+        "T139"
+      ]
+    },
+    "FR-009": {
+      "title": "Every editing operation can be performed with a keyboard, and touch is safe",
+      "tasks": [
+        "T025",
+        "T035",
+        "T036",
+        "T049",
+        "T053",
+        "T063",
+        "T077",
+        "T139",
+        "T152",
+        "T163",
+        "T176",
+        "T179"
+      ]
+    },
+    "FR-010": {
+      "title": "The application protects user-authored source it cannot fully represent visually",
+      "tasks": [
+        "T020",
+        "T030",
+        "T031",
+        "T042",
+        "T044",
+        "T045",
+        "T104",
+        "T105",
+        "T106",
+        "T107",
+        "T108",
+        "T109",
+        "T110",
+        "T111",
+        "T112",
+        "T113",
+        "T114"
+      ]
+    },
+    "FR-011": {
+      "title": "Users can create and manage several wireframe screens in one project file",
+      "tasks": [
+        "T014",
+        "T043",
+        "T121",
+        "T123",
+        "T124",
+        "T125",
+        "T126",
+        "T127",
+        "T128",
+        "T129",
+        "T130",
+        "T131"
+      ]
+    },
+    "FR-012": {
+      "title": "Users can build and edit a screen flow without writing activity syntax",
+      "tasks": [
+        "T031",
+        "T132",
+        "T133",
+        "T134",
+        "T135",
+        "T136",
+        "T137",
+        "T138",
+        "T139",
+        "T140",
+        "T141",
+        "T142",
+        "T143",
+        "T144",
+        "T145",
+        "T146",
+        "T147",
+        "T148",
+        "T149",
+        "T150",
+        "T151",
+        "T152",
+        "T153",
+        "T154",
+        "T155",
+        "T156"
+      ]
+    },
+    "FR-013": {
+      "title": "Users can link flow steps to screens and navigate between them",
+      "tasks": [
+        "T017",
+        "T043",
+        "T152",
+        "T157",
+        "T158",
+        "T159",
+        "T160",
+        "T161",
+        "T162",
+        "T163",
+        "T164",
+        "T165",
+        "T166"
+      ]
+    },
+    "FR-014": {
+      "title": "Users can download, export images and copy source",
+      "tasks": [
+        "T086",
+        "T095",
+        "T100",
+        "T167",
+        "T168",
+        "T169",
+        "T170",
+        "T171",
+        "T172",
+        "T173"
+      ]
+    },
+    "FR-015": {
+      "title": "Users can see and move between all parts of a project",
+      "tasks": [
+        "T049",
+        "T051",
+        "T124",
+        "T130",
+        "T160",
+        "T165"
+      ]
+    },
+    "FR-016": {
+      "title": "The workspace brings every editing region together",
+      "tasks": [
+        "T027",
+        "T038",
+        "T047",
+        "T049",
+        "T050",
+        "T077",
+        "T120"
+      ]
+    },
+    "FR-017": {
+      "title": "All rendering happens inside the user browser",
+      "tasks": [
+        "T001",
+        "T022",
+        "T023",
+        "T033",
+        "T047",
+        "T054",
+        "T178"
+      ]
+    },
+    "FR-018": {
+      "title": "The application works offline after one visit",
+      "tasks": [
+        "T003",
+        "T004",
+        "T177"
+      ]
+    },
+    "FR-019": {
+      "title": "Unsupported browsers are detected and reported",
+      "tasks": [
+        "T024",
+        "T047"
+      ]
+    },
+    "FR-020": {
+      "title": "The source fidelity policy applies equally to screens and the screen flow",
+      "tasks": [
+        "T013",
+        "T015",
+        "T029",
+        "T045",
+        "T073",
+        "T106",
+        "T121",
+        "T137"
+      ]
+    },
+    "SC-003": {
+      "title": "Keyboard-only and screen-reader use; WCAG 2.2 AA",
+      "tasks": [
+        "T175",
+        "T176",
+        "T183"
+      ],
+      "tests": [
+        "tests/e2e/a11y.spec.ts",
+        "tests/e2e/keyboard-only.spec.ts"
+      ]
+    },
+    "SC-004": {
+      "title": "Every generated block renders in both renderers",
+      "tasks": [
+        "T040",
+        "T054",
+        "T062",
+        "T180"
+      ],
+      "tests": [
+        "tests/oracle/generated.test.ts"
+      ]
+    },
+    "SC-005": {
+      "title": "Corpus round-trips byte-identically; edits change only the edited element",
+      "tasks": [
+        "T045",
+        "T106",
+        "T137"
+      ]
+    },
+    "SC-006": {
+      "title": "Responsiveness on the reference project",
+      "tasks": [
+        "T174"
+      ],
+      "tests": [
+        "tests/e2e/perf/reference.spec.ts"
+      ]
+    },
+    "SC-007": {
+      "title": "Durability of browser storage",
+      "tasks": [
+        "T032",
+        "T087"
+      ]
+    },
+    "SC-008": {
+      "title": "No diagram content over the network; works offline",
+      "tasks": [
+        "T177",
+        "T178"
+      ],
+      "tests": [
+        "tests/e2e/privacy.spec.ts",
+        "tests/e2e/offline.spec.ts"
+      ]
+    }
+  },
+  "intent": "Let non-technical users build PlantUML Salt wireframes and linked screen flows visually, stored locally and exchanged as one standard .puml file without losing user work",
+  "expectations": [
+    "Freeform pixel positioning or high-fidelity styling",
+    "Server-side rendering or sending diagram content off the browser",
+    "Collaboration, accounts or cloud sync",
+    "More than one screen flow per project",
+    "Multi-select and copy/paste of components",
+    "Visual editing of fork/join, switch, partitions, detach/kill",
+    "Label formatting beyond the selected tab",
+    "Presentation mode",
+    "Browsers other than Chromium-based desktop browsers"
+  ],
+  "context": [
+    "product-spec.md (reviewed; OD-1 to OD-16 confirmed 2026-10-26)",
+    "constitution.md principles 1-9",
+    "setup.md diagram and traceability requirements",
+    "PlantUML 1.2026.8 command-line verification of supported constructs"
+  ],
+  "decisions": [
+    {
+      "decision": "Source text is the only truth; lossless hand-written parsers derive the model and every visual edit is a text patch plus re-parse",
+      "why": "Byte-identical round trips, grammar-based status and undo then share one mechanism (FR-004, FR-020, SC-005)",
+      "rejected": "Model-first regeneration of source, or a parser generator"
+    },
+    {
+      "decision": "Render with @plantuml/core 1.2026.9 in a dedicated Web Worker; terminate and restart it after 10 s",
+      "why": "Official browser build with Salt (OD-1); renderToString cannot be cancelled; worker loaders refuse includes",
+      "rejected": "Main-thread rendering; server rendering"
+    },
+    {
+      "decision": "TypeScript, Vite, React 19 static site with a small useSyncExternalStore store",
+      "why": "Static offline deployment and mature accessibility testing tools",
+      "rejected": "Svelte or Lit; Redux or Zustand"
+    },
+    {
+      "decision": "IndexedDB via idb with one atomic record per project; Web Locks plus BroadcastChannel for one editing tab",
+      "why": "Atomic writes and locks that are released when a tab crashes",
+      "rejected": "localStorage; a heartbeat lock in storage"
+    },
+    {
+      "decision": "CodeMirror 6 source view, dnd-kit drag with activation constraints, DOMPurify sanitising, Workbox precache",
+      "why": "Accessible editor, touch-safe dragging, maintained sanitiser, full offline precache",
+      "rejected": "Monaco; native HTML drag and drop; runtime-only caching"
+    },
+    {
+      "decision": "Block status is derived from category, focus and render result, never stored",
+      "why": "Removes status drift; only the last working version and the flow identity are stored",
+      "rejected": "A stored per-block state machine"
+    },
+    {
+      "decision": "Verification commands left as None until the setup task adds package scripts",
+      "why": "The integrated TDD rules take commands only from what the project defines",
+      "rejected": "Declaring planned commands that do not exist yet"
+    },
+    {
+      "decision": "A flow with lanes writes its first |Lane| switch before start",
+      "why": "PlantUML 1.2026.9 rejects a lane switch that follows any statement unless a lane was declared first",
+      "rejected": "Assigning pre-lane elements to the first lane without writing a switch before start"
+    },
+    {
+      "decision": "A first |Lane| after any statement is a syntax error (diagnostic.syntax.laneNotFirst)",
+      "why": "plantuml-1.2026.9.jar rejects it deterministically; the parser had assumed such elements go in the first lane",
+      "rejected": "Assigning pre-lane elements to the first lane"
+    },
+    {
+      "decision": "History entries hold a list of {edits, inverse} changes rather than one edits/inverse pair",
+      "why": "A merged typing run is several applied edit lists; composing them into one list is error-prone",
+      "rejected": "Composing edits on merge"
+    },
+    {
+      "decision": "Draw nested Salt containers recursively inside their cell",
+      "why": "The canvas showed a dashed placeholder, so a Form or Group box could not be edited visually",
+      "rejected": "Enter-to-descend navigation that shows one container at a time"
+    },
+    {
+      "decision": "Hand commands and the preview handler the live store through a banner bridge in flow-links/register.tsx",
+      "why": "Slot commands are plain functions, not hooks, and the ESLint react-hooks rule forbids reassigning module state during render",
+      "rejected": "Module variables set during render"
+    }
+  ],
+  "step_summaries": {
+    "plan": {
+      "summary": "Plan, research (R-1 to R-15), data model, 3 contracts, Verification Plan with 137 obligations, 5 manual checks, 1 exemption and 143 behaviour items; TDD plan check passes in no-tooling mode",
+      "key_finding": "@plantuml/core 1.2026.9 is the first browser build with Salt and exposes renderToString plus loader hooks that make the no-network rule enforceable in a worker"
+    },
+    "tasks": {
+      "summary": "184 tasks: Setup (renderer gate first) → Foundational (core, services, workspace shells with slot registry) → US1–US8 each owning disjoint files via register.tsx → Polish (a11y, offline, privacy, perf, validation)"
+    },
+    "implement": {
+      "summary": "All 184 tasks done: US7 verified, Polish added, 7 defects found by running the never-run e2e specs fixed; lint, build, 1348 unit, 184 oracle, 72 e2e pass"
+    }
+  },
+  "approach": "Source text is authoritative: lossless hand-written Salt and activity parsers derive the editor model, and every visual operation is a minimal text patch followed by a re-parse, so round trips, status and undo share one path. A static TypeScript, Vite and React app stores projects in IndexedDB and renders with @plantuml/core 1.2026.9 in a terminable Web Worker, precached for offline use.",
+  "concerns": [
+    {
+      "note": "T001 renderer gate blocked: downloading plantuml-1.2026.9.jar was refused by the permission classifier, and npm installs of @plantuml/core and the app dependencies will need the same approval. System jar is 1.2026.8, which has no Salt in the browser build and does not match the pinned version.",
+      "step": "implement"
+    },
+    {
+      "note": "Oracle anomaly: three ad-hoc lane checks at about 05:35 reported flows with a step before the first lane switch as rendering, but the same text fails deterministically in plantuml-1.2026.9.jar since 10:20 (swimlane must be defined at the start). Cause not found; watch the oracle suite for flaky results.",
+      "step": "implement"
+    },
+    {
+      "note": "Activity parser (T031) reports skinparam, title and other setting lines as diagnostic.syntax.invalidLine, so an imported flow PlantUML renders fine shows as Error. Should be preserved as locked or ignored settings; revisit in US6 or Polish.",
+      "step": "implement"
+    },
+    {
+      "note": "Chrome and Edge Playwright projects not run: branded browsers not installed here. Only Chromium ran (72 e2e pass).",
+      "step": "implement"
+    },
+    {
+      "note": "MV-001 to MV-005 (SC-001, SC-002, screen-reader part of SC-003) need people; script is in tests/manual-verification.md.",
+      "step": "implement"
+    },
+    {
+      "note": "SC-006 timings measured on this machine, not the reference laptop.",
+      "step": "implement"
+    }
+  ],
+  "last_action": "all tasks done; validation report written",
+  "currentTask": null,
+  "task_summaries": {
+    "T001": {
+      "status": "DONE",
+      "did": "Renderer gate passed with amendment: engine needs a DOM, so the worker uses a DOM shim; output byte-identical to main thread (188/188), parity 191/191, no main-thread stall, offline-safe",
+      "files": [
+        "spikes/renderer/",
+        "specs/001-wireframe-flow-editor/spike-renderer.md",
+        "specs/001-wireframe-flow-editor/research.md"
+      ]
+    },
+    "T002": {
+      "status": "DONE",
+      "did": "Scaffolded Vite + React 19 + TypeScript 6.0 strict with pinned dependencies and scripts dev, build, typecheck, test:unit, test:oracle, test:e2e, lint",
+      "files": [
+        "package.json",
+        "package-lock.json",
+        "tsconfig.json",
+        "index.html",
+        ".gitignore"
+      ]
+    },
+    "T003": {
+      "status": "DONE",
+      "did": "Vite config: React, ES worker, PWA injectManifest (src/sw.ts) with 8 MB precache limit for plantuml.js; renderer files come in as ?url assets",
+      "files": [
+        "vite.config.ts"
+      ]
+    },
+    "T004": {
+      "status": "DONE",
+      "did": "Service worker precaching every built file with workbox precacheAndRoute",
+      "files": [
+        "src/sw.ts"
+      ]
+    },
+    "T005": {
+      "status": "DONE",
+      "did": "ESLint flat config with core boundary rule (no ui/services/react imports, no DOM globals)",
+      "files": [
+        "eslint.config.js"
+      ]
+    },
+    "T006": {
+      "status": "DONE",
+      "did": "Vitest projects unit (node), ui (jsdom + jest-dom + fake-indexeddb) and oracle; test:unit runs unit+ui",
+      "files": [
+        "vitest.config.ts",
+        "tests/ui/setup.ts",
+        "package.json"
+      ]
+    },
+    "T007": {
+      "status": "DONE",
+      "did": "Playwright config: bundled Chromium always, Chrome and Edge channels with PW_BRANDED=1, vite preview web server",
+      "files": [
+        "playwright.config.ts"
+      ]
+    },
+    "T008": {
+      "status": "DONE",
+      "did": "Oracle runner: one JVM per batch via -pipe, classifies crash and error images with message and line; smoke-tested",
+      "files": [
+        "tests/oracle/runner.ts"
+      ]
+    },
+    "T009": {
+      "status": "DONE",
+      "did": "Corpus README with per-owner folders and expected.json sidecar format; fidelity seed (CRLF, BOM, no final newline, between-text, non-English names), all blocks render in the oracle",
+      "files": [
+        "tests/corpus/README.md",
+        "tests/corpus/fidelity/",
+        ".gitattributes"
+      ]
+    },
+    "T010": {
+      "status": "DONE",
+      "did": "Declared verification commands VC-1..VC-7 (focused and broad Vitest, oracle, Playwright, typecheck, lint) in the plan",
+      "files": [
+        "specs/001-wireframe-flow-editor/plan.md"
+      ]
+    },
+    "T014": {
+      "status": "DONE",
+      "did": "Names core: normalise, fold (NFC + repeated upper/lower fold), isAllowed, nameStatus, commitName and generate with -n suffixes, 64-char grapheme-safe cuts; VO-113 unit tests",
+      "files": [
+        "src/core/names/names.ts",
+        "tests/unit/names/names.test.ts"
+      ]
+    },
+    "T018": {
+      "status": "DONE",
+      "did": "Lossless Salt lexer: start/end, preprocessor, line and block comments (PlantUML closing rules), braces with modifiers checked against the 1.2026.9 jar, pipes, cell text, whitespace, newlines; 48 unit tests incl. randomized coverage",
+      "files": [
+        "src/core/salt/lexer.ts",
+        "tests/unit/salt/lexer.test.ts"
+      ]
+    },
+    "T013": {
+      "status": "DONE",
+      "did": "Lossless split into block/text segments with BOM, CRLF/CR, comment attachment (commentStart) and unmatched-start blocks",
+      "files": [
+        "src/core/blocks/split.ts",
+        "tests/unit/blocks/split.test.ts"
+      ]
+    },
+    "T017": {
+      "status": "DONE",
+      "did": "escapeStepLabel/unescapeStepLabel with <U+hhhh>: linked [ ] | escaped, [[ and creole pairs in plain labels, typed <U+ guarded, round-trips",
+      "files": [
+        "src/core/activity/escape.ts",
+        "tests/unit/activity/escape.test.ts"
+      ]
+    },
+    "T021": {
+      "status": "DONE",
+      "did": "idb layer: projects (keyPath id) and settings stores, whole-record single-transaction putProject, get/list/delete, settings with defaults",
+      "files": [
+        "src/services/storage/db.ts",
+        "tests/unit/services/db.test.ts"
+      ]
+    },
+    "T025": {
+      "status": "DONE",
+      "did": "Key model with per-platform bindings (mod=Ctrl/Cmd), region focus Ctrl+F6/Ctrl+Shift+F6, reserved-chord tables and VO-102 test",
+      "files": [
+        "src/ui/keys.ts",
+        "tests/unit/ui/keys.test.ts"
+      ]
+    },
+    "T026": {
+      "status": "DONE",
+      "did": "Slot registry: blockEditors keyed by BlockKind (Canvas, Outline, Palette, Properties, commands, pathLabels, destinations), ordered list slots toolbar/library/projectPanel/propertySections/commands/banners, single-owner sourceEdit and previewLink, useSlot hook; 7 tests",
+      "files": [
+        "src/ui/app/slots.ts",
+        "tests/ui/app/slots.test.ts"
+      ]
+    },
+    "T012": {
+      "status": "DONE",
+      "did": "Strict UTF-8 decode (NUL means binary, fatal decoder, first BOM detected, later BOMs kept as text) and encode; byte-identical round trip incl. whole corpus",
+      "files": [
+        "src/core/source/decode.ts",
+        "tests/unit/source/decode.test.ts"
+      ]
+    },
+    "T016": {
+      "status": "DONE",
+      "did": "escapeSaltText/unescapeSaltText with spike-confirmed <U+hhhh> and leading U+200B forms, <U+ guarded as <U+003C>, isFormattedSaltText; round trip incl. 5000 random cases",
+      "files": [
+        "src/core/salt/escape.ts",
+        "tests/unit/salt/escape.test.ts"
+      ]
+    },
+    "T020": {
+      "status": "DONE",
+      "did": "26-file import classification corpus with .expected.json sidecars covering every listed construct and edge case; every file round-trips and was rendered through the oracle",
+      "files": [
+        "tests/corpus/import/"
+      ]
+    },
+    "T024": {
+      "status": "DONE",
+      "did": "Unsupported-browser detection from client hints or user agent: desktop Chrome/Edge/Chromium within the latest two majors, latest estimated conservatively from the release schedule (VO-136)",
+      "files": [
+        "src/services/browser-support.ts",
+        "tests/unit/services/browser-support.test.ts"
+      ]
+    },
+    "T028": {
+      "status": "DONE",
+      "did": "Playwright fixtures: App with open, createProject, importFile, readProjectPanel/blockStatus, saveStatus, download bytes, and IndexedDB write failure via addInitScript with a runtime switch",
+      "files": [
+        "tests/e2e/fixtures.ts"
+      ]
+    },
+    "T011": {
+      "status": "DONE",
+      "did": "Defined shared core types (TextRange, TextEdit, BlockStatus/RenderStatus with exact UI strings, BlockKind, SourceCategory, Path, Selection, Diagnostic, OpResult); typecheck clean",
+      "files": [
+        "src/core/types.ts"
+      ]
+    },
+    "T015": {
+      "status": "DONE",
+      "did": "Implemented house style: two-space indentation, line-ending choice (block, else file, else LF), new screen/flow block templates and Salt/activity element templates; 23 unit tests pass",
+      "files": [
+        "src/core/project/house-style.ts",
+        "tests/unit/project/house-style.test.ts"
+      ]
+    },
+    "T019": {
+      "status": "DONE",
+      "did": "Wrote lossless activity lexer (current syntax, lanes, notes, {{salt}} steps, locked keywords, legacy (*), preprocessor, comments) with lossless fuzz test; 42 unit tests pass",
+      "files": [
+        "src/core/activity/lexer.ts",
+        "tests/unit/activity/lexer.test.ts"
+      ]
+    },
+    "T023": {
+      "status": "DONE",
+      "did": "Wrote SVG sanitising with a private DOMPurify SVG-profile instance, href filter (#fragment, data:image/ only) and external CSS url() removal; VO-071 15 tests pass",
+      "files": [
+        "src/services/render/sanitize.ts",
+        "tests/unit/services/sanitize.test.ts"
+      ]
+    },
+    "T027": {
+      "status": "DONE",
+      "did": "Wrote message catalogue: t(key, params) with Intl.PluralRules, eager ./en/*.ts merge failing on duplicate keys, shared part from ui.md, VO-134 JSX-literal guard; 35 tests pass",
+      "files": [
+        "src/ui/messages/en.ts",
+        "src/ui/messages/en/shared.ts",
+        "tests/unit/ui/catalogue.test.ts"
+      ]
+    },
+    "T022": {
+      "status": "DONE",
+      "did": "Render worker (window=self, refusing loaders, fetch+indirect-eval of 4 classic ?url scripts, DOM shim, PLANTUML_VIZ, plantuml.js import, ready/svg/error, one request at a time) and TS DOM shim; shim unit tests plus Chromium smoke on the built worker: 188/188 SVGs byte-identical to the spike, no external requests",
+      "files": [
+        "src/services/render/render.worker.ts",
+        "src/services/render/dom-shim.ts",
+        "tests/unit/services/dom-shim.test.ts"
+      ]
+    },
+    "T029": {
+      "status": "DONE",
+      "did": "Implemented applyEdits (validated non-overlapping edits applied from the highest offset down, same-offset insertions keep order) and invertEdits (exact restore, inverse of inverse redoes); 34 unit tests pass",
+      "files": [
+        "src/core/source/edits.ts",
+        "tests/unit/source/edits.test.ts"
+      ]
+    },
+    "T035": {
+      "status": "DONE",
+      "did": "Wrote the generic accessible ARIA tree (flat treeitems with level/setsize/posinset, roving tabindex, selection follows focus, Right/Left expand-collapse-or-move, Home/End, Enter activates, controlled or own expansion); VO-097 tree part 15 tests pass",
+      "files": [
+        "src/ui/outline/Tree.tsx",
+        "tests/ui/outline/tree.test.tsx"
+      ]
+    },
+    "T033": {
+      "status": "DONE",
+      "did": "Render queue: open block first, one request at a time, 10 s terminate-and-restart (timedOut, Not yet checked), skips include-dependent and previously rendered invalid blocks keeping last ok out of date, latest and last-ok per block, error-image classification with line and message, substitutable RenderEngine; 26 unit tests pass (VO-067 queue, VO-068, VO-069, VO-070, VO-072)",
+      "files": [
+        "src/services/render/render-queue.ts",
+        "tests/unit/services/render-queue.test.ts"
+      ]
+    },
+    "T039": {
+      "status": "DONE",
+      "did": "Wrote the read-only preview pane: sanitised inline SVG, Not yet checked (incl. timeout), last ok render kept and marked out of date, not-checked-by-editor label, rendering-problem region with renderer message separate from source problems, link clicks to the previewLink slot without navigation; 14 tests pass",
+      "files": [
+        "src/ui/preview/Preview.tsx",
+        "src/ui/messages/en/preview.ts",
+        "tests/ui/preview/preview.test.tsx"
+      ]
+    },
+    "T032": {
+      "status": "DONE",
+      "did": "Autosave SaveState machine: 500 ms debounce, pagehide/visibilitychange flush, immediate failure report, 1/2/4/10 s backoff writing the latest record",
+      "files": [
+        "src/services/storage/autosave.ts",
+        "tests/unit/services/autosave.test.ts"
+      ]
+    },
+    "T036": {
+      "status": "DONE",
+      "did": "dnd-kit base: mouse/pen distance and touch press-delay sensors, drop targets offered only from the supplied destinations, blocked state, silent dnd-kit a11y",
+      "files": [
+        "src/ui/workspace/dnd.tsx",
+        "tests/ui/workspace/dnd.test.tsx"
+      ]
+    },
+    "T040": {
+      "status": "DONE",
+      "did": "Escaping oracle: every FR-003/AC6 text via escapeSaltText/escapeStepLabel renders literally through the jar with no visible escapes",
+      "files": [
+        "tests/oracle/escaping.test.ts",
+        "tests/corpus/escaping/cases.json"
+      ]
+    },
+    "T037": {
+      "status": "DONE",
+      "did": "Locked placeholder shared by both canvases: labelled group (locked part + reason key text), verbatim source excerpt shortened with a plural more-lines note, edit-in-source hint, canvas-supplied role/focus/selection/handlers; own message part; 8 UI tests pass, catalogue VO-134 guard passes",
+      "files": [
+        "src/ui/workspace/LockedPlaceholder.tsx",
+        "src/ui/messages/en/locked-placeholder.ts",
+        "tests/ui/workspace/locked-placeholder.test.tsx"
+      ]
+    },
+    "T030": {
+      "status": "DONE",
+      "did": "Salt parser and screen model: lossless tree, grids/styles/rows/cells/spans, every A.1 element, locked parts, source-only and syntax diagnostics with lines",
+      "files": [
+        "src/core/salt/parser.ts",
+        "src/core/salt/model.ts",
+        "tests/unit/salt/parser.test.ts"
+      ]
+    },
+    "T034": {
+      "status": "DONE",
+      "did": "Single polite live-region announcer and non-blocking notices store/view with actions, keyed replacement and oncePerSession",
+      "files": [
+        "src/ui/announcer/Announcer.tsx",
+        "src/ui/notices/Notices.tsx",
+        "tests/ui/notices/notices.test.tsx"
+      ]
+    },
+    "T031": {
+      "status": "DONE",
+      "did": "Wrote the activity parser and flow model: lossless tree over lexer tokens; start/stop/end, steps and linked steps, if/elseif/else, repeat and while with labels, lanes (first-appearance order, effective lane per element, NFC-merged), notes on owner or path start, leadingComments; locked parts for fork/split/switch/partition/detach/kill/{{salt/arrows/SDL shapes; source-only diagnostics for legacy, goto/label, preprocessor; syntax errors with line; 70 tests pass",
+      "files": [
+        "src/core/activity/parser.ts",
+        "src/core/activity/model.ts",
+        "tests/unit/activity/parser.test.ts"
+      ]
+    },
+    "T038": {
+      "status": "DONE",
+      "did": "CodeMirror 6 source view with Salt/activity stream highlighter, read-only without sourceEdit controller, focusLine, selection highlight, no-scroll changed-lines flash, Esc ends edit and moves focus out",
+      "files": [
+        "src/ui/source-view/SourceView.tsx",
+        "src/ui/source-view/highlight.ts",
+        "tests/ui/source-view/source-view.test.tsx"
+      ]
+    },
+    "T042": {
+      "status": "DONE",
+      "did": "classify: syntax detection (salt, activity, older format, other), category, isolable, external dependence, flow candidate, reason key; blockStatus per data-model 7.1; reason strings for every parser key; agrees with all corpus sidecars",
+      "files": [
+        "src/core/blocks/classify.ts",
+        "src/ui/messages/en/reasons.ts",
+        "tests/unit/blocks/classify.test.ts"
+      ]
+    },
+    "T041": {
+      "status": "DONE",
+      "did": "history: named entries, 200 kept, visual/sourceTyping/propertyTyping merging until seal, metaBefore/metaAfter, redo cleared by new edit, clear, subscribe",
+      "files": [
+        "src/core/history/history.ts",
+        "tests/unit/history/history.test.ts"
+      ]
+    },
+    "T043": {
+      "status": "DONE",
+      "did": "links: linksTo (NFC exact, through branches and loops), retargetEdits for rename, linkStatus valid/broken/brokenCaseOnly/ambiguous",
+      "files": [
+        "src/core/project/links.ts",
+        "tests/unit/project/links.test.ts"
+      ]
+    },
+    "T044": {
+      "status": "DONE",
+      "did": "project model: createProject, importSource with flow choice, flowAfterRedivision, runtime keys, remap for index changes, lastWorking transitions, blocks() views with status, reason, render status, incoming links, name flags and untitled numbering; classification memoised on text",
+      "files": [
+        "src/core/project/project.ts",
+        "tests/unit/project/project.test.ts"
+      ]
+    },
+    "T045": {
+      "status": "DONE",
+      "did": "corpus suites: every corpus file splits, re-joins and encodes byte-identically; every sidecar's flow choice, kinds, statuses, names and flags match; VO-015/016/019/094/106/107/108/111/116/119 cases. Added reason.extraActivity for a second valid activity block",
+      "files": [
+        "tests/unit/corpus/roundtrip.test.ts",
+        "tests/unit/corpus/classification.test.ts",
+        "tests/unit/corpus/corpus.ts",
+        "tests/corpus/README.md",
+        "src/core/blocks/classify.ts",
+        "src/core/project/project.ts",
+        "src/ui/messages/en/reasons.ts"
+      ]
+    },
+    "T046": {
+      "status": "DONE",
+      "did": "store: session snapshot via useSyncExternalStore, load/close/flush, applyOp/applyEdits/replaceBlockText with history (typing runs sealed after 300 ms), undo/redo restore text plus flowIndex, lastWorking and block keys, open the affected block, select and announce; keys follow blocks across edits; lastWorking transitions; selection trimmed via BlockEditor.hasPath; autosave scheduling with revision; render requests and statuses",
+      "files": [
+        "src/ui/app/store.ts",
+        "src/ui/messages/en/store.ts",
+        "tests/ui/app/store.test.ts",
+        "src/ui/app/slots.ts",
+        "tests/ui/app/slots.test.ts",
+        "src/core/types.ts"
+      ]
+    },
+    "T050": {
+      "status": "DONE",
+      "did": "Toolbar with Undo/Redo naming their action, autosave status, shortcut hints, arrow-key focus and the toolbar slot (VO-089)",
+      "files": [
+        "src/ui/workspace/Toolbar.tsx",
+        "tests/ui/workspace/toolbar.test.tsx"
+      ]
+    },
+    "T051": {
+      "status": "DONE",
+      "did": "Project panel: screens, flow and other content in file order with status, reason, render status, incoming link count, name flags, open-on-select and projectPanel slot entries",
+      "files": [
+        "src/ui/project-panel/ProjectPanel.tsx",
+        "src/ui/messages/en/project-panel.ts",
+        "tests/ui/project-panel/project-panel.test.tsx"
+      ]
+    },
+    "T053": {
+      "status": "DONE",
+      "did": "Structural command bar (editor + slot commands with shortcuts), Move to… dialog with destination tree and controller/host, and selectable breadcrumb",
+      "files": [
+        "src/ui/workspace/CommandBar.tsx",
+        "src/ui/workspace/MoveToDialog.tsx",
+        "src/ui/workspace/Breadcrumb.tsx",
+        "src/ui/messages/en/command-bar.ts",
+        "tests/ui/workspace/commands.test.tsx"
+      ]
+    },
+    "T048": {
+      "status": "DONE",
+      "did": "Project library view: list by last-modified with download state and not-downloaded indicator, Create project (write then open), not-synchronised statement, library slot header/row items, refreshLibrary signal",
+      "files": [
+        "src/ui/library/Library.tsx",
+        "src/ui/messages/en/library.ts",
+        "tests/ui/library/library-view.test.tsx"
+      ]
+    },
+    "T052": {
+      "status": "DONE",
+      "did": "Properties shell: editor Properties plus applicable propertySections for the selection or the open block, read-only during source edit; PropertyField commits on blur/Enter as one propertyTyping entry with field-first undo/redo (VO-092)",
+      "files": [
+        "src/ui/properties/PropertiesPanel.tsx",
+        "src/ui/properties/PropertyField.tsx",
+        "src/ui/messages/en/properties.ts",
+        "tests/ui/properties/properties.test.tsx"
+      ]
+    },
+    "T047": {
+      "status": "DONE",
+      "did": "App shell: hash routes (#/, #/project/<id>, #/project/<id>/block/<key>) with route following the open block, unknown-project notice, unsupported-browser screen, eager register.tsx glob, renderer held by deferEngine until the editor is interactive",
+      "files": [
+        "src/main.tsx",
+        "src/ui/app/App.tsx",
+        "src/ui/messages/en/app.ts",
+        "tests/ui/app/app.test.tsx"
+      ]
+    },
+    "T049": {
+      "status": "DONE",
+      "did": "Workspace layout: seven landmark regions in default arrangement, collapse remembered in settings, Ctrl+F6 region cycle, canvas/palette/outline dispatch to blockEditors with banners, breadcrumb, command bar, source-only message and read-only during source edit; no-props defaults place toolbar, project panel, properties, source view and preview",
+      "files": [
+        "src/ui/workspace/Workspace.tsx",
+        "src/ui/workspace/workspace.css",
+        "src/ui/messages/en/workspace.ts",
+        "tests/ui/workspace/workspace.test.tsx"
+      ]
+    },
+    "T054": {
+      "status": "DONE",
+      "did": "renderer parity: the built app's render worker, driven in Playwright, succeeds or fails on every non-include corpus block exactly as plantuml-1.2026.9.jar; guarded against a vacuous pass",
+      "files": [
+        "tests/e2e/oracle-parity.spec.ts"
+      ]
+    },
+    "T104": {
+      "status": "DONE",
+      "did": "Unit tests for convertOlderFormat/convertAllOlderFormat (VO-112) and revertToLastWorking (VO-109 core); 16 pass",
+      "files": [
+        "tests/unit/blocks/convert.test.ts",
+        "tests/unit/project/revert.test.ts"
+      ]
+    },
+    "T109": {
+      "status": "DONE",
+      "did": "Block messages part: Fix in source, Revert to last working version, Convert to current format, Convert all, history names, announcements, banner and Convert-all notice text",
+      "files": [
+        "src/ui/messages/en/blocks.ts"
+      ]
+    },
+    "T110": {
+      "status": "DONE",
+      "did": "convertOlderFormat per block (keyword-only edits on open/close lines, salt line removed, no-op for other or unclosed blocks) and convertAllOlderFormat",
+      "files": [
+        "src/core/blocks/convert.ts"
+      ]
+    },
+    "T111": {
+      "status": "DONE",
+      "did": "revertToLastWorking: one minimal OpResult edit restoring the stored text, refused with blocks.revert.none when no entry; entry removed by nextLastWorking on apply",
+      "files": [
+        "src/core/project/revert.ts"
+      ]
+    },
+    "T105": {
+      "status": "DONE",
+      "did": "Oracle test: corpus and hand-written older-format blocks converted singly and with Convert all render in plantuml-1.2026.9 with their text; 5 pass",
+      "files": [
+        "tests/oracle/convert.test.ts"
+      ]
+    },
+    "T167": {
+      "status": "DONE",
+      "did": "UI test for export refusal (invalid, older format, !include, render problem, not rendered) with copy still available, plus export-image and clipboard service checks; 19 tests pass",
+      "files": [
+        "tests/ui/export/export.test.tsx"
+      ]
+    },
+    "T168": {
+      "status": "DONE",
+      "did": "E2E spec for SVG equals preview, PNG exactly 2x, copy confirmation and clipboard equals block or downloaded file, refused export for three block kinds; typechecks and lints, not yet run (needs main.tsx to bind the render queue)",
+      "files": [
+        "tests/e2e/us8-export.spec.ts"
+      ]
+    },
+    "T169": {
+      "status": "DONE",
+      "did": "Export and copy messages: labels, copied confirmations, copy refusal, PNG problem and five export-refused explanations",
+      "files": [
+        "src/ui/messages/en/export.ts"
+      ]
+    },
+    "T170": {
+      "status": "DONE",
+      "did": "Image export: standalone preview SVG download, PNG drawn into canvas at exactly 2x natural size via toBlob, file names with unsafe characters replaced",
+      "files": [
+        "src/services/render/export-image.ts"
+      ]
+    },
+    "T171": {
+      "status": "DONE",
+      "did": "Clipboard copyText over navigator.clipboard.writeText returning ok or unavailable/denied/failed",
+      "files": [
+        "src/services/files/clipboard.ts"
+      ]
+    },
+    "T172": {
+      "status": "DONE",
+      "did": "ExportCommands: Export SVG/PNG refused with aria-disabled and explanation for unrenderable or unrendered blocks, Copy source and Copy project source with confirmation; bindExportRenders binds the render queue",
+      "files": [
+        "src/ui/export/ExportCommands.tsx"
+      ]
+    },
+    "T173": {
+      "status": "DONE",
+      "did": "Registered export and copy commands in the toolbar slot (id export, order 50)",
+      "files": [
+        "src/ui/export/register.tsx"
+      ]
+    },
+    "T126": {
+      "status": "DONE",
+      "did": "Screen messages: commands with per-block accessible names, Will be saved as preview, empty/duplicate/last-block refusals, link warning, delete announcement, history names; catalogue test 35/35",
+      "files": [
+        "src/ui/messages/en/screens.ts"
+      ]
+    },
+    "T127": {
+      "status": "DONE",
+      "did": "screens.ts: addScreen, renameBlock (commitName + retargetEdits in one edit list), duplicateScreen, moveBlock (same-kind swap with comments), deleteBlock (refuses last block, neighbour), applyBlockOp; each returns order for remap; T123 unit 28/28",
+      "files": [
+        "src/core/project/screens.ts",
+        "tests/unit/project/screens.test.ts"
+      ]
+    },
+    "T123": {
+      "status": "DONE",
+      "did": "Unit tests for screen operations (VO-026 core, VO-028, VO-031, VO-084, VO-114, VO-117): written first, failed, now 28/28 pass",
+      "files": [
+        "tests/unit/project/screens.test.ts"
+      ]
+    },
+    "T082": {
+      "status": "DONE",
+      "did": "Unit tests for import: naming with date on clash, never-downloaded state via record, UTF-8/binary refusal, block to open, empty and other-only files (19 tests pass)",
+      "files": [
+        "tests/unit/project/import.test.ts"
+      ]
+    },
+    "T083": {
+      "status": "DONE",
+      "did": "Unit tests for library operations: create, rename, duplicate, delete, mark downloaded and download state (12 tests pass)",
+      "files": [
+        "tests/unit/services/library-ops.test.ts"
+      ]
+    },
+    "T084": {
+      "status": "DONE",
+      "did": "Unit tests for tabs protocol with fake Web Locks and BroadcastChannel: read-only, handover with flush/clear/release, rename and delete broadcast (15 tests pass)",
+      "files": [
+        "tests/unit/services/tabs.test.ts"
+      ]
+    },
+    "T090": {
+      "status": "DONE",
+      "did": "Storage messages part: autosave failure keys, library commands, delete confirmation, persistence/private notices, reminder, tab banner, download and import notices",
+      "files": [
+        "src/ui/messages/en/storage.ts"
+      ]
+    },
+    "T091": {
+      "status": "DONE",
+      "did": "importFile: strict decode, BOM kept as leading U+FEFF, flow choice, empty file screen, name from file with date on clash, openIndex (first editable screen, else flow, else first block), only-other-content notice key",
+      "files": [
+        "src/core/project/import.ts"
+      ]
+    },
+    "T092": {
+      "status": "DONE",
+      "did": "Library ops on db.ts: create, rename (trim, empty keeps old), duplicate (Copy of, keeps lastWorking, never downloaded), delete, markDownloaded, downloadState",
+      "files": [
+        "src/services/storage/library-ops.ts"
+      ]
+    },
+    "T093": {
+      "status": "DONE",
+      "did": "Tabs: Web Lock per project with ifAvailable, plantuml-editor BroadcastChannel messages, handover (read-only, flush, clear, release, then waiting lock and loadLatest), deletedElsewhere, rename hook, remount-safe release",
+      "files": [
+        "src/services/storage/tabs.ts"
+      ]
+    },
+    "T061": {
+      "status": "DONE",
+      "did": "Unit tests for gridLabel precedence for every shape (VO-054); 7 pass",
+      "files": [
+        "tests/unit/salt/labels.test.ts"
+      ]
+    },
+    "T067": {
+      "status": "DONE",
+      "did": "gridLabel: Table, Button bar, Form, Row, Column, Grid precedence (FR-002/AC14)",
+      "files": [
+        "src/core/salt/labels.ts"
+      ]
+    },
+    "T057": {
+      "status": "DONE",
+      "did": "Unit tests for validDestinations, axisOf and locate (VO-049 core); 9 pass",
+      "files": [
+        "tests/unit/salt/destinations.test.ts"
+      ]
+    },
+    "T068": {
+      "status": "DONE",
+      "did": "validDestinations plus path addressing (locate, axisOf, containers, ScreenDoc) shared by drag and Move to",
+      "files": [
+        "src/core/salt/destinations.ts"
+      ]
+    },
+    "T128": {
+      "status": "DONE",
+      "did": "RenameField: typed text unchanged with Will be saved as preview, commit on Enter/blur via owner, refusal shown with previous name kept, Esc cancels; covered by T124 UI tests 12/12",
+      "files": [
+        "src/ui/project-panel/RenameField.tsx"
+      ]
+    },
+    "T129": {
+      "status": "DONE",
+      "did": "LinkWarningDialog: modal alertdialog listing affected steps with Proceed/Cancel, focus on Cancel, Esc cancels, Tab trapped; covered by T124 UI tests 12/12",
+      "files": [
+        "src/ui/project-panel/LinkWarningDialog.tsx"
+      ]
+    },
+    "T130": {
+      "status": "DONE",
+      "did": "screen-commands: Add screen, per-block Rename/Duplicate/Move up/Move down/Delete (other content: move/delete only), link warnings, delete notice with Undo, neighbour opens, open screen name property; T124 UI 12/12",
+      "files": [
+        "src/ui/project-panel/screen-commands.tsx"
+      ]
+    },
+    "T131": {
+      "status": "DONE",
+      "did": "register.tsx: screens.add (header) and screens.commands (block) in projectPanel, screens.name in propertySections; T124 UI 12/12 via the registration",
+      "files": [
+        "src/ui/project-panel/register.tsx"
+      ]
+    },
+    "T124": {
+      "status": "DONE",
+      "did": "UI tests for project panel screen management (VO-026, VO-027, VO-029, VO-030, VO-115, VO-130): failed first, now 12/12 pass",
+      "files": [
+        "tests/ui/project-panel/screens.test.tsx"
+      ]
+    },
+    "T125": {
+      "status": "DONE",
+      "did": "E2E Independent Test spec written; typechecks and lints; NOT yet run (main agent runs e2e at the join; needs US2 Download/Import)",
+      "files": [
+        "tests/e2e/us5-screens.spec.ts"
+      ]
+    },
+    "T107": {
+      "status": "DONE",
+      "did": "UI test of status banners, revert before/after reload, Cannot be rendered with renderer message in preview, one Convert all notice undone in one step, per-block convert, plain reason for every corpus status; 33 pass",
+      "files": [
+        "tests/ui/blocks/status.test.tsx"
+      ]
+    },
+    "T112": {
+      "status": "DONE",
+      "did": "StatusBanner: status line and reason for every non-editable status; Error names block/line/problem with Fix in source (CodeMirror found from DOM) and revert plus read-only last working canvas only when an entry exists; Older format convert button; Cannot be rendered points to preview",
+      "files": [
+        "src/ui/blocks/StatusBanner.tsx"
+      ]
+    },
+    "T113": {
+      "status": "DONE",
+      "did": "ConvertAllNotice: one notice per freshly imported project (revision<=1) with older-format blocks, once per session; Convert all is one undoable applyEdits",
+      "files": [
+        "src/ui/blocks/ConvertAllNotice.tsx"
+      ]
+    },
+    "T114": {
+      "status": "DONE",
+      "did": "Registered StatusBanner and ConvertAllNotice in banners and the Convert to current format entry in projectPanel",
+      "files": [
+        "src/ui/blocks/register.tsx"
+      ]
+    },
+    "T108": {
+      "status": "DONE",
+      "did": "E2E spec: import every corpus file, panel statuses vs sidecars (Source only may become Cannot be rendered), one Convert all for older format, byte-identical download; typechecks and lints, NOT yet run (main agent runs e2e at the join)",
+      "files": [
+        "tests/e2e/us3-import.spec.ts"
+      ]
+    },
+    "T059": {
+      "status": "DONE",
+      "did": "Unit tests for wrap (grid, group box, root, span kept) and unwrap offered only for a single-element unstyled grid (VO-053); 8 pass",
+      "files": [
+        "tests/unit/salt/ops/wrap.test.ts"
+      ]
+    },
+    "T072": {
+      "status": "DONE",
+      "did": "wrap (grid or group box, re-indented, house style) and unwrap with canUnwrap",
+      "files": [
+        "src/core/salt/ops/wrap.ts"
+      ]
+    },
+    "T060": {
+      "status": "DONE",
+      "did": "Unit tests for properties: width rules, drop-down options and close count, keep/remove formatting, state round trips, no placeholder/enabled (VO-056/058/059/060/061); 17 pass",
+      "files": [
+        "tests/unit/salt/ops/properties.test.ts"
+      ]
+    },
+    "T070": {
+      "status": "DONE",
+      "did": "setProperty for every A.1 property and propertiesOf; refuses what cannot be written (FR-003)",
+      "files": [
+        "src/core/salt/ops/properties.ts"
+      ]
+    },
+    "T106": {
+      "status": "DONE",
+      "did": "Contract test VO-020 screens: every corpus screen with a text element is imported, one setProperty through the store, downloaded bytes differ only within that element's range; import-download byte-identical; 26 pass",
+      "files": [
+        "tests/unit/corpus/edit-fidelity.test.ts"
+      ]
+    },
+    "T119": {
+      "status": "DONE",
+      "did": "redivide(source, blockStart, blockEnd, text?, flowIndex?) returns null for still-one-block, else edits+order+flowIndex+keeperIndex+removedLinkedScreens+removesLastBlock; 14 unit tests pass",
+      "files": [
+        "src/core/blocks/redivide.ts"
+      ]
+    },
+    "T115": {
+      "status": "DONE",
+      "did": "Unit tests for redivide: null for one block, one change with order, linked-screen removal, flow keeps name or first activity, last block refused (14 pass)",
+      "files": [
+        "tests/unit/blocks/redivide.test.ts"
+      ]
+    },
+    "T118": {
+      "status": "DONE",
+      "did": "Source messages: re-division report/warning/cancel/refusal, source-rename notices (Updated n steps, broken counts per cause with Undo), whole-file view labels, history names",
+      "files": [
+        "src/ui/messages/en/source.ts"
+      ]
+    },
+    "T120": {
+      "status": "DONE",
+      "did": "Read-only CodeMirror whole-file view with line numbers and Copy whole file (exact text)",
+      "files": [
+        "src/ui/source-view/WholeFileView.tsx"
+      ]
+    },
+    "T121": {
+      "status": "DONE",
+      "did": "Source edit controller: lock on first keystroke, 300 ms pause applies via replaceBlockText (one sourceTyping entry per run), boundary-changing or linked-rename text held until leaving, then one-step re-division with warning/cancel/last-block refusal and OD-4 rename rules via retargetEdits; cursor-to-selection via optional BlockEditor.pathAt",
+      "files": [
+        "src/ui/source-view/source-edit.ts"
+      ]
+    },
+    "T122": {
+      "status": "DONE",
+      "did": "Toolbar entry registers sourceEdit while the workspace is mounted (SourceView becomes editable), hosts the re-division alertdialog, and the Whole file toggle dialog",
+      "files": [
+        "src/ui/source-view/register.tsx"
+      ]
+    },
+    "T116": {
+      "status": "DONE",
+      "did": "UI tests for the source edit session: locking/pause, cursor mapping, VO-063, VO-085, VO-066 through reload, VO-024 warning/cancel/proceed/last-block, VO-118 renames, VO-133 whole-file view (15 pass)",
+      "files": [
+        "tests/ui/source-view/source-edit.test.tsx"
+      ]
+    },
+    "T117": {
+      "status": "DONE",
+      "did": "E2E spec for VO-021/022/023/025 written, typechecks and lints; NOT yet run (main agent runs e2e at the join)",
+      "files": [
+        "tests/e2e/us4-source.spec.ts"
+      ]
+    },
+    "T055": {
+      "status": "DONE",
+      "did": "Unit tests for insertion point per selection kind, EC-04, house style for all 20 palette items, preset labels after re-parse (VO-047/002/065/008); 42 pass",
+      "files": [
+        "tests/unit/salt/ops/insert.test.ts"
+      ]
+    },
+    "T056": {
+      "status": "DONE",
+      "did": "Unit tests for remove (empty cell vs closed gap, comments) and move/moveByKey (axis, swap, edge refusal, span fit) plus all-destinations move check (VO-004/048/050/005/064/049); 23 pass",
+      "files": [
+        "tests/unit/salt/ops/remove-move.test.ts"
+      ]
+    },
+    "T058": {
+      "status": "DONE",
+      "did": "Unit tests for spans (first cell, limit named, reduce to fit) and row/column insert/delete incl. span continuation and ragged rows (VO-051 core, VO-052); 15 pass",
+      "files": [
+        "tests/unit/salt/ops/rows-columns-span.test.ts"
+      ]
+    },
+    "T069": {
+      "status": "DONE",
+      "did": "Palette items, categories and presets in house style with escaped placeholders, plus shared text helpers",
+      "files": [
+        "src/core/salt/ops/presets.ts"
+      ]
+    },
+    "T071": {
+      "status": "DONE",
+      "did": "spanInfo and setSpan: refused on first cell, only over empty cells, limiting element named, reduced to fit",
+      "files": [
+        "src/core/salt/ops/span.ts"
+      ]
+    },
+    "T073": {
+      "status": "DONE",
+      "did": "remove: closes gap or leaves '.', deletes leading comments, re-escapes new first cell; shared removal primitives",
+      "files": [
+        "src/core/salt/ops/remove.ts"
+      ]
+    },
+    "T074": {
+      "status": "DONE",
+      "did": "insert at the section 3.2 insertion point via shared placement primitives; never into an occupied cell",
+      "files": [
+        "src/core/salt/ops/insert.ts"
+      ]
+    },
+    "T075": {
+      "status": "DONE",
+      "did": "insertRow/deleteRow/insertColumn/deleteColumn with span continuation handling and ragged rows untouched",
+      "files": [
+        "src/core/salt/ops/rows-columns.ts"
+      ]
+    },
+    "T076": {
+      "status": "DONE",
+      "did": "move (remove then place, comments carried, span reduced to fit) and moveByKey (axis move, swap, edge refusal with Move to hint)",
+      "files": [
+        "src/core/salt/ops/move.ts"
+      ]
+    },
+    "T062": {
+      "status": "DONE",
+      "did": "Oracle test: 45 tests pass for row/column/span alignment, every preset renders, and command-word first cells appear in render",
+      "files": [
+        "tests/oracle/salt-ops.test.ts"
+      ]
+    },
+    "T132": {
+      "status": "DONE",
+      "did": "Unit tests for flow structure ops: insert, delete, move, edge cases, and house style",
+      "files": [
+        "tests/unit/activity/ops/structure.test.ts"
+      ]
+    },
+    "T133": {
+      "status": "DONE",
+      "did": "Unit tests for branch ops: elseif, add/remove, condition labels, empty branches/loops",
+      "files": [
+        "tests/unit/activity/ops/branches.test.ts"
+      ]
+    },
+    "T134": {
+      "status": "DONE",
+      "did": "Unit tests for lane operations: add, rename, reorder, delete with destination, only-lane removal",
+      "files": [
+        "tests/unit/activity/lanes.test.ts"
+      ]
+    },
+    "T135": {
+      "status": "DONE",
+      "did": "Unit tests for note ops: add, edit text/side, remove, order, move with owner",
+      "files": [
+        "tests/unit/activity/notes.test.ts"
+      ]
+    },
+    "T136": {
+      "status": "DONE",
+      "did": "Unit tests for flow block: addFlow generates Screen-flow, deleteFlow clears flowIndex, edge cases",
+      "files": [
+        "tests/unit/project/flow-block.test.ts"
+      ]
+    },
+    "T137": {
+      "status": "DONE",
+      "did": "Contract tests: one flow op per corpus changes only that element's text",
+      "files": [
+        "tests/unit/corpus/flow-edit-fidelity.test.ts"
+      ]
+    },
+    "T138": {
+      "status": "DONE",
+      "did": "Oracle tests: lane rendering per branch and decision/loop shape rendering",
+      "files": [
+        "tests/oracle/flow-ops.test.ts"
+      ]
+    },
+    "T141": {
+      "status": "DONE",
+      "did": "Flow messages catalogue: palette labels, lane/note/branch/flow UI strings, refusals, history keys",
+      "files": [
+        "src/ui/messages/en/flow.ts"
+      ]
+    },
+    "T142": {
+      "status": "DONE",
+      "did": "Flow destinations: paths, slots, valid insertion positions, diffEdits, insertionPoint",
+      "files": [
+        "src/core/activity/destinations.ts"
+      ]
+    },
+    "T143": {
+      "status": "DONE",
+      "did": "Lane switch writing: minimal |Lane| switches, first switch before start, LanePlan, reconcileLanes, carryLanes",
+      "files": [
+        "src/core/activity/lanes.ts"
+      ]
+    },
+    "T144": {
+      "status": "DONE",
+      "did": "Note helpers: writeNote, noteText, notesOf, canHaveNotes, noteInsertion",
+      "files": [
+        "src/core/activity/notes.ts"
+      ]
+    },
+    "T145": {
+      "status": "DONE",
+      "did": "Flow block ops: addFlow generates Screen-flow block, deleteFlow removes with order for undo",
+      "files": [
+        "src/core/project/flow-block.ts"
+      ]
+    },
+    "T146": {
+      "status": "DONE",
+      "did": "Branch ops: addBranch with elseif ordering, removeBranch refusing below two, setText for labels/conditions",
+      "files": [
+        "src/core/activity/ops/branches.ts"
+      ]
+    },
+    "T147": {
+      "status": "DONE",
+      "did": "Flow insert op: step/decision/loop/stop at selected position, previous-lane carry, house style",
+      "files": [
+        "src/core/activity/ops/insert.ts"
+      ]
+    },
+    "T148": {
+      "status": "DONE",
+      "did": "Flow remove op: delete contents/notes/comments, refuse start/stop, describeRemoval announcement",
+      "files": [
+        "src/core/activity/ops/remove.ts"
+      ]
+    },
+    "T149": {
+      "status": "DONE",
+      "did": "Lane ops: add, rename, reorder, delete with destination, set element lane, first/only lane rules",
+      "files": [
+        "src/core/activity/ops/lanes.ts"
+      ]
+    },
+    "T150": {
+      "status": "DONE",
+      "did": "Note ops: add, setNoteText, setNoteSide, removeNote with announcement keys",
+      "files": [
+        "src/core/activity/ops/notes.ts"
+      ]
+    },
+    "T151": {
+      "status": "DONE",
+      "did": "Flow move op: move/moveByKey, lane/notes preserved, refused at edge and sideways",
+      "files": [
+        "src/core/activity/ops/move.ts"
+      ]
+    },
+    "T085": {
+      "status": "DONE",
+      "did": "UI tests: delete dialog states changes not downloaded, offers Download and delete; reminder and persistence notices once per session",
+      "files": [
+        "tests/ui/library/library-commands.test.tsx"
+      ]
+    },
+    "T086": {
+      "status": "DONE",
+      "did": "UI tests: unrenderable-blocks notice, unchecked count, VO-083 flow-will-be-other, storage-failure notice, tab-banner handover/deleted/rename",
+      "files": [
+        "tests/ui/storage/download.test.tsx tests/ui/storage/helpers.ts"
+      ]
+    },
+    "T087": {
+      "status": "DONE",
+      "did": "e2e spec written and lint/tsc clean; NOT yet run (no dev server; port 4173 shared)",
+      "files": [
+        "tests/e2e/us2-storage.spec.ts"
+      ]
+    },
+    "T088": {
+      "status": "DONE",
+      "did": "e2e spec written and lint/tsc clean; NOT yet run (no dev server; port 4173 shared)",
+      "files": [
+        "tests/e2e/us2-tabs.spec.ts"
+      ]
+    },
+    "T089": {
+      "status": "DONE",
+      "did": "e2e spec written and lint/tsc clean; NOT yet run (no dev server; port 4173 shared)",
+      "files": [
+        "tests/e2e/us2-exchange.spec.ts tests/corpus/import/binary.puml"
+      ]
+    },
+    "T094": {
+      "status": "DONE",
+      "did": "requestPersistence: navigator.storage.persist(), looksPrivate(quota, heapLimit), returns persisted bool/null and privateWindow flag",
+      "files": [
+        "src/services/storage/persistence.ts"
+      ]
+    },
+    "T095": {
+      "status": "DONE",
+      "did": "downloadProject: exact source Blob (BOM/CRLF kept), safe file name, unrenderable-block list, markDownloaded, saveBlob anchor-click",
+      "files": [
+        "src/services/files/download.ts"
+      ]
+    },
+    "T096": {
+      "status": "DONE",
+      "did": "importProjectFile: pickFile, decode, importFile core, create record, date-suffix on name clash, pendingOpen, navigate",
+      "files": [
+        "src/services/files/import-file.ts"
+      ]
+    },
+    "T097": {
+      "status": "DONE",
+      "did": "DeleteDialog alertdialog: focus trap, Escape cancels, Download-and-delete only when changesNotDownloaded",
+      "files": [
+        "src/ui/library/DeleteDialog.tsx"
+      ]
+    },
+    "T098": {
+      "status": "DONE",
+      "did": "StorageNotices: failure notice with Download-a-backup action, persistence/private-window once-per-session, backup reminder keyed by project id",
+      "files": [
+        "src/ui/storage/StorageNotices.tsx"
+      ]
+    },
+    "T099": {
+      "status": "DONE",
+      "did": "TabBanner: readOnly with Edit-here-instead, handingOver status, deletedElsewhere with Download-its-content; hooksFor wires flush/clearHistory/loadLatest/onRenamed/onDeleted",
+      "files": [
+        "src/ui/storage/TabBanner.tsx"
+      ]
+    },
+    "T100": {
+      "status": "DONE",
+      "did": "DownloadCommand toolbar button; showDownloadNotices lists unrenderable blocks; downloadSession marks downloaded via store.updateRecord or projects.markDownloaded",
+      "files": [
+        "src/ui/storage/DownloadCommand.tsx"
+      ]
+    },
+    "T101": {
+      "status": "DONE",
+      "did": "libraryItems: header ImportCommand; LibraryRowCommands: Open/Rename/Duplicate/Download/Delete with refreshLibrary and announce after each",
+      "files": [
+        "src/ui/library/library-commands.tsx"
+      ]
+    },
+    "T102": {
+      "status": "DONE",
+      "did": "ImportCommand toolbar button with configurable labelKey; runImport picks file, imports, sets pendingOpen, refreshLibrary, navigates",
+      "files": [
+        "src/ui/storage/ImportCommand.tsx"
+      ]
+    },
+    "T103": {
+      "status": "DONE",
+      "did": "registerStorage: library items, toolbar Download/Import, tab banner, storage notices; createAppStorageUi lazy-db, createTabs, BroadcastChannel, requestPersistence; exported useProjectReadOnly",
+      "files": [
+        "src/ui/storage/register.tsx"
+      ]
+    },
+    "T066": {
+      "status": "DONE",
+      "did": "Screen messages: palette categories/descriptions, commands, all core refusal/announce/history keys, element types, grid labels, aria-label templates, span limit, property names, style/kind options, formatting choice, canvas strings",
+      "files": [
+        "src/ui/messages/en/screen.ts"
+      ]
+    },
+    "T139": {
+      "status": "DONE",
+      "did": "UI tests: Add flow opens canvas, branch navigation, delete decision with announcement, lane deletion asks destination, invalid targets refused, move sideways refused, delete flow confirmation",
+      "files": [
+        "tests/ui/flow-canvas/flow-editing.test.tsx"
+      ]
+    },
+    "T152": {
+      "status": "DONE",
+      "did": "FlowCanvas: structured top-to-bottom canvas with lane markers, notes, locked parts, link badges, keyboard nav and drag targets",
+      "files": [
+        "src/ui/flow-canvas/FlowCanvas.tsx src/ui/flow-canvas/flow-keys.ts src/ui/flow-canvas/StepView.tsx"
+      ]
+    },
+    "T153": {
+      "status": "DONE",
+      "did": "FlowPalette: Step, Decision, Loop and Stop buttons each inserting at the current selection",
+      "files": [
+        "src/ui/flow-canvas/FlowPalette.tsx"
+      ]
+    },
+    "T154": {
+      "status": "DONE",
+      "did": "FlowProperties, LaneList (with delete-in-use dialog), NotesEditor: element label/condition/branch fields, lane selector, notes CRUD",
+      "files": [
+        "src/ui/flow-canvas/FlowProperties.tsx src/ui/flow-canvas/LaneList.tsx src/ui/flow-canvas/NotesEditor.tsx"
+      ]
+    },
+    "T155": {
+      "status": "DONE",
+      "did": "FlowOutline: flow structure as accessible tree using Tree.tsx with decision branches and loop body",
+      "files": [
+        "src/ui/flow-canvas/flow-outline.tsx"
+      ]
+    },
+    "T156": {
+      "status": "DONE",
+      "did": "register.tsx: registers flow block editor (Canvas/Palette/Properties/Outline/commands), Add screen flow header command, Delete screen flow block command with alertdialog confirmation",
+      "files": [
+        "src/ui/flow-canvas/register.tsx"
+      ]
+    },
+    "T140": {
+      "status": "DONE",
+      "did": "E2E spec: flow add/insert step+decision+loop/lanes renders; typechecks and lints; NOT yet run by playwright",
+      "files": [
+        "tests/e2e/us6-flow.spec.ts"
+      ]
+    },
+    "T063": {
+      "status": "DONE",
+      "did": "Created tests/ui/canvas/screen-editing.test.tsx with 17 UI tests (all passing) covering VO-002/005/006/049/057/093/095/096/097/098",
+      "files": [
+        "tests/ui/canvas/screen-editing.test.tsx"
+      ]
+    },
+    "T064": {
+      "status": "DONE",
+      "did": "Created tests/ui/canvas/properties-presets.test.tsx with 10 UI tests (all passing) covering VO-003/008/059/060 and property fields",
+      "files": [
+        "tests/ui/canvas/properties-presets.test.tsx"
+      ]
+    },
+    "T065": {
+      "status": "DONE",
+      "did": "Created tests/e2e/us1-build-screen.spec.ts (typechecks and lints; e2e spec NOT yet run — main agent runs at join)",
+      "files": [
+        "tests/e2e/us1-build-screen.spec.ts"
+      ]
+    },
+    "T077": {
+      "status": "DONE",
+      "did": "Created src/ui/canvas/SaltCanvas.tsx, CellView.tsx, components.tsx, canvas-keys.ts, InlineEdit.tsx, canvas.css with full grid rendering, arrow-key navigation, inline editing, drag-and-drop",
+      "files": [
+        "src/ui/canvas/SaltCanvas.tsx src/ui/canvas/CellView.tsx src/ui/canvas/components.tsx src/ui/canvas/canvas-keys.ts src/ui/canvas/InlineEdit.tsx src/ui/canvas/canvas.css"
+      ]
+    },
+    "T078": {
+      "status": "DONE",
+      "did": "Created src/ui/palette/Palette.tsx: five categories, aria-label per button, inserts via insert() op with shiftEdits",
+      "files": [
+        "src/ui/palette/Palette.tsx"
+      ]
+    },
+    "T079": {
+      "status": "DONE",
+      "did": "Created src/ui/outline/screen-outline.tsx: Tree-based outline using gridLabel, follows canvas selection",
+      "files": [
+        "src/ui/outline/screen-outline.tsx"
+      ]
+    },
+    "T080": {
+      "status": "DONE",
+      "did": "Created src/ui/properties/salt-properties.tsx, FormattingChoice.tsx: property panel for all 15 property types including span, style, kind",
+      "files": [
+        "src/ui/properties/salt-properties.tsx src/ui/properties/FormattingChoice.tsx"
+      ]
+    },
+    "T081": {
+      "status": "DONE",
+      "did": "Created src/ui/canvas/register.tsx: registers screen block editor into slots with Canvas/Palette/Outline/Properties/commands/pathLabels/destinations/hasPath",
+      "files": [
+        "src/ui/canvas/register.tsx"
+      ]
+    },
+    "T157": {
+      "status": "DONE",
+      "did": "Unit tests for setLink and createAndLink",
+      "files": [
+        "tests/unit/activity/ops/links.test.ts"
+      ]
+    },
+    "T158": {
+      "status": "DONE",
+      "did": "Oracle test for linked escaped labels",
+      "files": [
+        "tests/oracle/links.test.ts"
+      ]
+    },
+    "T159": {
+      "status": "DONE",
+      "did": "UI tests for link control",
+      "files": [
+        "tests/ui/flow-links/links.test.tsx"
+      ]
+    },
+    "T160": {
+      "status": "DONE",
+      "did": "E2E walkthrough Open screen / Back to flow / preview click",
+      "files": [
+        "tests/e2e/us7-walkthrough.spec.ts"
+      ]
+    },
+    "T161": {
+      "status": "DONE",
+      "did": "Link messages",
+      "files": [
+        "src/ui/messages/en/links.ts"
+      ]
+    },
+    "T162": {
+      "status": "DONE",
+      "did": "setLink and createAndLink",
+      "files": [
+        "src/core/activity/ops/links.ts"
+      ]
+    },
+    "T163": {
+      "status": "DONE",
+      "did": "openScreen/backToFlow navigation",
+      "files": [
+        "src/ui/flow-links/navigation.ts"
+      ]
+    },
+    "T164": {
+      "status": "DONE",
+      "did": "LinkControl properties section",
+      "files": [
+        "src/ui/flow-links/LinkControl.tsx"
+      ]
+    },
+    "T165": {
+      "status": "DONE",
+      "did": "Preview link handler",
+      "files": [
+        "src/ui/flow-links/preview-links.ts"
+      ]
+    },
+    "T166": {
+      "status": "DONE",
+      "did": "Register link control, commands, previewLink",
+      "files": [
+        "src/ui/flow-links/register.tsx"
+      ]
+    },
+    "T180": {
+      "status": "DONE",
+      "did": "Oracle test generated content",
+      "files": [
+        "tests/oracle/generated.test.ts"
+      ]
+    },
+    "T181": {
+      "status": "DONE",
+      "did": "Undo/redo every operation kind unit test",
+      "files": [
+        "tests/unit/history/every-operation.test.ts"
+      ]
+    },
+    "T182": {
+      "status": "DONE",
+      "did": "README",
+      "files": [
+        "README.md"
+      ]
+    },
+    "T183": {
+      "status": "DONE",
+      "did": "Manual verification script",
+      "files": [
+        "specs/001-wireframe-flow-editor/tests/manual-verification.md"
+      ]
+    },
+    "T174": {
+      "status": "DONE",
+      "did": "Reference project and SC-006 measurements",
+      "files": [
+        "tests/corpus/reference/reference-project.puml",
+        "tests/e2e/perf/reference.spec.ts"
+      ]
+    },
+    "T175": {
+      "status": "DONE",
+      "did": "axe WCAG 2.2 AA scan; fixed 24px target size",
+      "files": [
+        "tests/e2e/a11y.spec.ts",
+        "src/ui/workspace/workspace.css"
+      ]
+    },
+    "T176": {
+      "status": "DONE",
+      "did": "keyboard-only e2e",
+      "files": [
+        "tests/e2e/keyboard-only.spec.ts"
+      ]
+    },
+    "T177": {
+      "status": "DONE",
+      "did": "offline e2e",
+      "files": [
+        "tests/e2e/offline.spec.ts"
+      ]
+    },
+    "T178": {
+      "status": "DONE",
+      "did": "privacy e2e",
+      "files": [
+        "tests/e2e/privacy.spec.ts"
+      ]
+    },
+    "T179": {
+      "status": "DONE",
+      "did": "viewport and touch e2e",
+      "files": [
+        "tests/e2e/viewport-touch.spec.ts"
+      ]
+    },
+    "T184": {
+      "status": "DONE",
+      "did": "Validated against the Success Criteria; fixed the defects it found",
+      "files": [
+        "specs/001-wireframe-flow-editor/tests/validation-report.md"
+      ]
+    }
+  },
+  "verified": [
+    {
+      "what": "lint",
+      "command": "npm run lint",
+      "source": "derived",
+      "exitCode": 0,
+      "durationSeconds": 6.2,
+      "result": "> plantuml-wysiwyg-editor@0.1.0 lint · > eslint ."
+    },
+    {
+      "what": "unit and ui tests",
+      "command": "npm run test:unit",
+      "source": "derived",
+      "exitCode": 0,
+      "durationSeconds": 6.7,
+      "result": "      Tests  1348 passed (1348) ·    Start at  20:12:46 ·    Duration  6.29s (tests 36%, environment 32%, transform 16%, import 8%, setup 7%, worker 1%)"
+    },
+    {
+      "what": "oracle tests",
+      "command": "npm run test:oracle",
+      "source": "derived",
+      "exitCode": 0,
+      "durationSeconds": 2.2,
+      "result": "      Tests  184 passed (184) ·    Start at  20:12:53 ·    Duration  1.85s (tests 87%, transform 10%, import 3%)"
+    },
+    {
+      "what": "type-check and build",
+      "command": "npm run build",
+      "source": "derived",
+      "exitCode": 0,
+      "durationSeconds": 5.2,
+      "result": "files generated ·   dist/sw.js ·  WARN  inlineDynamicImports option is deprecated, please use codeSplitting: false instead."
+    },
+    {
+      "what": "e2e (chromium)",
+      "command": "npx playwright test --project=chromium --reporter=line",
+      "source": "derived",
+      "exitCode": 0,
+      "durationSeconds": 20.3,
+      "result": "Dismiss · This browser has not agreed to keep your projects permanently, so it may delete them if it runs short of space. Download your projects regularly to keep a copy. ·   72 passed (19.5s)"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "comment": "fork / fork again / end fork in the flow: a locked part (EC-10).",
+  "flowIndex": 1,
+  "blocks": [
+    {
+      "kind": "screen",
+      "status": "Editable",
+      "name": "Sign-in",
+      "nameFlag": null
+    },
+    {
+      "kind": "flow",
+      "status": "Has locked parts",
+      "name": "Screen-flow",
+      "nameFlag": null
+    }
+  ]
+}

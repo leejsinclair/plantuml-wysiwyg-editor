@@ -1,0 +1,100 @@
+@startuml library-autosave
+|User|
+start
+:Open the application;
+|Storage|
+:Restore the project library exactly as last stored;
+if (Persistent storage granted?) then (yes)
+else (no)
+  |Editor|
+  :Show one non-blocking notice explaining the risk;
+endif
+|Editor|
+if (Private window detectable?) then (yes)
+  :Warn that projects will not be kept;
+else (no)
+endif
+:List projects with last-modified and last-downloaded
+times; state that projects are not synchronised
+between browsers or devices;
+|User|
+if (Library action?) then (create)
+  |Editor|
+  :Create "Untitled project" with one empty screen;
+elseif (Library action?) then (open)
+  |Editor|
+  if (Already being edited in another tab?) then (yes)
+    :Open it read-only with "Edit here instead";
+    |User|
+    if (Choose "Edit here instead"?) then (yes)
+      |Storage|
+      :Save the other tab's pending edits;
+      |Editor|
+      :Load the latest stored version;
+      :Move editing here; the other tab becomes read-only,
+      and undo history starts empty in both tabs;
+    else (no)
+      |Editor|
+      :Keep showing the version stored when opened,
+      read-only, until the tab is reloaded;
+      |User|
+      stop
+    endif
+  else (no)
+    :Open it for editing;
+  endif
+elseif (Library action?) then (rename or duplicate)
+  |Editor|
+  :Apply it in every open tab; a duplicate is named
+  "Copy of …" and starts as never downloaded;
+  |User|
+  stop
+else (delete)
+  |Editor|
+  :Ask for confirmation, saying whether the project has
+  changes not downloaded, with "Download and delete";
+  |User|
+  if (Confirm?) then (Delete, or Download and delete)
+    |Storage|
+    :Delete the project;
+    |Editor|
+    :Tabs showing it say it was deleted
+    and offer to download its content;
+  else (cancel)
+    |Editor|
+    :Leave the project unchanged;
+  endif
+  |User|
+  stop
+endif
+|User|
+repeat
+  :Edit the open project;
+  |Storage|
+  :Commit the edit within 2 seconds;
+  if (Write succeeded?) then (yes)
+    |Editor|
+    :Show "All changes saved";
+  else (no)
+    |Storage|
+    :Keep the previous stored version intact;
+    |Editor|
+    :Report the failure within 1 second, without blocking
+    editing, with advice and "Download a backup";
+    |Storage|
+    repeat
+      :Retry the write;
+    repeat while (Retry failed?) is (yes)
+    ->no;
+    |Editor|
+    :Return the status to "All changes saved";
+  endif
+  if (Changes not downloaded, no reminder yet this session?) then (yes)
+    :Show one non-blocking reminder to download a backup;
+  else (no)
+  endif
+  |User|
+repeat while (Keep editing?) is (yes)
+->no;
+stop
+@enduml

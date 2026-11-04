@@ -1,0 +1,12 @@
+{
+  "comment": "The file's only screen is malformed (root grid never closed): it stays a screen with status Error and still opens (FR-006/AC17, FR-010/AC8).",
+  "flowIndex": null,
+  "blocks": [
+    {
+      "kind": "screen",
+      "status": "Error",
+      "name": "Broken",
+      "nameFlag": null
+    }
+  ]
+}

@@ -1,0 +1,201 @@
+/* Salt canvas styles (T077; FR-016/AC5) */
+
+.salt-canvas {
+  padding: 12px;
+  outline: none;
+  min-height: 120px;
+  position: relative;
+}
+
+.salt-canvas__controls {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+  font-size: 0.85em;
+  color: var(--canvas-controls-color, currentColor);
+}
+
+.salt-canvas__guides-toggle {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.salt-canvas__empty-prompt {
+  padding: 24px;
+  text-align: center;
+  color: var(--canvas-empty-color, #888);
+  font-style: italic;
+}
+
+/* Grid container */
+.salt-grid {
+  display: inline-grid;
+  gap: 0;
+  border-collapse: collapse;
+}
+
+.salt-grid--plain {
+  /* No border */
+}
+
+.salt-grid--border {
+  border: 1px solid var(--grid-border, currentColor);
+  padding: 4px;
+}
+
+.salt-grid--tableLines {
+  border: 1px solid var(--grid-border, currentColor);
+}
+
+.salt-grid--verticalLines {
+  border-left: 1px solid var(--grid-border, currentColor);
+  border-right: 1px solid var(--grid-border, currentColor);
+}
+
+.salt-grid--horizontalLines {
+  border-top: 1px solid var(--grid-border, currentColor);
+  border-bottom: 1px solid var(--grid-border, currentColor);
+}
+
+.salt-grid--groupBox {
+  border: 2px groove var(--grid-border, currentColor);
+  padding: 4px;
+}
+
+.salt-grid--scroll {
+  border: 1px dashed var(--grid-border, #888);
+  padding: 4px;
+}
+
+/* Layout guide lines: show container boundaries when "Show layout guides" is on */
+.salt-grid--guides {
+  outline: 1px dashed var(--guide-color, rgba(90, 90, 200, 0.35));
+  outline-offset: 1px;
+}
+
+/* Rows */
+.salt-row {
+  display: contents;
+}
+
+.salt-row--separator {
+  display: block;
+}
+
+/* Cells */
+.salt-cell {
+  padding: 2px 4px;
+  cursor: pointer;
+  position: relative;
+  box-sizing: border-box;
+  min-width: 2em;
+  min-height: 1.5em;
+}
+
+.salt-cell:focus-visible {
+  outline: 2px solid var(--selection, Highlight);
+  outline-offset: -1px;
+}
+
+.salt-cell--selected {
+  background: var(--selection-bg, rgba(0, 120, 212, 0.1));
+}
+
+.salt-cell--empty {
+  min-width: 2em;
+  min-height: 1.5em;
+}
+
+/* Empty cell marker */
+.salt-empty-marker {
+  border: 1px dashed var(--empty-cell-border, #aaa);
+  border-radius: 2px;
+  display: block;
+  min-width: 2em;
+  min-height: 1.2em;
+  opacity: 0.6;
+}
+
+/* Inline edit */
+.salt-inline-edit {
+  font-size: inherit;
+  font-family: inherit;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid var(--selection, Highlight);
+  border-radius: 2px;
+  padding: 0 2px;
+  background: var(--inline-edit-bg, #fff);
+  color: var(--inline-edit-color, inherit);
+}
+
+/* Nested container placeholder */
+.salt-nested-container {
+  border: 1px dashed var(--grid-border, #aaa);
+  padding: 4px;
+  min-height: 2em;
+  border-radius: 2px;
+  opacity: 0.7;
+}
+
+/* T019: SVG roughen filter for RoughBorder (FR-020, US6) */
+:root {
+  --rough-filter: none;
+}
+
+/* T020: Button tier CSS (US6) — primary, secondary, default tiers for Salt buttons */
+.salt-button--primary {
+  background: var(--btn-primary-bg, #0078d4);
+  color: var(--btn-primary-color, #fff);
+  border-color: var(--btn-primary-bg, #0078d4);
+}
+
+.salt-button--secondary {
+  background: var(--btn-secondary-bg, transparent);
+  border-color: var(--btn-secondary-border, currentColor);
+}
+
+.salt-button--ghost {
+  border-color: transparent;
+  background: transparent;
+}
+
+/* T021: Guide-lines recursive selector — all nested containers get guide outlines when guides are on (US3/US6) */
+[data-show-guides] .salt-grid,
+[data-show-guides] .salt-grid > * {
+  outline: 1px dashed var(--guide-color, rgba(90, 90, 200, 0.35));
+  outline-offset: 1px;
+}
+
+[data-show-guides] .salt-cell {
+  outline: 1px dotted var(--guide-cell-color, rgba(90, 90, 200, 0.2));
+  outline-offset: 0;
+}
+
+/* Dark mode overrides */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .salt-inline-edit {
+    background: var(--inline-edit-bg, #1a1a1a);
+    color: var(--inline-edit-color, #fff);
+  }
+}
+
+.salt-nested-container {
+  min-height: 2em;
+}
+
+/* Drop zones: registered under move-destination keys; visible only while a drag offers them. */
+.salt-dropzone { position: absolute; pointer-events: none; display: block; }
+.salt-dropzone--whole { inset: 0; }
+.salt-dropzone--start { inset: 0 50% 0 0; }
+.salt-dropzone--end { inset: 0 0 0 50%; }
+.salt-dropzone[data-drop-state='offered'] { outline: 1px dashed var(--selection, Highlight); outline-offset: -1px; }
+.salt-dropzone[data-drop-state='over'] { background: var(--selection-bg, rgba(0, 120, 212, 0.25)); outline: 2px solid var(--selection, Highlight); outline-offset: -2px; }
+.salt-dropzone[data-drop-state='blocked'] { cursor: not-allowed; background: rgba(200, 0, 0, 0.12); }
+.salt-dropzone-end { position: relative; min-height: 0; }
+.salt-dropzone-end .salt-dropzone { inset: -4px 0 -4px 0; }
+.salt-dropzone--column.salt-dropzone--start { inset: 0 0 50% 0; }
+.salt-dropzone--column.salt-dropzone--end { inset: 50% 0 0 0; }

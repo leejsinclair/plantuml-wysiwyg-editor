@@ -1,0 +1,17 @@
+@startuml Handshake
+Alice -> Bob : Hello
+Bob --> Alice : Hi
+@enduml
+
+@startuml Checkout
+start
+:Review basket;
+:Pay;
+stop
+@enduml
+
+@startuml Returns
+start
+:Request return;
+stop
+@enduml

@@ -1,0 +1,35 @@
+@startuml block-sync-states
+state "In sync" as InSync
+state "Source being edited" as Editing
+state "Source invalid (locked)" as Invalid
+state "Contains locked parts" as Locked
+state "Source-only" as SourceOnly
+state "Render failed" as RenderFailed
+state "Storage failed" as StorageFailed
+
+[*] --> InSync : block opened, fully supported
+[*] --> Locked : block opened, unsupported parts isolated
+[*] --> SourceOnly : block opened, cannot be isolated
+[*] --> Invalid : block opened or reopened, source invalid
+InSync --> InSync : visual edit
+Locked --> Locked : visual edit around locked parts
+InSync --> Editing : user types in source
+Locked --> Editing : user types in source
+SourceOnly --> Editing : user types in source
+Invalid --> Editing : user types in source
+Editing --> InSync : user pauses typing, source fully supported
+Editing --> Locked : user pauses typing, unsupported parts isolated
+Editing --> SourceOnly : user pauses typing, cannot be isolated
+Editing --> Invalid : user pauses typing, source invalid
+Invalid --> InSync : user reverts, last working version fully supported
+Invalid --> Locked : user reverts, last working version has locked parts
+Locked --> InSync : user deletes the last locked part
+InSync --> Invalid : undo or redo restores invalid source
+InSync --> RenderFailed : renderer reports a failure
+Locked --> RenderFailed : renderer reports a failure
+SourceOnly --> RenderFailed : renderer reports a failure
+RenderFailed --> InSync : a later render succeeds (or back to the previous state)
+RenderFailed --> Editing : user types in source
+InSync --> StorageFailed : autosave write fails
+StorageFailed --> InSync : autosave retry succeeds
+@enduml

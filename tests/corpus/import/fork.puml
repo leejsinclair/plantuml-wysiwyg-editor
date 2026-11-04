@@ -1,0 +1,16 @@
+@startsalt Sign-in
+{
+  Email | "            "
+  [Sign in] | .
+}
+@endsalt
+@startuml Screen-flow
+start
+:[[#Sign-in Sign in]];
+fork
+  :Load profile;
+fork again
+  :Load settings;
+end fork
+stop
+@enduml

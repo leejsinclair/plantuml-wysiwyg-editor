@@ -1,0 +1,12 @@
+{
+  "comment": "A container with more than one style modifier: cannot be isolated, so the screen opens source-only (EC-09).",
+  "flowIndex": null,
+  "blocks": [
+    {
+      "kind": "screen",
+      "status": "Source only",
+      "name": "Styled",
+      "nameFlag": null
+    }
+  ]
+}

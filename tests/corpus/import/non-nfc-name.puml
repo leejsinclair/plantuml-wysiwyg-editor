@@ -1,0 +1,12 @@
+@startsalt Café
+{
+  Email | "            "
+  [Sign in] | .
+}
+@endsalt
+@startsalt Thé
+{
+  Email | "            "
+  [Sign in] | .
+}
+@endsalt

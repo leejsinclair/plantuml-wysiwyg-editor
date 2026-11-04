@@ -1,0 +1,8 @@
+@startuml Screen-flow
+start
+partition Checkout {
+  :Review basket;
+  :Pay;
+}
+stop
+@enduml

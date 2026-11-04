@@ -1,0 +1,14 @@
+@startuml Jumps
+start
+label retry
+:Try sign in;
+if (Failed?) then (yes)
+  goto retry
+endif
+stop
+@enduml
+@startuml Main-flow
+start
+:Sign in;
+stop
+@enduml

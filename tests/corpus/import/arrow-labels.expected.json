@@ -1,0 +1,12 @@
+{
+  "comment": "Activity arrow labels (-> label;): well-formed but unsupported, so locked parts, never Error (FR-010/AC10).",
+  "flowIndex": 0,
+  "blocks": [
+    {
+      "kind": "flow",
+      "status": "Has locked parts",
+      "name": "Screen-flow",
+      "nameFlag": null
+    }
+  ]
+}

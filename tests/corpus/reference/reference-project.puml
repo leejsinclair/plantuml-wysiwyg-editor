@@ -1,0 +1,183 @@
+@startsalt Screen-1
+{
+  Field 1.0 | "          " | [Action 1.0] | [ ] Option 1.0 | (X) Choice 1.0
+  "          " | [Action 1.1] | [ ] Option 1.1 | (X) Choice 1.1 | Field 1.1
+  [Action 1.2] | [ ] Option 1.2 | (X) Choice 1.2 | Field 1.2 | "          "
+  [ ] Option 1.3 | (X) Choice 1.3 | Field 1.3 | "          " | [Action 1.3]
+  (X) Choice 1.4 | Field 1.4 | "          " | [Action 1.4] | [ ] Option 1.4
+  Field 1.5 | "          " | [Action 1.5] | [ ] Option 1.5 | (X) Choice 1.5
+  "          " | [Action 1.6] | [ ] Option 1.6 | (X) Choice 1.6 | Field 1.6
+  [Action 1.7] | [ ] Option 1.7 | (X) Choice 1.7 | Field 1.7 | "          "
+  [ ] Option 1.8 | (X) Choice 1.8 | Field 1.8 | "          " | [Action 1.8]
+  (X) Choice 1.9 | Field 1.9 | "          " | [Action 1.9] | [ ] Option 1.9
+}
+@endsalt
+@startsalt Screen-2
+{
+  Field 2.0 | "          " | [Action 2.0] | [ ] Option 2.0 | (X) Choice 2.0
+  "          " | [Action 2.1] | [ ] Option 2.1 | (X) Choice 2.1 | Field 2.1
+  [Action 2.2] | [ ] Option 2.2 | (X) Choice 2.2 | Field 2.2 | "          "
+  [ ] Option 2.3 | (X) Choice 2.3 | Field 2.3 | "          " | [Action 2.3]
+  (X) Choice 2.4 | Field 2.4 | "          " | [Action 2.4] | [ ] Option 2.4
+  Field 2.5 | "          " | [Action 2.5] | [ ] Option 2.5 | (X) Choice 2.5
+  "          " | [Action 2.6] | [ ] Option 2.6 | (X) Choice 2.6 | Field 2.6
+  [Action 2.7] | [ ] Option 2.7 | (X) Choice 2.7 | Field 2.7 | "          "
+  [ ] Option 2.8 | (X) Choice 2.8 | Field 2.8 | "          " | [Action 2.8]
+  (X) Choice 2.9 | Field 2.9 | "          " | [Action 2.9] | [ ] Option 2.9
+}
+@endsalt
+@startsalt Screen-3
+{
+  Field 3.0 | "          " | [Action 3.0] | [ ] Option 3.0 | (X) Choice 3.0
+  "          " | [Action 3.1] | [ ] Option 3.1 | (X) Choice 3.1 | Field 3.1
+  [Action 3.2] | [ ] Option 3.2 | (X) Choice 3.2 | Field 3.2 | "          "
+  [ ] Option 3.3 | (X) Choice 3.3 | Field 3.3 | "          " | [Action 3.3]
+  (X) Choice 3.4 | Field 3.4 | "          " | [Action 3.4] | [ ] Option 3.4
+  Field 3.5 | "          " | [Action 3.5] | [ ] Option 3.5 | (X) Choice 3.5
+  "          " | [Action 3.6] | [ ] Option 3.6 | (X) Choice 3.6 | Field 3.6
+  [Action 3.7] | [ ] Option 3.7 | (X) Choice 3.7 | Field 3.7 | "          "
+  [ ] Option 3.8 | (X) Choice 3.8 | Field 3.8 | "          " | [Action 3.8]
+  (X) Choice 3.9 | Field 3.9 | "          " | [Action 3.9] | [ ] Option 3.9
+}
+@endsalt
+@startsalt Screen-4
+{
+  Field 4.0 | "          " | [Action 4.0] | [ ] Option 4.0 | (X) Choice 4.0
+  "          " | [Action 4.1] | [ ] Option 4.1 | (X) Choice 4.1 | Field 4.1
+  [Action 4.2] | [ ] Option 4.2 | (X) Choice 4.2 | Field 4.2 | "          "
+  [ ] Option 4.3 | (X) Choice 4.3 | Field 4.3 | "          " | [Action 4.3]
+  (X) Choice 4.4 | Field 4.4 | "          " | [Action 4.4] | [ ] Option 4.4
+  Field 4.5 | "          " | [Action 4.5] | [ ] Option 4.5 | (X) Choice 4.5
+  "          " | [Action 4.6] | [ ] Option 4.6 | (X) Choice 4.6 | Field 4.6
+  [Action 4.7] | [ ] Option 4.7 | (X) Choice 4.7 | Field 4.7 | "          "
+  [ ] Option 4.8 | (X) Choice 4.8 | Field 4.8 | "          " | [Action 4.8]
+  (X) Choice 4.9 | Field 4.9 | "          " | [Action 4.9] | [ ] Option 4.9
+}
+@endsalt
+@startsalt Screen-5
+{
+  Field 5.0 | "          " | [Action 5.0] | [ ] Option 5.0 | (X) Choice 5.0
+  "          " | [Action 5.1] | [ ] Option 5.1 | (X) Choice 5.1 | Field 5.1
+  [Action 5.2] | [ ] Option 5.2 | (X) Choice 5.2 | Field 5.2 | "          "
+  [ ] Option 5.3 | (X) Choice 5.3 | Field 5.3 | "          " | [Action 5.3]
+  (X) Choice 5.4 | Field 5.4 | "          " | [Action 5.4] | [ ] Option 5.4
+  Field 5.5 | "          " | [Action 5.5] | [ ] Option 5.5 | (X) Choice 5.5
+  "          " | [Action 5.6] | [ ] Option 5.6 | (X) Choice 5.6 | Field 5.6
+  [Action 5.7] | [ ] Option 5.7 | (X) Choice 5.7 | Field 5.7 | "          "
+  [ ] Option 5.8 | (X) Choice 5.8 | Field 5.8 | "          " | [Action 5.8]
+  (X) Choice 5.9 | Field 5.9 | "          " | [Action 5.9] | [ ] Option 5.9
+}
+@endsalt
+@startsalt Screen-6
+{
+  Field 6.0 | "          " | [Action 6.0] | [ ] Option 6.0 | (X) Choice 6.0
+  "          " | [Action 6.1] | [ ] Option 6.1 | (X) Choice 6.1 | Field 6.1
+  [Action 6.2] | [ ] Option 6.2 | (X) Choice 6.2 | Field 6.2 | "          "
+  [ ] Option 6.3 | (X) Choice 6.3 | Field 6.3 | "          " | [Action 6.3]
+  (X) Choice 6.4 | Field 6.4 | "          " | [Action 6.4] | [ ] Option 6.4
+  Field 6.5 | "          " | [Action 6.5] | [ ] Option 6.5 | (X) Choice 6.5
+  "          " | [Action 6.6] | [ ] Option 6.6 | (X) Choice 6.6 | Field 6.6
+  [Action 6.7] | [ ] Option 6.7 | (X) Choice 6.7 | Field 6.7 | "          "
+  [ ] Option 6.8 | (X) Choice 6.8 | Field 6.8 | "          " | [Action 6.8]
+  (X) Choice 6.9 | Field 6.9 | "          " | [Action 6.9] | [ ] Option 6.9
+}
+@endsalt
+@startsalt Screen-7
+{
+  Field 7.0 | "          " | [Action 7.0] | [ ] Option 7.0 | (X) Choice 7.0
+  "          " | [Action 7.1] | [ ] Option 7.1 | (X) Choice 7.1 | Field 7.1
+  [Action 7.2] | [ ] Option 7.2 | (X) Choice 7.2 | Field 7.2 | "          "
+  [ ] Option 7.3 | (X) Choice 7.3 | Field 7.3 | "          " | [Action 7.3]
+  (X) Choice 7.4 | Field 7.4 | "          " | [Action 7.4] | [ ] Option 7.4
+  Field 7.5 | "          " | [Action 7.5] | [ ] Option 7.5 | (X) Choice 7.5
+  "          " | [Action 7.6] | [ ] Option 7.6 | (X) Choice 7.6 | Field 7.6
+  [Action 7.7] | [ ] Option 7.7 | (X) Choice 7.7 | Field 7.7 | "          "
+  [ ] Option 7.8 | (X) Choice 7.8 | Field 7.8 | "          " | [Action 7.8]
+  (X) Choice 7.9 | Field 7.9 | "          " | [Action 7.9] | [ ] Option 7.9
+}
+@endsalt
+@startsalt Screen-8
+{
+  Field 8.0 | "          " | [Action 8.0] | [ ] Option 8.0 | (X) Choice 8.0
+  "          " | [Action 8.1] | [ ] Option 8.1 | (X) Choice 8.1 | Field 8.1
+  [Action 8.2] | [ ] Option 8.2 | (X) Choice 8.2 | Field 8.2 | "          "
+  [ ] Option 8.3 | (X) Choice 8.3 | Field 8.3 | "          " | [Action 8.3]
+  (X) Choice 8.4 | Field 8.4 | "          " | [Action 8.4] | [ ] Option 8.4
+  Field 8.5 | "          " | [Action 8.5] | [ ] Option 8.5 | (X) Choice 8.5
+  "          " | [Action 8.6] | [ ] Option 8.6 | (X) Choice 8.6 | Field 8.6
+  [Action 8.7] | [ ] Option 8.7 | (X) Choice 8.7 | Field 8.7 | "          "
+  [ ] Option 8.8 | (X) Choice 8.8 | Field 8.8 | "          " | [Action 8.8]
+  (X) Choice 8.9 | Field 8.9 | "          " | [Action 8.9] | [ ] Option 8.9
+}
+@endsalt
+@startsalt Screen-9
+{
+  Field 9.0 | "          " | [Action 9.0] | [ ] Option 9.0 | (X) Choice 9.0
+  "          " | [Action 9.1] | [ ] Option 9.1 | (X) Choice 9.1 | Field 9.1
+  [Action 9.2] | [ ] Option 9.2 | (X) Choice 9.2 | Field 9.2 | "          "
+  [ ] Option 9.3 | (X) Choice 9.3 | Field 9.3 | "          " | [Action 9.3]
+  (X) Choice 9.4 | Field 9.4 | "          " | [Action 9.4] | [ ] Option 9.4
+  Field 9.5 | "          " | [Action 9.5] | [ ] Option 9.5 | (X) Choice 9.5
+  "          " | [Action 9.6] | [ ] Option 9.6 | (X) Choice 9.6 | Field 9.6
+  [Action 9.7] | [ ] Option 9.7 | (X) Choice 9.7 | Field 9.7 | "          "
+  [ ] Option 9.8 | (X) Choice 9.8 | Field 9.8 | "          " | [Action 9.8]
+  (X) Choice 9.9 | Field 9.9 | "          " | [Action 9.9] | [ ] Option 9.9
+}
+@endsalt
+@startsalt Screen-10
+{
+  Field 10.0 | "          " | [Action 10.0] | [ ] Option 10.0 | (X) Choice 10.0
+  "          " | [Action 10.1] | [ ] Option 10.1 | (X) Choice 10.1 | Field 10.1
+  [Action 10.2] | [ ] Option 10.2 | (X) Choice 10.2 | Field 10.2 | "          "
+  [ ] Option 10.3 | (X) Choice 10.3 | Field 10.3 | "          " | [Action 10.3]
+  (X) Choice 10.4 | Field 10.4 | "          " | [Action 10.4] | [ ] Option 10.4
+  Field 10.5 | "          " | [Action 10.5] | [ ] Option 10.5 | (X) Choice 10.5
+  "          " | [Action 10.6] | [ ] Option 10.6 | (X) Choice 10.6 | Field 10.6
+  [Action 10.7] | [ ] Option 10.7 | (X) Choice 10.7 | Field 10.7 | "          "
+  [ ] Option 10.8 | (X) Choice 10.8 | Field 10.8 | "          " | [Action 10.8]
+  (X) Choice 10.9 | Field 10.9 | "          " | [Action 10.9] | [ ] Option 10.9
+}
+@endsalt
+@startuml Screen-flow
+|User|
+start
+:[[#Screen-1 Open screen 1]];
+:Continue 1;
+:[[#Screen-2 Open screen 2]];
+:Continue 2;
+:[[#Screen-3 Open screen 3]];
+|System|
+if (Valid 3?) then (yes)
+  :Accept 3;
+else (no)
+  :Reject 3;
+endif
+|User|
+:[[#Screen-4 Open screen 4]];
+:Continue 4;
+:[[#Screen-5 Open screen 5]];
+:Continue 5;
+:[[#Screen-6 Open screen 6]];
+|System|
+if (Valid 6?) then (yes)
+  :Accept 6;
+else (no)
+  :Reject 6;
+endif
+|User|
+:[[#Screen-7 Open screen 7]];
+:Continue 7;
+:[[#Screen-8 Open screen 8]];
+:Continue 8;
+:[[#Screen-9 Open screen 9]];
+|System|
+if (Valid 9?) then (yes)
+  :Accept 9;
+else (no)
+  :Reject 9;
+endif
+|User|
+:[[#Screen-10 Open screen 10]];
+:Continue 10;
+stop
+@enduml

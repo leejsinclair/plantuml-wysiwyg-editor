@@ -1,0 +1,18 @@
+{
+  "comment": "A step links to #login but the screen is Login: the link is broken with a suggested fix, and both blocks stay Editable (FR-011/AC16, EC-11).",
+  "flowIndex": 1,
+  "blocks": [
+    {
+      "kind": "screen",
+      "status": "Editable",
+      "name": "Login",
+      "nameFlag": null
+    },
+    {
+      "kind": "flow",
+      "status": "Editable",
+      "name": "Screen-flow",
+      "nameFlag": null
+    }
+  ]
+}

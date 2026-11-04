@@ -1,0 +1,7 @@
+@startsalt Odd
+{
+  Name | "     "
+  {Q one | two }
+  [Save]
+}
+@endsalt

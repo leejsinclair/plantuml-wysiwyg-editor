@@ -1,0 +1,240 @@
+/* The workspace's default arrangement (FR-016/AC4): project panel, palette and outline on the left, the canvas in
+   the centre, properties on the right, source and preview in a shared pane. Regions keep region-focus order in the
+   document; the grid places them. A collapsed region shrinks to its heading, and a column whose regions are all
+   collapsed shrinks with them, so the canvas or preview can fill the workspace (FR-015/AC5). */
+
+.workspace {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  min-width: 0;
+}
+
+.workspace__toolbar {
+  flex: none;
+}
+
+.workspace__body {
+  --left: minmax(12rem, 16rem);
+  --right: minmax(12rem, 18rem);
+  --shared: minmax(10rem, 35%);
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: var(--left) minmax(0, 1fr) minmax(0, 1fr) var(--right);
+  grid-template-rows: auto auto minmax(0, 1fr) var(--shared);
+  grid-template-areas:
+    'projectPanel canvas canvas properties'
+    'palette      canvas canvas properties'
+    'outline      canvas canvas properties'
+    'outline      source preview preview';
+}
+
+.workspace__body:has([data-region='projectPanel'][data-collapsed]):has([data-region='palette'][data-collapsed]):has([data-region='outline'][data-collapsed]) {
+  --left: max-content;
+}
+
+.workspace__body:has([data-region='properties'][data-collapsed]) {
+  --right: max-content;
+}
+
+.workspace__body:has([data-region='source'][data-collapsed]):has([data-region='preview'][data-collapsed]) {
+  --shared: max-content;
+}
+
+.workspace__region {
+  min-width: 0;
+  min-height: 0;
+  overflow: auto;
+  border: 1px solid var(--color-border);
+  background: var(--panel-bg);
+  color: var(--color-text);
+}
+
+.workspace__region:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: -3px;
+}
+
+.workspace__region[data-region='projectPanel'] { grid-area: projectPanel; }
+.workspace__region[data-region='palette'] { grid-area: palette; }
+.workspace__region[data-region='canvas'] { grid-area: canvas; }
+.workspace__region[data-region='outline'] { grid-area: outline; }
+.workspace__region[data-region='properties'] { grid-area: properties; }
+.workspace__region[data-region='source'] { grid-area: source; }
+.workspace__region[data-region='preview'] { grid-area: preview; }
+
+.workspace__heading {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  margin: 0;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  background: var(--color-border-subtle);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.workspace__heading button {
+  display: block;
+  width: 100%;
+  font: inherit;
+  text-align: left;
+  color: inherit;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+
+.workspace__heading button::before {
+  content: '▾ ';
+}
+
+.workspace__heading button[aria-expanded='false']::before {
+  content: '▸ ';
+}
+
+.workspace__content {
+  padding: 0.5rem;
+}
+
+.workspace__readonly,
+.workspace__message {
+  margin: 0 0 0.5rem;
+  color: var(--color-text-secondary);
+}
+
+.command-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.command-bar kbd {
+  margin-left: 0.375rem;
+  padding: 0 0.25rem;
+  font: 0.7rem var(--font-mono);
+  color: var(--color-text-secondary);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 3px;
+}
+
+.command-bar__shortcut {
+  display: inline-flex;
+}
+
+.breadcrumb ol {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0 0 0.5rem;
+  padding: 0;
+}
+
+.breadcrumb button {
+  font: inherit;
+  background: none;
+  border: none;
+  padding: 0;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.breadcrumb button[aria-current] {
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.move-to-backdrop {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgb(0 0 0 / 0.3);
+}
+
+.move-to {
+  min-width: 20rem;
+  max-height: 80vh;
+  overflow: auto;
+  padding: 1rem;
+  background: var(--color-surface);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+}
+
+.move-to__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+/* WCAG 2.2 target size (2.5.8): every pointer target is at least 24 by 24 CSS pixels. */
+button,
+select,
+input[type='checkbox'],
+input[type='radio'] {
+  min-width: 24px;
+  min-height: 24px;
+}
+
+/* T024: Mobile collapse — all side panels collapse at ≤768px; only the canvas stays visible (FR-024). */
+@media (max-width: 768px) {
+  .workspace__body {
+    grid-template-columns: 0 minmax(0, 1fr) minmax(0, 1fr) 0;
+    grid-template-rows: auto minmax(0, 1fr) var(--shared);
+  }
+
+  .workspace__region[data-area='left'],
+  .workspace__region[data-area='right'] {
+    width: 0;
+    overflow: hidden;
+    min-width: 0;
+  }
+
+  /* A panel the user explicitly opened on mobile is shown as a floating overlay. */
+  .workspace__region[data-area='left']:not([data-collapsed]),
+  .workspace__region[data-area='right']:not([data-collapsed]) {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 200;
+    width: 100%;
+    max-width: 80vw;
+    overflow-y: auto;
+    background: var(--panel-bg, #fff);
+    box-shadow: 2px 0 12px rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* Content headings sit below the region heading in the hierarchy, so they stay small. */
+.workspace__content h2,
+.workspace__content h3 {
+  margin: 0.5rem 0 0.25rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
+.workspace__content ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+/* Icons sit beside their label in plain buttons. */
+button:not([class*='mantine-']) > svg {
+  flex: none;
+  vertical-align: -3px;
+  margin-right: 0.375rem;
+}

@@ -1,0 +1,22 @@
+@startsalt Écran-connexion
+{
+  Identifiant | "          "
+  [Se connecter] | .
+}
+@endsalt
+@startsalt 日本語画面
+{
+  ようこそ
+}
+@endsalt
+@startsalt Ελληνικά_2
+{
+  Γεια σας
+}
+@endsalt
+@startuml Flux-écran
+start
+:[[#Écran-connexion Saisir les identifiants]];
+:[[#日本語画面 Open the Japanese screen]];
+stop
+@enduml

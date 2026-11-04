@@ -1,0 +1,12 @@
+{
+  "comment": "!define inside a screen: preprocessor directives force source-only (section 4.1, EC-09).",
+  "flowIndex": null,
+  "blocks": [
+    {
+      "kind": "screen",
+      "status": "Source only",
+      "name": "Settings",
+      "nameFlag": null
+    }
+  ]
+}

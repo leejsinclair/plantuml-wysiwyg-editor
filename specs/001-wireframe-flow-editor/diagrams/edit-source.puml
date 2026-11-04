@@ -1,0 +1,45 @@
+@startuml edit-source
+|User|
+start
+:Type in the source of the open screen or flow;
+|Editor|
+:Make that block's canvas read-only;
+:Wait until the user pauses;
+|Parser|
+:Classify the block;
+if (Fully supported?) then (yes)
+  |Editor|
+  :Update the canvas and keep the selection;
+elseif (Unsupported parts that can be isolated?) then (yes)
+  |Editor|
+  :Show them as locked parts;
+elseif (Valid but cannot be isolated?) then (yes)
+  |Editor|
+  :Show the block source-only and explain why;
+else (invalid or incomplete)
+  |Editor|
+  :Show the last working version read-only,
+  with the problem and its line;
+endif
+|Editor|
+if (Source can be rendered?) then (yes)
+  |Renderer|
+  if (Render succeeds?) then (yes)
+    :Show the new preview;
+  else (no)
+    :Keep the last preview, marked out of date,
+    and show the rendering problem;
+  endif
+else (no: invalid)
+  :Keep the last preview, marked out of date;
+endif
+|User|
+if (What next?) then (revert)
+  |Editor|
+  :Restore the last working version (undoable);
+else (leave or keep typing)
+  |Editor|
+  :Keep the text exactly as typed and autosave it;
+endif
+stop
+@enduml

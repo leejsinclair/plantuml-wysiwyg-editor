@@ -1,0 +1,12 @@
+@startsalt Header
+!include common.puml
+{
+  Welcome
+}
+@endsalt
+@startsalt Sign-in
+{
+  Email | "            "
+  [Sign in] | .
+}
+@endsalt

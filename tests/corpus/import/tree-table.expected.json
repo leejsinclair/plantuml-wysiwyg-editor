@@ -1,0 +1,12 @@
+{
+  "comment": "Tree-table variant {T# inside a supported screen: kept as a locked part (Supported Constructs A.1).",
+  "flowIndex": null,
+  "blocks": [
+    {
+      "kind": "screen",
+      "status": "Has locked parts",
+      "name": "Files",
+      "nameFlag": null
+    }
+  ]
+}

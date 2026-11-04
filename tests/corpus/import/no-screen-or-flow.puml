@@ -1,0 +1,11 @@
+' Diagrams from another tool
+@startuml Classes
+class User
+class Order
+User --> Order
+@enduml
+
+@startmindmap Ideas
+* Ideas
+** Wireframes
+@endmindmap

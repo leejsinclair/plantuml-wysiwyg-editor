@@ -1,0 +1,11 @@
+@startuml Screen-flow
+start
+:Choose plan;
+switch (Plan?)
+case (Free)
+  :Sign up;
+case (Paid)
+  :Enter card;
+endswitch
+stop
+@enduml

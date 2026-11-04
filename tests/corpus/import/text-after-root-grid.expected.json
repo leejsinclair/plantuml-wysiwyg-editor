@@ -1,0 +1,12 @@
+{
+  "comment": "Text after the root grid: PlantUML ignores it, so the screen opens source-only (EC-08).",
+  "flowIndex": null,
+  "blocks": [
+    {
+      "kind": "screen",
+      "status": "Source only",
+      "name": "Trailing",
+      "nameFlag": null
+    }
+  ]
+}

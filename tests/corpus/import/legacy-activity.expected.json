@@ -1,0 +1,18 @@
+{
+  "comment": "Legacy activity syntax: source-only and never chosen as the flow, so it is other content (EC-09, FR-006/AC14).",
+  "flowIndex": null,
+  "blocks": [
+    {
+      "kind": "screen",
+      "status": "Editable",
+      "name": "Start",
+      "nameFlag": null
+    },
+    {
+      "kind": "other",
+      "status": "Source only",
+      "name": "Old-flow",
+      "nameFlag": null
+    }
+  ]
+}

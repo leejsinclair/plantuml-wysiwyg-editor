@@ -1,0 +1,27 @@
+@startuml navigate-flow-screens
+|User|
+start
+:Open the screen flow;
+:Open a step's linked screen;
+|Editor|
+if (Step linked to a screen?) then (yes)
+  if (Screen still exists?) then (yes)
+    :Open the screen;
+    |User|
+    :Review or edit the screen;
+    :Choose "Back to flow";
+    |Editor|
+    :Reopen the flow with the step selected;
+  else (no)
+    :Show the link as broken;
+    |User|
+    :Link to another screen, create a screen,
+    or remove the link;
+  endif
+else (no)
+  :Offer to link an existing screen
+  or create a new one;
+endif
+|User|
+stop
+@enduml

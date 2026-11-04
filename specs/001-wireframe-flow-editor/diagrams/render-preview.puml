@@ -1,0 +1,43 @@
+@startuml render-preview
+|Editor|
+start
+:Open a project without waiting for the renderer;
+:Become interactive for editing;
+|Renderer|
+:Start in the background, whether or not
+the preview pane is open;
+|Editor|
+:Show "Not yet checked" for every block
+until it has been rendered;
+repeat
+  :Take the next block, the open block first;
+  if (Can the block be rendered?) then (yes)
+    |Renderer|
+    :Render the block, off the editing path;
+    if (Finished within 10 seconds?) then (yes)
+      if (Render succeeded?) then (yes)
+        |Editor|
+        :Show the new preview and the block's render status;
+      else (no)
+        |Editor|
+        :Keep the last preview, marked out of date;
+        :Show the renderer's message and the block in the
+        preview pane, labelled as a rendering problem;
+      endif
+    else (no)
+      |Editor|
+      :Abandon the render and report the block
+      as "Not yet checked";
+    endif
+  else (no: invalid, or depends on !include)
+    |Editor|
+    :Keep the last preview, marked out of date;
+  endif
+  note right
+    Editing on the canvas, outline and
+    source continues throughout.
+  end note
+repeat while (A block is waiting or has changed?) is (yes)
+->no;
+stop
+@enduml

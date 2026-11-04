@@ -1,0 +1,43 @@
+{
+  "description": "FR-003/AC6 and EC-05 escaping corpus (T040). Each text goes through the escape writer named by `writer`, into a minimal block, and must render literally through the command-line oracle with no visible escape characters. `unchanged` texts must be written exactly as typed. Salt texts are tried as a row's first cell and as a later cell unless `cells` narrows it.",
+  "salt": [
+    { "text": "{" },
+    { "text": "}" },
+    { "text": "|" },
+    { "text": "a {b} | c" },
+    { "text": "[x" },
+    { "text": "(a" },
+    { "text": "^a" },
+    { "text": "\"q" },
+    { "text": "*a" },
+    { "text": "==a" },
+    { "text": "." },
+    { "text": "..." },
+    { "text": "**b**" },
+    { "text": "//i//" },
+    { "text": "__u__" },
+    { "text": "\"\"m\"\"" },
+    { "text": "--s--" },
+    { "text": "~~w~~" },
+    { "text": "a.b", "unchanged": true },
+    { "text": "5 * 3", "unchanged": true },
+    { "text": "Sign in", "unchanged": true },
+    { "text": "Größe", "unchanged": true },
+    { "text": "Title" },
+    { "text": "Header 1" },
+    { "text": "Legend" },
+    { "text": "caption x" },
+    { "text": "skinparam x" },
+    { "text": "Title", "cells": ["later"], "unchanged": true },
+    { "text": "x <U+0041> y" }
+  ],
+  "step": [
+    { "text": "Pick [x] or ]] | y", "linked": true },
+    { "text": "Pick [x] or ]] | y", "linked": false, "unchanged": true },
+    { "text": "Open [[here]]", "linked": false },
+    { "text": "**bold** and //it//", "linked": false },
+    { "text": "x <U+0041> y", "linked": true },
+    { "text": "Check the e-mail", "linked": false, "unchanged": true },
+    { "text": "Check the e-mail", "linked": true, "unchanged": true }
+  ]
+}

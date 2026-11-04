@@ -1,0 +1,66 @@
+@startuml import-file
+|User|
+start
+:Choose "Import .puml file";
+if (File chosen?) then (no: picker cancelled)
+  :Nothing happens;
+  stop
+else (yes)
+endif
+|Editor|
+if (UTF-8 text, with or without a byte-order mark?) then (no)
+  :Reject the file with an explanation;
+  :Create nothing;
+  stop
+else (yes)
+endif
+|Parser|
+:Divide the file into blocks;
+repeat
+  :Classify the next block, without waiting for the renderer;
+  if (Kind of block?) then (screen in the current Salt form)
+    if (Structure?) then (fully supported)
+      :Screen: "Editable";
+    elseif (Structure?) then (unsupported parts can be isolated)
+      :Screen: "Has locked parts";
+    elseif (Structure?) then (valid, but cannot be isolated)
+      :Screen: "Source only", with the reason;
+    else (invalid)
+      :Screen: "Error"; never valid, so no revert action;
+    endif
+  elseif (Kind of block?) then (Salt in the older form)
+    :Other content: "Older format";
+  elseif (Kind of block?) then (first activity block, current syntax,\nfully supported or with isolatable parts)
+    :Screen flow;
+  else (anything else)
+    :Other content, edited only in source;
+  endif
+  if (Block name?) then (allowed and unique)
+  elseif (Block name?) then (none)
+    :Keep no name; show as "Untitled screen n";
+  else (not allowed, not normalised, or duplicated)
+    :Flag it in the project panel; do not rename it;
+  endif
+repeat while (More blocks?) is (yes)
+->no;
+|Editor|
+if (Any screen or screen flow?) then (yes)
+  :Create the project, named after the file
+  (with the date appended if the name is in use);
+elseif (File empty?) then (yes)
+  :Create a project with one new screen;
+else (no)
+  :Create a project with only other content,
+  with a status explaining why;
+endif
+if (Any Salt blocks in the older form?) then (yes)
+  :Show one notice offering "Convert all";
+else (no)
+endif
+|Storage|
+:Store the project and which block is the screen flow;
+|Editor|
+:Open the first visually editable screen,
+else the screen flow, else the first block;
+stop
+@enduml
