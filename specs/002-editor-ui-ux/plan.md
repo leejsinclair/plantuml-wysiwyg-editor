@@ -10,6 +10,8 @@ lets a business analyst create and view screen-to-screen navigation links from t
 The work is spread across existing files (`CellView.tsx`, `rows-columns.ts`, `Workspace.tsx`,
 `canvas.css`, `db.ts`) plus two new components (`ScreenFlowCanvas.tsx`, `CanvasContextMenu.tsx`).
 
+> **Update (aligned with the built product)**: the screen flow shipped as the structured flow editor (`flow-canvas/FlowCanvas.tsx`, `StepView.tsx`, `FlowPalette.tsx`), not the `ScreenFlowCanvas.tsx` node graph listed below, and the default-collapsed panels were replaced by Simple/Advanced modes. See "Later changes" at the end for the files involved.
+
 ## Constitution Check
 
 | Principle | Assessment |
@@ -206,3 +208,52 @@ Drag
 │          │ ▸ Source   ▸ Preview   (collapsed)       │            │
 └──────────┴─────────────────────────────────────────┴────────────┘
 ```
+
+## Later changes (US9–US11; product-spec OD-17 to OD-19)
+
+### Structure
+
+```
+src/
+  core/activity/ops/links.ts       ← addLinkedStep(doc, label, target, selection | null): inserts after the selection, or before the final stop
+  ui/
+    workspace/
+      mode.ts                      ← NEW: UiMode, readMode(), useUiMode(); localStorage 'plantuml-editor.mode', default 'simple'
+      Workspace.tsx                ← SegmentedControl "Interface mode"; Simple omits Outline and Preview; Source when advanced, no visual editor or source editing; region shortcut skips absent regions
+      workspace.css                ← simple-mode grid (three columns); flex toolbar
+    project-panel/
+      ProjectPanel.tsx             ← entry row = open button + actions slot; details block visually hidden unless Error, name flag or reason
+      screen-commands.tsx          ← Mantine Menu (ActionIcon ⋮): Rename, Duplicate, Move up/down, Delete; inline RenameField; warning dialogs unchanged
+    flow-canvas/
+      FlowPalette.tsx              ← "Screens" section: click or drag adds addLinkedStep
+      flow-dnd.tsx                 ← SCREEN_PREFIX 'flow-screen::' drag ids
+    canvas/
+      link-to-screen.ts            ← NEW: useLinkToScreen() — creates the flow if missing, then addLinkedStep
+      CanvasContextMenu.tsx        ← theme tokens; uses useLinkToScreen
+      canvas.css                   ← .canvas-context-menu__item hover/focus
+      register.tsx                 ← registers propertySections 'screen.linkToScreen' (order 20)
+    properties/
+      ScreenLinkSection.tsx        ← NEW: <details> "Link to screen…", shown for a selected button
+```
+
+### States
+
+```
+Interface mode
+  Simple   — default; Outline, Preview not rendered; Source only for text-only blocks or when editing source
+  Advanced — all regions
+  [toolbar control] ↔  persisted per browser (localStorage)
+```
+
+```
+Project panel entry
+  Quiet   — name + ⋮ menu; details text visually hidden (still read by assistive technology)
+  Flagged — error / name flag / reason drawn beneath the name
+  Renaming — name field inline under the row
+```
+
+### Testing notes
+
+- UI tests render through `tests/ui/render.tsx` (Mantine `env="test"`); `tests/ui/setup.ts` stubs `ResizeObserver` and seeds mode `advanced`.
+- E2E fixtures seed mode `advanced` unless the test sets one; `tests/e2e/modes.spec.ts` covers Simple, Advanced and persistence. Playwright serves `vite preview`, so run `npm run build` first.
+- Project-panel actions are reached through the "Actions for <name>" menu in both layers.

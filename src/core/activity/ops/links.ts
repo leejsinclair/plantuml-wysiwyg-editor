@@ -112,12 +112,12 @@ export function createAndLink(
 // ─── addLinkedStep ────────────────────────────────────────────────────────────────────────────────
 
 /**
- * Adds a step labelled `label` that links to `target`, before the flow's final stop, and selects it. Used to
+ * Adds a step labelled `label` that links to `target`, after `selection` (before the flow's final stop when null), and selects it. Used to
  * link a wireframe element to a screen: the element has no step yet, so one is made for it.
  */
-export function addLinkedStep(doc: FlowDoc, label: string, target: string): OpResult {
+export function addLinkedStep(doc: FlowDoc, label: string, target: string, selection: Path | null = null): OpResult {
   const base: FlowDoc = { text: doc.text, model: doc.model, offset: 0 };
-  const made = insert(base, null, 'step');
+  const made = insert(base, selection, 'step');
   if (!made.ok) return made;
   let text = doc.text;
   for (const e of [...made.edits].sort((a, b) => b.start - a.start)) text = text.slice(0, e.start) + e.text + text.slice(e.end);

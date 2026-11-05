@@ -95,3 +95,12 @@ describe('addLinkedStep', () => {
     if (op.ok) expect(op.select).toEqual([2]);
   });
 });
+
+describe('addLinkedStep with a selection', () => {
+  it('inserts the linked step after the selected element', () => {
+    const text = block('start', ':A;', ':B;', 'stop');
+    const out = apply(text, addLinkedStep(doc(text), 'Home', 'Home', [1]));
+    expect(out.indexOf(':[[#Home Home]];')).toBeGreaterThan(out.indexOf(':A;'));
+    expect(out.indexOf(':[[#Home Home]];')).toBeLessThan(out.indexOf(':B;'));
+  });
+});

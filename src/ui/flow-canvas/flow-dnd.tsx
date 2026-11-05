@@ -6,11 +6,13 @@ import { DndContext, useDroppable, type DragEndEvent } from '@dnd-kit/core';
 import type { ReactNode } from 'react';
 import { useStore, useSession } from '../app/store.ts';
 import { flowDoc } from '../../core/activity/destinations.ts';
+import { addLinkedStep } from '../../core/activity/ops/links.ts';
 import { insert, FLOW_PALETTE, type FlowPaletteItem } from '../../core/activity/ops/insert.ts';
 import type { Path } from '../../core/types.ts';
 import { useEditorSensors } from '../workspace/dnd.tsx';
 
 export const PALETTE_PREFIX = 'flow-palette::';
+export const SCREEN_PREFIX = 'flow-screen::';
 const DROP_PREFIX = 'flow-drop::';
 export const END_DROP_ID = `${DROP_PREFIX}end`;
 
@@ -30,9 +32,10 @@ export function FlowDndHost({ blockKey, children }: { blockKey: string; children
   const onDragEnd = ({ active, over }: DragEndEvent): void => {
     const id = String(active.id);
     const overId = over ? String(over.id) : '';
-    if (!id.startsWith(PALETTE_PREFIX) || !overId.startsWith(DROP_PREFIX)) return;
+    const isScreen = id.startsWith(SCREEN_PREFIX);
+    if ((!isScreen && !id.startsWith(PALETTE_PREFIX)) || !overId.startsWith(DROP_PREFIX)) return;
     const item = id.slice(PALETTE_PREFIX.length) as FlowPaletteItem;
-    if (!FLOW_PALETTE.includes(item)) return;
+    if (!isScreen && !FLOW_PALETTE.includes(item)) return;
     const state = store.getState();
     const view = session.blocks.find((b) => b.key === blockKey);
     if (!state || !view) return;
@@ -40,6 +43,11 @@ export function FlowDndHost({ blockKey, children }: { blockKey: string; children
     if (!doc) return;
     const raw = overId.slice(DROP_PREFIX.length);
     const target: Path | null = raw === 'end' ? null : raw === '' ? [] : raw.split(',').map(Number);
+    if (isScreen) {
+      const name = id.slice(SCREEN_PREFIX.length);
+      store.applyOp(addLinkedStep(doc, name, name, target), { blockKey });
+      return;
+    }
     store.applyOp(insert(doc, target, item), { blockKey });
   };
 

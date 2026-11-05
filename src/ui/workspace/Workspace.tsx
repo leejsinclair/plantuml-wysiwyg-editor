@@ -14,7 +14,8 @@
 //   preview (their own tasks), reading the session from the store; each can be replaced through a prop. The
 //   preview shows render results only when given the render queue.
 import { useEffect, useId, useRef, useState, useSyncExternalStore, type ReactNode } from 'react';
-import { Text, UnstyledButton } from '@mantine/core';
+import { SegmentedControl, Text, UnstyledButton } from '@mantine/core';
+import { useUiMode } from './mode.ts';
 import type { Path } from '../../core/types.ts';
 import { getSettings, openEditorDb, putSettings, type EditorDatabase, type PanelRegion, type Settings } from '../../services/storage/db.ts';
 import type { BlockRender, RenderQueue } from '../../services/render/render-queue.ts';
@@ -140,6 +141,8 @@ export function Workspace(props: WorkspaceProps) {
   useSlot(slots.blockEditors);
   const banners = useSlot(slots.banners);
 
+  const [mode, setMode] = useUiMode();
+
   // ---------------------------------------------------------------------------- panel collapse memory
   const [stored, setStored] = useState<Settings>(settings.initial ?? { panels: {} });
   useEffect(() => {
@@ -182,7 +185,11 @@ export function Workspace(props: WorkspaceProps) {
       const at = REGIONS.indexOf(currentId as RegionId);
       const step = command === 'nextRegion' ? 1 : -1;
       const nextIndex = at === -1 ? (step === 1 ? 0 : REGIONS.length - 1) : (at + step + REGIONS.length) % REGIONS.length;
-      const id = REGIONS[nextIndex]!;
+      // Regions hidden by the simple mode are not in the document; skip them.
+      let id = REGIONS[nextIndex]!;
+      for (let n = 0; n < REGIONS.length && !regionEls.current.has(id); n++) {
+        id = REGIONS[(REGIONS.indexOf(id) + step + REGIONS.length) % REGIONS.length]!;
+      }
       const region = regionEls.current.get(id);
       if (!region) return;
       const remembered = lastFocused.current.get(id);
@@ -259,12 +266,28 @@ export function Workspace(props: WorkspaceProps) {
   }
 
   const regionProps = { registerRef, onFocusInside };
+  // Simple mode hides outline, source and preview, except that content with no visual editor needs its source.
+  const advanced = mode === 'advanced';
+  const showSource = advanced || !visual || sourceEditing;
   const DndHost = visual && editorProps ? editor.DndHost : undefined;
   const wrapDnd = (body: ReactNode): ReactNode => (DndHost && view ? <DndHost blockKey={view.key}>{body}</DndHost> : body);
   return (
     <div className="workspace">
-      <header className="workspace__toolbar">{props.toolbar ?? <Toolbar ctx={ctx} slots={slots} platform={platform} />}</header>
-      {wrapDnd(<div className="workspace__body">
+      <header className="workspace__toolbar">
+        {props.toolbar ?? <Toolbar ctx={ctx} slots={slots} platform={platform} />}
+        <SegmentedControl
+          className="workspace__mode"
+          size="xs"
+          aria-label={t('mode.label')}
+          value={mode}
+          onChange={(v) => setMode(v === 'advanced' ? 'advanced' : 'simple')}
+          data={[
+            { value: 'simple', label: t('mode.simple') },
+            { value: 'advanced', label: t('mode.advanced') },
+          ]}
+        />
+      </header>
+      {wrapDnd(<div className="workspace__body" data-mode={showSource ? undefined : 'simple'}>
         <Region id="projectPanel" collapsed={isCollapsed('projectPanel')} onToggle={toggle('projectPanel')} {...regionProps}>
           {props.projectPanel ?? <ProjectPanel />}
         </Region>
@@ -276,18 +299,18 @@ export function Workspace(props: WorkspaceProps) {
           {sourceEditing ? <p role="status" className="workspace__readonly">{t('workspace.readOnlyDuringSourceEdit')}</p> : null}
           {canvas}
         </Region>
-        <Region id="outline" collapsed={isCollapsed('outline')} onToggle={toggle('outline')} {...regionProps}>
+        {advanced && <Region id="outline" collapsed={isCollapsed('outline')} onToggle={toggle('outline')} {...regionProps}>
           {visual && editorProps ? <editor.Outline {...editorProps} /> : notVisual}
-        </Region>
+        </Region>}
         <Region id="properties" collapsed={isCollapsed('properties')} onToggle={toggle('properties')} {...regionProps}>
           {props.properties ?? <PropertiesPanel slots={slots} readOnly={readOnly} />}
         </Region>
-        <Region id="source" collapsed={isCollapsed('source')} onToggle={toggle('source')} {...regionProps}>
+        {showSource && <Region id="source" collapsed={isCollapsed('source')} onToggle={toggle('source')} {...regionProps}>
           {source}
-        </Region>
-        <Region id="preview" collapsed={isCollapsed('preview')} onToggle={toggle('preview')} {...regionProps}>
+        </Region>}
+        {advanced && <Region id="preview" collapsed={isCollapsed('preview')} onToggle={toggle('preview')} {...regionProps}>
           {preview}
-        </Region>
+        </Region>}
       </div>)}
       <MoveToHost controller={moveToController} />
     </div>

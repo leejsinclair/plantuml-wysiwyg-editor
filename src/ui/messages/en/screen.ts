@@ -229,6 +229,7 @@ const screen = {
   'canvas.contextMenu.label': 'Element actions',
   'canvas.contextMenu.linkToScreen': 'Link to screen…',
   'canvas.contextMenu.pickScreen': 'Link to which screen?',
+  'screenLink.hint': 'Choose the screen that "{label}" opens. A step for it is added to the screen flow.',
   'canvas.contextMenu.noScreens': 'There are no screens to link to.',
 
 } satisfies MessagePart;

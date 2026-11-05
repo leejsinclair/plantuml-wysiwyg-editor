@@ -6,6 +6,7 @@ import type { MessagePart } from '../en.ts';
 const screens = {
   // Commands.
   'screens.add': 'Add screen',
+  'screens.actionsFor': 'Actions for {name}',
   'screens.rename': 'Rename',
   'screens.duplicate': 'Duplicate',
   'screens.moveUp': 'Move up',

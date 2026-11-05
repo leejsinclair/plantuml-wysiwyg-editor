@@ -6,6 +6,8 @@
 
 > **Decision**: A business analyst designates a navigation trigger by right-clicking any element on the canvas and choosing **"Link to screen…"** from the context menu. A popover lists the other screens in the project; selecting one creates a directed connection in the flow view. As a secondary affordance, hovering an element reveals a link icon in its corner that opens the same popover. Linked elements display a small chain badge on the canvas so connections are visible without opening the flow view. See User Story 5 for full acceptance scenarios.
 
+> **Update (aligned with the built product)**: the screen flow was built as a structured, top-to-bottom flow editor (product-spec 3.7, OD-19), not the node-and-arrow graph first described in User Story 5 and FR-017 to FR-022. User Story 7 (panels hidden by default) was replaced by Simple and Advanced interface modes (User Story 9, OD-18). User Story 10 covers the project panel menu (OD-17). Where an earlier requirement below conflicts, the **Superseded** notes and User Stories 9 to 11 are authoritative. The hover link icon and chain badge (FR-018a, FR-018b) and "Edit link…"/"Remove link" in the context menu (FR-018c) are not built; linked steps show a "→ Screen" badge in the flow instead.
+
 ## Overview
 
 The canvas is the business analyst's primary workspace. It must show what the wireframe screen actually looks like — not a summary or outline, but a live WYSIWYG representation that updates as edits are made, so users never need to switch to a separate preview panel to see whether a change looks right.
@@ -134,6 +136,8 @@ The canvas, toolbar and controls adopt a sketch-style visual treatment: slightly
 
 ---
 
+> **Superseded (US5)**: connections are flow *steps* linked to screens, edited in the structured flow, not arrows between screen nodes. Scenarios 1, 3 to 6 and 10 (node graph, chain badge, selectable connections, pan and zoom) are not built. Scenario 2 is built as: right-click an element, choose "Link to screen…", pick a screen; a step labelled with the element's text and linked to that screen is added to the screen flow (created if absent). Scenarios 7 to 9 hold in the structured form (delete a step; open a linked screen from its step; deleting a screen flags, not removes, steps that link to it, product-spec FR-011/AC8).
+
 ### User Story 8 - Refined app shell (Priority: P2)
 
 The Toolbar, CommandBar and panel header controls use Mantine components to present a clean, professional tool aesthetic that deliberately contrasts with the sketch-style canvas interior. The app shell — everything outside `.salt-canvas` — reads like a professional design tool; the canvas reads like an intentional wireframe. Currently all shell controls are unstyled divs with inline CSS, giving an inconsistent, unpolished appearance.
@@ -167,6 +171,53 @@ The Preview, Source and Outline panels are hidden by default. The user opens eac
 3. **Given** the Outline panel is open, **When** the user clicks its toggle again, **Then** the panel closes and the canvas expands to fill the space.
 4. **Given** the user has opened a panel and then refreshes the page, **When** the project reopens, **Then** the panel's open/closed state is restored.
 5. **Given** a panel is open and the user resizes the browser window to mobile width, **Then** the panel collapses automatically and the canvas is shown in full.
+
+---
+
+> **Superseded (US7)**: the three panels are no longer hidden by default with individual toggles; visibility follows the interface mode in User Story 9.
+
+### User Story 9 - Simple and Advanced interface modes (Priority: P1)
+
+A business analyst building wireframes sees only what they need: the project panel, palette, canvas and properties. A toolbar control switches to Advanced, which also shows the outline, source view and rendered preview.
+
+**Independent Test**: Open the editor with no stored preference and confirm the outline, source and preview are not shown. Choose Advanced and confirm all three appear. Reload and confirm Advanced is remembered. Switch back to Simple.
+
+**Acceptance Scenarios**:
+
+1. **Given** no stored preference, **When** a project opens, **Then** the interface is in Simple mode and the outline, source view and preview are not rendered.
+2. **Given** Simple mode, **When** the user chooses Advanced in the toolbar's "Interface mode" control, **Then** the outline, source view and preview appear.
+3. **Given** a mode was chosen, **When** the page is reloaded, **Then** the same mode is restored (stored per browser, key `plantuml-editor.mode`).
+4. **Given** Simple mode and a block that can only be edited as text, **When** it is open, **Then** the source view is shown so the content stays reachable.
+5. **Given** Simple mode, **When** the user moves between regions with the region shortcut, **Then** regions that are not shown are skipped.
+
+### User Story 10 - Project panel as a screen list with an actions menu (Priority: P2)
+
+Each project panel entry is a name and one vertical "⋮" menu: Rename, Duplicate, Move up, Move down, Delete.
+
+**Independent Test**: Add three screens; from each one's menu rename, duplicate, move and delete in turn and confirm each takes effect and is undoable as before.
+
+**Acceptance Scenarios**:
+
+1. **Given** a screen entry, **When** the user activates "Actions for <name>", **Then** a menu opens with Rename, Duplicate, Move up, Move down and Delete.
+2. **Given** the first screen, **Then** Move up is disabled; **given** the last, Move down is disabled.
+3. **Given** a block of other content, **Then** its menu has no Rename or Duplicate.
+4. **Given** Rename, **Then** the name field opens in the entry; a linked screen's rename or delete still shows the warning listing the affected steps.
+5. **Given** a healthy block, **Then** its status and link count are not drawn but stay readable to assistive technology; an error, name flag or reason is drawn.
+
+### User Story 11 - Add screens to a flow and link from a screen (Priority: P1)
+
+The flow palette lists the project's screens; clicking or dragging one adds a linked step. In a screen, selecting a button reveals a collapsible "Link to screen…" section under its properties.
+
+**Independent Test**: With two screens and an empty flow, click a screen in the flow palette and confirm a linked step appears. Open a screen, select its button, expand "Link to screen…", choose the other screen, and confirm a linked step exists in the flow.
+
+**Acceptance Scenarios**:
+
+1. **Given** screens exist, **When** the flow is open, **Then** the palette lists each under "Screens" (or says there are none).
+2. **Given** a screen in the palette, **When** the user clicks it, **Then** a step linked to it is inserted after the selection, or before the final stop if nothing is selected.
+3. **Given** a screen in the palette, **When** the user drags it onto the flow, **Then** the linked step is inserted at the drop position.
+4. **Given** a selected button, **Then** the Properties show a collapsed "Link to screen…" section listing the other screens; for other elements it is absent.
+5. **Given** a screen is chosen there or from the right-click menu, **Then** a step labelled with the button text is added to the flow (created if absent), linked to it, in one undo step.
+6. **Given** the right-click menu is open in light or dark mode, **Then** its text, background and hover state use theme colours and are readable.
 
 ---
 
@@ -218,6 +269,12 @@ The Preview, Source and Outline panels are hidden by default. The user opens eac
 
 ---
 
+- **FR-027**: The interface MUST offer Simple (default) and Advanced modes through a toolbar control labelled "Interface mode"; Simple MUST NOT render the outline, source view or preview (except the source view for a block that can only be edited as text); the choice MUST persist per browser. Supersedes FR-012 and FR-013.
+- **FR-028**: Each project panel entry MUST show its name and a single actions menu ("Actions for <name>") with Rename, Duplicate (screens only), Move up, Move down and Delete; status text MUST be drawn only for an error, a name flag or a reason, and remain available to assistive technology.
+- **FR-029**: The flow palette MUST list the project's screens; clicking or dragging one MUST insert a step linked to that screen.
+- **FR-030**: Selecting a button MUST show a collapsible "Link to screen…" section in its Properties; choosing a screen MUST add a linked step to the flow (creating the flow if absent) as one undoable step.
+- **FR-031**: The canvas context menu MUST use theme colours (`--color-bg`, `--color-text`, `--color-border`) with hover and focus feedback.
+
 ## Key Entities
 
 - **Canvas element**: a leaf widget (button, text field, label, etc.) or container (row, column, grid, group box) rendered on the canvas.
@@ -226,7 +283,8 @@ The Preview, Source and Outline panels are hidden by default. The user opens eac
 - **Layout guide line**: a faint dashed overlay drawn on the canvas to mark the boundary of each container; toggled globally by the Show layout lines setting.
 - **Panel**: a collapsible sidebar or pane (Preview, Source, Outline) that supplements the canvas; each is independently toggled and its state is persisted per project.
 - **Widget representation**: the visual rendering of a Salt widget on the canvas that conveys its type and content without requiring preview; e.g. a button renders as a labelled rounded rectangle, an input field as a bordered text entry.
-- **Flow view**: the project-level view that shows all screens as nodes and navigation connections as directed arrows; distinct from the single-screen canvas editor.
+- **Flow view**: as built, the structured top-to-bottom screen flow; steps may link to screens (the node graph first specified was not built).
+- **Interface mode**: Simple or Advanced; decides whether the outline, source view and preview are shown.
 - **Navigation connection**: a directed link between a specific source element (button, link, etc.) on one screen and a target screen, representing a user journey transition; created via the "Link to screen…" context menu on the canvas and displayed as a directed arrow in the flow view.
 - **Link badge**: a small chain icon rendered in the corner of any canvas element that has a navigation connection, visible without opening the flow view.
 

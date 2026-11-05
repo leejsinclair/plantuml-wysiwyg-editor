@@ -6,6 +6,9 @@ const workspace = {
   'workspace.notVisual': 'Nothing to show here: the open content can only be edited in the source view.',
   'workspace.noBlock': 'This project has no screens, screen flow or other content yet.',
   'workspace.readOnlyDuringSourceEdit': 'Read-only while you edit the source. Leave the source view to edit here again.',
+  'mode.label': 'Interface mode',
+  'mode.simple': 'Simple',
+  'mode.advanced': 'Advanced',
 } as const satisfies MessagePart;
 
 export default workspace;

@@ -15,6 +15,7 @@ import { SaltCanvas } from './SaltCanvas.tsx';
 import { Palette } from '../palette/Palette.tsx';
 import { ScreenOutline } from '../outline/screen-outline.tsx';
 import { SaltProperties } from '../properties/salt-properties.tsx';
+import { ScreenLinkSection } from '../properties/ScreenLinkSection.tsx';
 import type { Store } from '../app/store.ts';
 import type { CanvasContext } from './canvas-keys.ts';
 import {
@@ -251,10 +252,20 @@ export function registerScreenEditor(slots: Slots): () => void {
     hasPath: saltHasPath,
   });
 
+  // "Link to screen" under a button's properties.
+  const unregisterLink = slots.propertySections.register({
+    id: 'screen.linkToScreen',
+    order: 20,
+    appliesTo: (ctx) => ctx.block?.kind === 'screen' && ctx.selection !== null,
+    Component: ({ ctx }) => <ScreenLinkSection ctx={ctx} />,
+  });
+
   return () => {
     unregisterEditor();
+    unregisterLink();
   };
 }
 
 // Register into the application slots eagerly (main.tsx imports this).
 registerScreenEditor(appSlots);
+

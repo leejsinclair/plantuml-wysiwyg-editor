@@ -123,6 +123,21 @@ A person SHALL be able to undo and redo any canvas edit with the standard keyboa
 - **WHEN** a person undoes and then redoes
 - **THEN** the edit is re-applied
 
+### A button can be linked to another screen
+<!-- touches: src/ui/canvas/**, src/ui/properties/** -->
+<!-- adopted: src/ui/canvas/CanvasContextMenu.tsx, src/ui/canvas/link-to-screen.ts, src/ui/properties/ScreenLinkSection.tsx -->
+<!-- aligns: screen-flow-canvas#A flow step links to a screen and shows its link status -->
+
+Selecting a button SHALL show a collapsible "Link to screen…" section under its properties listing the other screens; the right-click menu SHALL offer the same. Choosing a screen SHALL add a step labelled with the button's text, linked to that screen, to the screen flow (creating the flow if the project has none) as one undoable step. The context menu SHALL use theme colours and be readable in light and dark modes. Elements other than buttons are not offered the section.
+
+#### Scenario: link from properties
+- **WHEN** a person selects a button, expands "Link to screen…" and chooses "Home"
+- **THEN** the screen flow has a step with the button's label linked to Home
+
+#### Scenario: no flow yet
+- **WHEN** a person links a button in a project with no screen flow
+- **THEN** a flow is created and contains the linked step
+
 ## Uncovered
 
 - `src/core/salt/**` has no browser or UI imports; enforced by the linter (`eslint.config.js`). This is an architecture rule, not a canvas requirement.

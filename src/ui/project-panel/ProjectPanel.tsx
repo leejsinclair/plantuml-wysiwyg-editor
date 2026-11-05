@@ -63,6 +63,7 @@ function Entry({ block, open, ctx, onOpen }: EntryProps) {
   const entries = useSlot(slots.projectPanel).filter((item) => item.placement === 'block');
   return (
     <li className="project-panel__entry" data-block-key={block.key}>
+      <div className="project-panel__row">
       <button
         type="button"
         className="project-panel__open"
@@ -72,7 +73,15 @@ function Entry({ block, open, ctx, onOpen }: EntryProps) {
       >
         {blockLabel(block)}
       </button>
-      <div id={detailsId} className="project-panel__details">
+      {entries.length > 0 && (
+        <div className="project-panel__menu">
+          {entries.map(({ id, Component }) => (
+            <Component key={id} ctx={ctx} blockKey={block.key} />
+          ))}
+        </div>
+      )}
+      </div>
+      <div id={detailsId} className={`project-panel__details${block.status === 'Error' || block.nameFlag || block.reasonKey ? '' : ' project-panel__details--quiet'}`}>
         <span className="project-panel__status">{t('projectPanel.status', { status: block.status })}</span>{' '}
         <span className="project-panel__render-status">{t(RENDER_STATUS_KEYS[block.renderStatus])}</span>
         {block.kind === 'screen' && (
@@ -88,13 +97,6 @@ function Entry({ block, open, ctx, onOpen }: EntryProps) {
         )}
         <Reason block={block} />
       </div>
-      {entries.length > 0 && (
-        <div className="project-panel__commands">
-          {entries.map(({ id, Component }) => (
-            <Component key={id} ctx={ctx} blockKey={block.key} />
-          ))}
-        </div>
-      )}
     </li>
   );
 }

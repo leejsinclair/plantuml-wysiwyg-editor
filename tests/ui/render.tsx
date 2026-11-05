@@ -9,10 +9,10 @@ function render(ui: ReactElement, options?: RenderOptions): RenderResult {
   const { wrapper: Wrapper, ...rest } = options ?? {};
   const Combined = Wrapper
     ? ({ children }: { children: React.ReactNode }) => (
-        <MantineProvider><Wrapper>{children}</Wrapper></MantineProvider>
+        <MantineProvider env="test"><Wrapper>{children}</Wrapper></MantineProvider>
       )
     : ({ children }: { children: React.ReactNode }) => (
-        <MantineProvider>{children}</MantineProvider>
+        <MantineProvider env="test">{children}</MantineProvider>
       );
   return rtlRender(ui, { ...rest, wrapper: Combined });
 }

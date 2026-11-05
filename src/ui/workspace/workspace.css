@@ -238,3 +238,15 @@ button:not([class*='mantine-']) > svg {
   vertical-align: -3px;
   margin-right: 0.375rem;
 }
+
+/* Simple mode: no outline, source or preview, so the canvas takes the whole centre. */
+.workspace__body[data-mode='simple'] {
+  grid-template-columns: var(--left) minmax(0, 1fr) var(--right);
+  grid-template-rows: auto auto minmax(0, 1fr);
+  grid-template-areas:
+    'projectPanel canvas properties'
+    'palette      canvas properties'
+    '.            canvas properties';
+}
+
+.workspace__toolbar { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; padding-right: 0.5rem; }

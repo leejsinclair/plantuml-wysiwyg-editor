@@ -298,10 +298,13 @@ button:focus-visible {
   color: var(--color-text-secondary);
 }
 
-.project-panel__commands {
-  display: flex;
-  gap: var(--space-1);
-  margin-top: var(--space-1);
+.project-panel__row { display: flex; align-items: center; gap: var(--space-1); }
+.project-panel__row .project-panel__open { flex: 1; min-width: 0; }
+.project-panel__rename { flex-basis: 100%; }
+.project-panel__row { flex-wrap: wrap; }
+/* Status text stays available to assistive technology but is only drawn when something is wrong. */
+.project-panel__details--quiet {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
 }
 
 .project-panel__reason {

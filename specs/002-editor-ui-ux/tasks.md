@@ -238,6 +238,19 @@ Depends on T000 (Mantine installed) and Phase 9 complete.
 
 ---
 
+## Phase 12: Post-release changes (US9–US11)
+
+- [x] **T040** [US11] `addLinkedStep` takes an optional selection path; unit test · `src/core/activity/ops/links.ts`, `tests/unit/activity/ops/links.test.ts`
+- [x] **T041** [US11] Flow palette "Screens" section with click and drag; guidance text · `src/ui/flow-canvas/FlowPalette.tsx`, `flow-dnd.tsx`, `messages/en/flow.ts`
+- [x] **T042** [US11] Readable context menu on theme tokens; shared `useLinkToScreen` · `src/ui/canvas/CanvasContextMenu.tsx`, `link-to-screen.ts`, `canvas.css`
+- [x] **T043** [US11] "Link to screen…" Properties section for buttons · `src/ui/properties/ScreenLinkSection.tsx`, `src/ui/canvas/register.tsx`
+- [x] **T044** [US9] Simple/Advanced mode · `src/ui/workspace/mode.ts`, `Workspace.tsx`, `workspace.css`, `tests/e2e/modes.spec.ts`
+- [x] **T045** [US10] Project panel ⋮ actions menu; quiet status text · `src/ui/project-panel/ProjectPanel.tsx`, `screen-commands.tsx`, `src/ui/app/app.css`
+- [x] **T046** [US9–US11] Update tests: Mantine test env, `ResizeObserver` stub, default mode in UI setup; menu-based project panel tests · `tests/ui/render.tsx`, `tests/ui/setup.ts`, `tests/ui/project-panel/screens.test.tsx`, `tests/e2e/*`
+- [ ] **T047** Trace the 15 e2e tests that fail on `main` independent of these changes (a11y, keyboard-only, offline, panel-defaults ×2, perf/reference, privacy, us1-build-screen ×2, us4-source ×4, us7-walkthrough, us8-export). `panel-defaults` also asserts the superseded collapsed-by-default behaviour and needs rewriting for modes.
+
+---
+
 ## Dependencies & Execution Order
 
 ```

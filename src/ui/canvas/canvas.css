@@ -199,3 +199,8 @@
 .salt-dropzone-end .salt-dropzone { inset: -4px 0 -4px 0; }
 .salt-dropzone--column.salt-dropzone--start { inset: 0 0 50% 0; }
 .salt-dropzone--column.salt-dropzone--end { inset: 50% 0 0 0; }
+
+/* Wireframe context menu items: readable in both themes, with hover and focus feedback. */
+.canvas-context-menu__item { padding: 6px 12px; cursor: pointer; }
+.canvas-context-menu__item:hover,
+.canvas-context-menu__item:focus-visible { background: var(--selection-bg); outline: none; }

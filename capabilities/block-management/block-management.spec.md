@@ -94,6 +94,38 @@ For screen blocks, the outline panel SHALL display the hierarchy of components a
 - **WHEN** the open block is a screen flow, not a screen
 - **THEN** the outline panel shows the flow outline, not the screen hierarchy
 
+### Each block has one actions menu
+<!-- touches: src/ui/project-panel/** -->
+<!-- adopted: src/ui/project-panel/screen-commands.tsx -->
+
+Each project panel entry SHALL show its name and an "Actions for <name>" menu. A screen's menu SHALL offer Rename, Duplicate, Move up, Move down and Delete; other content offers Move up, Move down and Delete. Move up is disabled for the first block of its kind and Move down for the last. Status and link-count text SHALL be drawn only for an error, a name flag or a reason, and remain available to assistive technology.
+
+#### Scenario: open the menu on a screen
+- **WHEN** a person activates "Actions for Home"
+- **THEN** a menu lists Rename, Duplicate, Move up, Move down and Delete
+
+#### Scenario: other content
+- **WHEN** a person opens the menu of a block that is not a screen
+- **THEN** it has no Rename or Duplicate
+
+#### Scenario: deleting a linked screen
+- **WHEN** a person chooses Delete on a screen that flow steps link to
+- **THEN** a warning lists those steps before anything changes
+
+### The interface is Simple or Advanced
+<!-- touches: src/ui/workspace/** -->
+<!-- adopted: src/ui/workspace/mode.ts, src/ui/workspace/Workspace.tsx -->
+
+A toolbar control SHALL switch the interface between Simple (default) and Advanced, remembered per browser. Simple SHALL NOT show the outline, source view or preview, except the source view for a block that can only be edited as text. The region-focus shortcut SHALL skip regions that are not shown.
+
+#### Scenario: first visit
+- **WHEN** a person opens a project with no stored preference
+- **THEN** the outline, source and preview are not shown
+
+#### Scenario: switch to Advanced and reload
+- **WHEN** a person chooses Advanced and reloads
+- **THEN** all regions are shown
+
 ## Uncovered
 
 - Block conversion (screen ↔ other) is implemented in `src/core/blocks/` and triggered via the project panel slot. The observable behaviour is not yet detailed here.

@@ -8,7 +8,11 @@ test('screens are added, renamed, duplicated, reordered and deleted, and survive
   await app.createProject();
   const panel = app.projectPanel;
   const screenNames = async () => (await app.readProjectPanel()).map((b) => b.name);
-  const entry = (name: string) => panel.getByRole('listitem').filter({ has: page.getByRole('button', { name, exact: true }) });
+  /** Opens a screen's actions menu and chooses an item. */
+  const act = async (name: string, item: string) => {
+    await panel.getByRole('button', { name: `Actions for ${name}`, exact: true }).click();
+    await page.getByRole('menu', { name: `Actions for ${name}` }).getByRole('menuitem', { name: item, exact: true }).click();
+  };
 
   // Three screens: the new project's Screen-1, then two more, each opened when added.
   await panel.getByRole('button', { name: 'Add screen', exact: true }).click();
@@ -17,7 +21,7 @@ test('screens are added, renamed, duplicated, reordered and deleted, and survive
   await expect(panel.getByRole('button', { name: 'Screen-3', exact: true })).toHaveAttribute('aria-current', 'true');
 
   // Rename Screen-2 to "Sign in": the preview shows the saved name while typing.
-  await entry('Screen-2').getByRole('button', { name: /^Rename/ }).click();
+  await act('Screen-2', 'Rename');
   const field = panel.getByRole('textbox', { name: 'Name' });
   await field.fill('Sign in');
   await expect(field).toHaveValue('Sign in');
@@ -26,17 +30,17 @@ test('screens are added, renamed, duplicated, reordered and deleted, and survive
   expect(await screenNames()).toEqual(['Screen-1', 'Sign-in', 'Screen-3']);
 
   // Duplicate it: the copy goes directly after the original and opens.
-  await entry('Sign-in').getByRole('button', { name: /^Duplicate/ }).click();
+  await act('Sign-in', 'Duplicate');
   expect(await screenNames()).toEqual(['Screen-1', 'Sign-in', 'Copy-of-Sign-in', 'Screen-3']);
   await expect(panel.getByRole('button', { name: 'Copy-of-Sign-in', exact: true })).toHaveAttribute('aria-current', 'true');
 
   // Reorder: Screen-3 moves up past the copy.
-  await entry('Screen-3').getByRole('button', { name: /^Move up/ }).click();
+  await act('Screen-3', 'Move up');
   expect(await screenNames()).toEqual(['Screen-1', 'Sign-in', 'Screen-3', 'Copy-of-Sign-in']);
 
   // Delete Screen-1 (no step links to it): no confirmation, an Undo, and its neighbour opens.
   await panel.getByRole('button', { name: 'Screen-1', exact: true }).click();
-  await entry('Screen-1').getByRole('button', { name: /^Delete/ }).click();
+  await act('Screen-1', 'Delete');
   await expect(page.getByRole('alertdialog')).toHaveCount(0);
   expect(await screenNames()).toEqual(['Sign-in', 'Screen-3', 'Copy-of-Sign-in']);
   await expect(panel.getByRole('button', { name: 'Sign-in', exact: true })).toHaveAttribute('aria-current', 'true');

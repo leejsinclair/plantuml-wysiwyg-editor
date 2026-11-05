@@ -99,6 +99,25 @@ A person SHALL be able to undo and redo any flow edit with the standard keyboard
 - **WHEN** a person deletes a step and then undoes
 - **THEN** the step is restored in its original position
 
+### Screens are added to a flow from the palette
+<!-- touches: src/ui/flow-canvas/**, src/core/activity/** -->
+<!-- adopted: src/ui/flow-canvas/FlowPalette.tsx, src/ui/flow-canvas/flow-dnd.tsx -->
+
+The flow palette SHALL list every named screen under "Screens". Clicking one SHALL insert a step linked to it after the selected element, or before the final stop when nothing is selected; dragging it onto the flow SHALL insert the step at the drop position. With no screens the palette SHALL say so.
+
+#### Scenario: click a screen
+- **WHEN** a person clicks "Home" in the palette with nothing selected
+- **THEN** a step linked to Home appears before the flow's final stop
+
+#### Scenario: drag a screen
+- **WHEN** a person drags "Home" onto the flow
+- **THEN** a linked step appears at the drop position
+
+### An empty flow explains how to build one
+<!-- touches: src/ui/flow-canvas/** -->
+
+A flow with no steps SHALL show guidance on adding steps and linking them to screens.
+
 ## Uncovered
 
 - `src/core/activity/**` has no browser or UI imports; enforced by the linter. This is an architecture rule, not a flow requirement.

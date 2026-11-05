@@ -1,5 +1,5 @@
 // T124: managing screens in the project panel (FR-011, FR-015/AC4; VO-026, VO-027, VO-029, VO-030, VO-115, VO-130).
-import { act, render, screen, within } from '@testing-library/react';
+import { act, render, screen, within } from '../render';
 import userEvent from '@testing-library/user-event';
 import { afterEach, describe, expect, it } from 'vitest';
 import '../../../src/ui/project-panel/register.tsx';
@@ -53,7 +53,18 @@ const screenNames = () =>
     .getAllByRole('listitem')
     .map((li) => li.querySelector('.project-panel__open')!.textContent);
 const openName = () => within(panel()).getAllByRole('button').find((b) => b.getAttribute('aria-current') === 'true')!.textContent;
-const command = (labelKey: string, name: string) => within(panel()).getByRole('button', { name: t(labelKey, { name }) });
+// Screen actions live in a "⋮" menu per row; the menu item is named by the action alone.
+const ITEM: Record<string, string> = {
+  'screens.renameBlock': 'screens.rename', 'screens.duplicateBlock': 'screens.duplicate',
+  'screens.moveUpBlock': 'screens.moveUp', 'screens.moveDownBlock': 'screens.moveDown', 'screens.deleteBlock': 'screens.delete',
+};
+const trigger = (name: string) => within(panel()).queryByRole('button', { name: t('screens.actionsFor', { name }) });
+async function command(labelKey: string, name: string): Promise<HTMLElement> {
+  const menuName = t('screens.actionsFor', { name });
+  if (!screen.queryByRole('menu', { name: menuName })) await userEvent.click(trigger(name)!);
+  return within(await screen.findByRole('menu', { name: menuName })).getByRole('menuitem', { name: new RegExp(`^${t(ITEM[labelKey]!)}$`) });
+}
+const run = async (labelKey: string, name: string) => userEvent.click(await command(labelKey, name));
 
 describe('Add screen (VO-026)', () => {
   it('creates an empty Screen-n with the lowest unused n after the last screen and opens it', async () => {
@@ -70,7 +81,7 @@ describe('Add screen (VO-026)', () => {
 describe('Rename (VO-027, VO-028)', () => {
   it('previews "Will be saved as Sign-in" while typing, keeps the typed text, and converts on commit', async () => {
     const { source } = setup();
-    await userEvent.click(command('screens.renameBlock', 'Home'));
+    await run('screens.renameBlock', 'Home');
     const field = within(panel()).getByRole('textbox', { name: t('screens.nameLabel') });
     await userEvent.clear(field);
     await userEvent.type(field, 'Sign in');
@@ -84,7 +95,7 @@ describe('Rename (VO-027, VO-028)', () => {
   it('refuses a name used by another block ignoring case, naming it, and keeps the previous name', async () => {
     const { source } = setup();
     const before = source();
-    await userEvent.click(command('screens.renameBlock', 'Home'));
+    await run('screens.renameBlock', 'Home');
     const field = within(panel()).getByRole('textbox', { name: t('screens.nameLabel') });
     await userEvent.clear(field);
     await userEvent.type(field, 'LOGIN{Enter}');
@@ -96,7 +107,7 @@ describe('Rename (VO-027, VO-028)', () => {
   it('cancels with Escape, changing nothing', async () => {
     const { source } = setup();
     const before = source();
-    await userEvent.click(command('screens.renameBlock', 'Home'));
+    await run('screens.renameBlock', 'Home');
     await userEvent.type(within(panel()).getByRole('textbox', { name: t('screens.nameLabel') }), 'x{Escape}');
     expect(within(panel()).queryByRole('textbox')).toBeNull();
     expect(source()).toBe(before);
@@ -106,7 +117,7 @@ describe('Rename (VO-027, VO-028)', () => {
 describe('Renaming a linked screen (VO-029, VO-115)', () => {
   it('warns with the three linked steps, and proceeding updates them in one undoable step', async () => {
     const { store, source } = setup();
-    await userEvent.click(command('screens.renameBlock', 'Login'));
+    await run('screens.renameBlock', 'Login');
     const field = within(panel()).getByRole('textbox', { name: t('screens.nameLabel') });
     await userEvent.clear(field);
     await userEvent.type(field, 'Sign in{Enter}');
@@ -122,7 +133,7 @@ describe('Renaming a linked screen (VO-029, VO-115)', () => {
 
   it('changes nothing when the warning is cancelled', async () => {
     const { source } = setup();
-    await userEvent.click(command('screens.renameBlock', 'Login'));
+    await run('screens.renameBlock', 'Login');
     const field = within(panel()).getByRole('textbox', { name: t('screens.nameLabel') });
     await userEvent.clear(field);
     await userEvent.type(field, 'Sign in{Enter}');
@@ -136,7 +147,7 @@ describe('Delete (VO-030, VO-115)', () => {
   it('deletes an unlinked screen without confirmation, offers Undo, and opens the neighbour', async () => {
     const { store, source } = setup();
     act(() => store.openBlock(store.getSnapshot().blocks[1]!.key));
-    await userEvent.click(command('screens.deleteBlock', 'Home'));
+    await run('screens.deleteBlock', 'Home');
     expect(screen.queryByRole('alertdialog')).toBeNull();
     expect(screenNames()).toEqual(['Login']);
     expect(openName()).toBe('Login');
@@ -148,13 +159,13 @@ describe('Delete (VO-030, VO-115)', () => {
 
   it('warns before deleting a linked screen, listing the steps; cancel changes nothing, proceed deletes undoably', async () => {
     const { store, source } = setup();
-    await userEvent.click(command('screens.deleteBlock', 'Login'));
+    await run('screens.deleteBlock', 'Login');
     let dialog = screen.getByRole('alertdialog');
     expect(within(dialog).getAllByRole('listitem')).toHaveLength(3);
     await userEvent.click(within(dialog).getByRole('button', { name: t('screens.warning.cancel') }));
     expect(source()).toBe(SOURCE);
 
-    await userEvent.click(command('screens.deleteBlock', 'Login'));
+    await run('screens.deleteBlock', 'Login');
     dialog = screen.getByRole('alertdialog');
     await userEvent.click(within(dialog).getByRole('button', { name: t('screens.warning.proceed') }));
     expect(screenNames()).toEqual(['Home']);
@@ -166,7 +177,7 @@ describe('Delete (VO-030, VO-115)', () => {
 
   it('refuses to delete the only block with an explanation', async () => {
     const { announced, source } = setup(salt('Only'));
-    await userEvent.click(command('screens.deleteBlock', 'Only'));
+    await run('screens.deleteBlock', 'Only');
     expect(source()).toBe(salt('Only'));
     expect(announced).toContain(t('screens.delete.last'));
   });
@@ -175,14 +186,16 @@ describe('Delete (VO-030, VO-115)', () => {
 describe('Duplicate and reorder', () => {
   it('duplicates after the original and opens the copy, and moves screens up and down', async () => {
     const { store } = setup();
-    await userEvent.click(command('screens.duplicateBlock', 'Login'));
+    await run('screens.duplicateBlock', 'Login');
     expect(screenNames()).toEqual(['Login', 'Copy-of-Login', 'Home']);
     expect(openName()).toBe('Copy-of-Login');
-    await userEvent.click(command('screens.moveUpBlock', 'Copy-of-Login'));
+    await run('screens.moveUpBlock', 'Copy-of-Login');
     expect(screenNames()).toEqual(['Copy-of-Login', 'Login', 'Home']);
     expect(openName()).toBe('Copy-of-Login');
-    expect(command('screens.moveUpBlock', 'Copy-of-Login')).toBeDisabled();
-    expect(command('screens.moveDownBlock', 'Home')).toBeDisabled();
+    expect(await command('screens.moveUpBlock', 'Copy-of-Login')).toBeDisabled();
+    await userEvent.keyboard('{Escape}');
+    expect(await command('screens.moveDownBlock', 'Home')).toBeDisabled();
+    await userEvent.keyboard('{Escape}');
     act(() => store.undo());
     expect(screenNames()).toEqual(['Login', 'Copy-of-Login', 'Home']);
   });
@@ -192,13 +205,16 @@ describe('Other content (VO-130)', () => {
   it('reorders and deletes as a unit, undoably, with no rename or duplicate', async () => {
     const { store, source } = setup();
     const otherLabel = t('projectPanel.otherUnnamed', { opener: 'startuml', n: 4 });
-    expect(within(panel()).queryByRole('button', { name: t('screens.renameBlock', { name: otherLabel }) })).toBeNull();
-    expect(within(panel()).queryByRole('button', { name: t('screens.duplicateBlock', { name: otherLabel }) })).toBeNull();
-    await userEvent.click(command('screens.moveDownBlock', otherLabel));
+    await userEvent.click(trigger(otherLabel)!);
+    const menu = await screen.findByRole('menu', { name: t('screens.actionsFor', { name: otherLabel }) });
+    expect(within(menu).queryByRole('menuitem', { name: /^Rename$/ })).toBeNull();
+    expect(within(menu).queryByRole('menuitem', { name: /^Duplicate$/ })).toBeNull();
+    await userEvent.keyboard('{Escape}');
+    await run('screens.moveDownBlock', otherLabel);
     expect(source()).toBe(salt('Login') + '\n' + salt('Home') + '\n' + FLOW + '\n' + '@startmindmap\n* root\n@endmindmap\n' + '\n' + OTHER);
     act(() => store.undo());
     expect(source()).toBe(SOURCE);
-    await userEvent.click(command('screens.deleteBlock', otherLabel));
+    await run('screens.deleteBlock', otherLabel);
     expect(source()).not.toContain('Alice -> Bob');
     act(() => store.undo());
     expect(source()).toBe(SOURCE);

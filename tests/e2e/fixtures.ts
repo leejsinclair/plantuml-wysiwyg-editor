@@ -172,6 +172,12 @@ export class App {
 export const test = base.extend<{ app: App }>({
   // The second argument is Playwright's `use`; named otherwise so the React hooks lint rule does not mistake it.
   app: async ({ page }, provide) => {
+    // The interface starts in simple mode; most specs exercise the outline, source and preview, so they start advanced.
+    await page.addInitScript(() => {
+      try {
+        if (localStorage.getItem('plantuml-editor.mode') === null) localStorage.setItem('plantuml-editor.mode', 'advanced');
+      } catch { /* storage unavailable */ }
+    });
     await provide(new App(page));
   },
 });

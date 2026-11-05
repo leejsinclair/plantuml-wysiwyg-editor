@@ -20,7 +20,8 @@ import { notices as appNotices, type NoticesStore } from '../notices/Notices.tsx
 import { blockLabel } from './ProjectPanel.tsx';
 import { LinkWarningDialog } from './LinkWarningDialog.tsx';
 import { RenameField } from './RenameField.tsx';
-import { IconArrowDown, IconArrowUp, IconCopy, IconPencil, IconPlus, IconTrash } from '@tabler/icons-react';
+import { ActionIcon, Menu } from '@mantine/core';
+import { IconArrowDown, IconArrowUp, IconCopy, IconDotsVertical, IconPencil, IconPlus, IconTrash } from '@tabler/icons-react';
 
 /** Applies a block operation as one history entry, then opens the block it names. */
 function apply(store: Store, op: BlockOpOk, blockKey: string, announce = true): void {
@@ -182,43 +183,50 @@ export function BlockCommands({ blockKey, notices = appNotices }: BlockCommandsP
   const isScreen = view.kind === 'screen';
   return (
     <>
+      <Menu position="bottom-end" withinPortal shadow="md">
+        <Menu.Target>
+          <ActionIcon variant="subtle" color="gray" size="sm" aria-label={t('screens.actionsFor', { name: label })}>
+            <IconDotsVertical size={16} aria-hidden="true" />
+          </ActionIcon>
+        </Menu.Target>
+        <Menu.Dropdown aria-label={t('screens.actionsFor', { name: label })}>
+          {isScreen && (
+            <Menu.Item leftSection={<IconPencil size={16} aria-hidden="true" />} onClick={() => setRenaming(true)}>
+              {t('screens.rename')}
+            </Menu.Item>
+          )}
+          {isScreen && (
+            <Menu.Item leftSection={<IconCopy size={16} aria-hidden="true" />} onClick={duplicate}>
+              {t('screens.duplicate')}
+            </Menu.Item>
+          )}
+          <Menu.Item leftSection={<IconArrowUp size={16} aria-hidden="true" />} disabled={at <= 0} onClick={() => move('up')}>
+            {t('screens.moveUp')}
+          </Menu.Item>
+          <Menu.Item leftSection={<IconArrowDown size={16} aria-hidden="true" />} disabled={at === -1 || at >= same.length - 1} onClick={() => move('down')}>
+            {t('screens.moveDown')}
+          </Menu.Item>
+          <Menu.Divider />
+          <Menu.Item color="red" leftSection={<IconTrash size={16} aria-hidden="true" />} onClick={remove}>
+            {t('screens.delete')}
+          </Menu.Item>
+        </Menu.Dropdown>
+      </Menu>
       {isScreen && renaming && (
-        <RenameField
-          label={t('screens.nameLabel')}
-          value={view.name ?? ''}
-          autoFocus
-          onCommit={(typed) => {
-            const refusal = rename(typed);
-            if (refusal === null) setRenaming(false);
-            return refusal;
-          }}
-          onCancel={() => setRenaming(false)}
-        />
+        <div className="project-panel__rename">
+          <RenameField
+            label={t('screens.nameLabel')}
+            value={view.name ?? ''}
+            autoFocus
+            onCommit={(typed) => {
+              const refusal = rename(typed);
+              if (refusal === null) setRenaming(false);
+              return refusal;
+            }}
+            onCancel={() => setRenaming(false)}
+          />
+        </div>
       )}
-      {isScreen && (
-        <button type="button" aria-label={t('screens.renameBlock', { name: label })} onClick={() => setRenaming(true)}>
-          <IconPencil size={16} aria-hidden="true" />
-          {t('screens.rename')}
-        </button>
-      )}
-      {isScreen && (
-        <button type="button" aria-label={t('screens.duplicateBlock', { name: label })} onClick={duplicate}>
-          <IconCopy size={16} aria-hidden="true" />
-          {t('screens.duplicate')}
-        </button>
-      )}
-      <button type="button" aria-label={t('screens.moveUpBlock', { name: label })} disabled={at <= 0} onClick={() => move('up')}>
-        <IconArrowUp size={16} aria-hidden="true" />
-        {t('screens.moveUp')}
-      </button>
-      <button type="button" aria-label={t('screens.moveDownBlock', { name: label })} disabled={at === -1 || at >= same.length - 1} onClick={() => move('down')}>
-        <IconArrowDown size={16} aria-hidden="true" />
-        {t('screens.moveDown')}
-      </button>
-      <button type="button" aria-label={t('screens.deleteBlock', { name: label })} onClick={remove}>
-        <IconTrash size={16} aria-hidden="true" />
-        {t('screens.delete')}
-      </button>
       {dialog}
     </>
   );

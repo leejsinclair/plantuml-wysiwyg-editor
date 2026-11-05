@@ -70,19 +70,21 @@ The initial release must deliver a reliable structured wireframe editor and a st
 
 Provide an integrated workspace containing:
 
-- A **project panel** listing the project's screens (in file order, each with its status and the number of flow steps that link to it), the screen flow, and any other content. It is used to open, add, rename, duplicate (OD-15), reorder and delete screens, to add, open, rename and delete the flow, and to see blocks that cannot be edited visually (FR-015).
+- A **project panel** listing the project's screens (in file order), the screen flow, and any other content. Each entry is a plain name with one actions menu (a vertical "⋮" button) holding Rename, Duplicate, Move up, Move down and Delete (OD-17); the panel also adds screens and the flow and shows blocks that cannot be edited visually (FR-015). A block's status, flow-link count and similar detail are shown only when something needs attention (an error, a name problem or a reason it cannot be edited); otherwise they are available to assistive technology but not drawn.
 - A component palette organised by category (wireframe components when a screen is open; flow elements when the flow is open).
 - A structured editing canvas built from HTML elements (see below), for the open screen or screen flow.
-- An outline view showing the hierarchy of the open screen or flow, usable for selection, reordering and keyboard navigation.
+- An outline view showing the hierarchy of the open screen or flow, usable for selection, reordering and keyboard navigation (Advanced mode only, OD-18).
 - A contextual properties panel for the selected element; with nothing selected it shows the open screen's or flow's own properties.
-- An optional, collapsible rendered-output pane showing the actual PlantUML render of the open block.
-- A source view of the open block (Salt or activity).
+- An optional, collapsible rendered-output pane showing the actual PlantUML render of the open block (Advanced mode only, OD-18).
+- A source view of the open block (Salt or activity) (Advanced mode only, OD-18; in Simple mode it opens for a block that can only be edited as text, or when the person asks to edit source).
 - A project library for creating, opening and managing projects stored in the browser.
 - Clear actions for importing, downloading, undoing and redoing work, and a visible autosave status.
 
 The palette, outline, properties panel, source view and rendered-output pane are contextual to the screen or flow that is open. The interface should make the distinction between the editable workspace, the source and the rendered output clear; the rendered-output pane is labelled as read-only.
 
 Every structural command (for example insert, delete, move to, wrap, unwrap, select parent, insert or delete row or column, open linked screen) is available as a visible, pointer-operable control for the current selection (for example a selection toolbar or context menu) that shows its keyboard shortcut. Drag-and-drop is never the only pointer method. A keyboard shortcut (for example F6) moves focus between the workspace regions (project panel, palette, canvas, outline, properties, source, preview). Keyboard shortcuts avoid combinations reserved by supported browsers (for example Alt+Left and Alt+Right) and by common screen readers, and the canvas key model works while a screen reader is in focus mode.
+
+**Interface modes (decision, OD-18).** A control in the toolbar switches the interface between **Simple** (the default) and **Advanced**. Simple shows the project panel, palette, canvas and properties only; the outline, source view and rendered-output pane are not shown. Advanced shows every region. The choice is remembered per browser. Simple mode never removes a capability: the source view still opens for blocks that can only be edited as text, and the region-focus shortcut skips regions that are not shown.
 
 At the minimum supported width (FR-009) the default arrangement is: project panel and palette/outline on the left, canvas in the centre, properties on the right, and source and rendered output sharing a collapsible pane. Panel visibility is remembered per browser. Detailed layout is left to design.
 
@@ -336,6 +338,8 @@ The file must remain renderable by standard PlantUML tooling outside the applica
 ### 3.7 Screen flow editor
 
 Users can visually create and edit a screen flow describing how people move between the project's screens.
+
+**Adding and linking steps (decision, OD-19).** The flow palette lists the project's screens under "Screens". Clicking a screen, or dragging it onto the flow, adds a step already linked to that screen (named after it), at the insertion point described under "Flow editing rules". An empty flow explains how flows work and how to link a step. A step can be linked to a screen from the step's properties ("Link to another screen"), from the palette as above, or from a screen's canvas (FR-013/AC7, AC8).
 
 **Editing surface:** Consistent with the wireframe canvas, the flow is presented as structured HTML blocks: steps, decision branches and loops, arranged top to bottom and connected by simple drawn connectors. Users insert, move, nest and configure blocks within this structure. The editor must only allow flows that can be expressed in PlantUML activity syntax; free-form node-and-arrow drawing is not supported. The actual PlantUML render, including swimlane columns, appears in the optional rendered-output pane.
 
@@ -657,6 +661,7 @@ Acceptance criteria are numbered within each requirement and referenced as, for 
 - **AC14** Changing a screen's name line in the source view never asks for confirmation and never rewrites the typed name. On leaving the source view, an allowed, unique name updates the links in the same undo step with a notice; any other name is flagged as in AC11, and a notice with "Undo" states the cause and how many links are now broken. Decided (OD-4).
 - **AC15** No deletion or re-division removes the last block of a project; the user is told why.
 - **AC16** A link whose target differs from a screen's name only in letter case is shown as broken, with a suggested fix.
+- **AC17** Each block's entry in the project panel has one actions menu, opened from a "Actions for <name>" button. A screen's menu offers Rename, Duplicate, Move up, Move down and Delete; other content offers Move up, Move down and Delete; Move up and Move down are disabled at the ends. Rename opens the name field in the entry. The confirmation, warning and Undo behaviour in AC5 to AC9 and AC12 is unchanged. Decided (OD-17).
 
 ### FR-012: Edit screen flows visually
 
@@ -690,6 +695,8 @@ Acceptance criteria are numbered within each requirement and referenced as, for 
 - **AC4** Steps whose linked screen no longer exists are flagged and are not silently removed; the step's properties offer "Link to another screen", "Create screen" and "Remove link".
 - **AC5** Links survive autosave and reload, and download and re-import, and are written as `:[[#<screen-id> <step label>]];`, with `[`, `]` and `|` in the label escaped so the link is kept (verified).
 - **AC6** From a step's link control, the user can create a new screen named after the step (a generated name, section 3.6) and link the step to it in one action.
+- **AC7** Each screen is listed in the flow palette. Clicking it adds a step linked to that screen, after the selected element (or before the final stop when nothing is selected); dragging it onto the flow adds the step at the drop position. With no screens the palette says so. Decided (OD-19).
+- **AC8** From a screen, the user can link a selected button to another screen without opening the flow: a collapsible "Link to screen…" section under the button's properties, and "Link to screen…" in the right-click menu, each list the other screens. Choosing one adds a step labelled with the button's text and linked to that screen, creating the screen flow first if the project has none; the change is one undoable step. Only buttons are offered this (the model has no separate link element). The context menu uses the application's theme colours and is readable in light and dark modes. Decided (OD-19).
 
 ### FR-014: Export and copy
 
@@ -710,12 +717,13 @@ Acceptance criteria are numbered within each requirement and referenced as, for 
 
 **Acceptance criteria:**
 
-- **AC1** The project panel lists every screen in file order, the screen flow (or "Add screen flow", with a one-line explanation, if there is none) and every block of other content, each with its status (FR-010/AC1).
-- **AC2** For each screen, the project panel shows how many flow steps link to it.
+- **AC1** The project panel lists every screen in file order, the screen flow (or "Add screen flow", with a one-line explanation, if there is none) and every block of other content, each with its status (FR-010/AC1). The status is available to assistive technology for every entry and drawn only when it is an error, a name problem or a reason the block cannot be edited (OD-17).
+- **AC2** For each screen, the project panel records how many flow steps link to it (drawn only where it needs attention, OD-17).
 - **AC3** Selecting a screen, the flow or other content opens it, and the palette, outline, properties, source view and preview switch to it.
 - **AC4** Other content can be opened in the source view and reordered or deleted as a unit (undoably), but not edited visually.
 - **AC5** All panels can be collapsed so that the rendered preview or the canvas fills the workspace; with panels collapsed the user can still follow links from flow steps to screens and back (supports the stakeholder walkthrough use case). Decided (OD-11).
 - **AC6** In the screen flow's rendered preview, clicking a step that links to a screen opens that screen, and "Back to flow" returns; a link to a missing screen shows the broken-link message.
+- **AC7** The interface has Simple and Advanced modes (section 3.1, OD-18). In Simple mode the outline, source view and rendered-output pane are not shown; Advanced shows all regions; the choice is remembered per browser and defaults to Simple.
 
 ## 6. Quality requirements
 
@@ -1069,6 +1077,9 @@ These decisions were proposed by the review team and confirmed by the product ow
 | OD-14 | Largest supported project size | None set; the reference project is the tested size | A stated limit (for example twice the reference project) with defined behaviour beyond it |
 | OD-15 | Duplicating a screen | Included (FR-011/AC12), to support showing different states of a screen | Excluded, like duplicating components |
 | OD-16 | Clarifications added in review inside decision sections | Accepted as marked *(added in review)* | Revise individual clarifications |
+| OD-17 | Project panel presentation (post-release change) | A plain screen list; per-block actions in one vertical "⋮" menu (Rename, Duplicate, Move up, Move down, Delete), with status text shown only when something is wrong | Always-visible per-row buttons and status text (the earlier design) |
+| OD-18 | Interface complexity (post-release change) | Simple (default) and Advanced modes; Simple hides the outline, source view and rendered-output pane; stored per browser | Panels hidden by default with per-panel toggles only (the earlier design, US7 of feature 002); a single mode |
+| OD-19 | How flow steps are linked to screens (post-release change) | Structured flow editor stays (no node-and-arrow drawing); screens are palette items that add linked steps; a "Link to screen…" section in the Properties of a selected button; the canvas context menu adds a linked step, creating the flow if there is none | A free-form node graph of screens (feature 002's first design) |
 
 ## Appendix A. Supported constructs
 

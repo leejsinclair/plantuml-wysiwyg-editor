@@ -63,6 +63,7 @@ test('dragging a palette item onto the flow adds it', async ({ app, page }) => {
   const canvas = page.getByRole('region', { name: 'Screen flow, top to bottom' });
   await expect(canvas.getByRole('treeitem', { name: /^Step/ })).toHaveCount(0);
 
+  await page.getByRole('button', { name: 'Step', exact: true }).scrollIntoViewIfNeeded();
   const from = await page.getByRole('button', { name: 'Step', exact: true }).boundingBox();
   const to = await canvas.getByText('Drop here to add at the end of the flow').boundingBox();
   if (!from || !to) throw new Error('missing drag geometry');
@@ -89,4 +90,44 @@ test('right-clicking an element on a screen links it to another screen through a
   const step = canvas.getByRole('treeitem', { name: /Sign in/ });
   await expect(step).toBeVisible();
   await expect(step.getByLabel('Linked to screen Home')).toBeVisible();
+});
+
+test('a screen in the palette is added to the flow already linked, by click and by drag', async ({ app, page }) => {
+  await app.open();
+  await app.importFile(upload);
+  await openBlock(app, 'Screen-flow');
+
+  const palette = page.getByLabel('Flow elements');
+  const canvas = page.getByRole('region', { name: 'Screen flow, top to bottom' });
+  await expect(palette.getByRole('button', { name: 'Home', exact: true })).toBeVisible();
+
+  await palette.getByRole('button', { name: 'Sign-in', exact: true }).click();
+  await expect(canvas.getByRole('treeitem', { name: /Sign-in/ })).toBeVisible();
+  await expect(canvas.getByRole('treeitem', { name: /Sign-in/ })).toContainText('→ Sign-in');
+
+  const from = await palette.getByRole('button', { name: 'Home', exact: true }).boundingBox();
+  const to = await canvas.getByText('Drop here to add at the end of the flow').boundingBox();
+  if (!from || !to) throw new Error('missing drag geometry');
+  await page.mouse.move(from.x + from.width / 2, from.y + from.height / 2);
+  await page.mouse.down();
+  await page.mouse.move(from.x + from.width / 2 + 20, from.y + from.height / 2 + 20, { steps: 5 });
+  await page.mouse.move(to.x + to.width / 2, to.y + to.height / 2, { steps: 10 });
+  await page.mouse.up();
+  await expect(canvas.getByRole('treeitem', { name: /Home/ })).toBeVisible();
+});
+
+test('selecting a button shows an expandable "Link to screen" section under its properties', async ({ app, page }) => {
+  await app.open();
+  await app.importFile(upload);
+  await openBlock(app, 'Sign-in');
+
+  await app.region('Canvas').getByRole('gridcell').first().click();
+  const section = page.locator('.screen-link-section');
+  await expect(section).toBeVisible();
+  await section.getByText('Link to screen…').click();
+  await section.getByRole('button', { name: 'Home', exact: true }).click();
+
+  await openBlock(app, 'Screen-flow');
+  const canvas = page.getByRole('region', { name: 'Screen flow, top to bottom' });
+  await expect(canvas.getByRole('treeitem', { name: /Sign in/ }).getByLabel('Linked to screen Home')).toBeVisible();
 });
