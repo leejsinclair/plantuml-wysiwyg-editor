@@ -204,3 +204,18 @@
 .canvas-context-menu__item { padding: 6px 12px; cursor: pointer; }
 .canvas-context-menu__item:hover,
 .canvas-context-menu__item:focus-visible { background: var(--selection-bg); outline: none; }
+
+/* Insert handles: a "+" on the bottom and right edge of the hovered or selected cell adds a row or column there. */
+.salt-cell > button.salt-add {
+  position: absolute; display: none; z-index: 2;
+  width: 14px; height: 14px; min-height: 0; padding: 0; min-width: 0; line-height: 1;
+  border-radius: 50%; border: 1px solid var(--color-border); font-size: 12px;
+  background: var(--color-bg); color: var(--color-accent); cursor: pointer;
+  align-items: center; justify-content: center;
+}
+.salt-cell > button.salt-add--row { left: 50%; bottom: -7px; transform: translateX(-50%); }
+.salt-cell > button.salt-add--column { top: 50%; right: -7px; transform: translateY(-50%); }
+.salt-cell--selected > button.salt-add,
+.salt-cell:hover:not(:has(.salt-cell:hover)) > button.salt-add { display: inline-flex; }
+.salt-cell > button.salt-add:hover { background: var(--color-accent); color: var(--color-bg); }
+.salt-cell > button.salt-add::before { content: '+'; }

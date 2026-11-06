@@ -44,6 +44,8 @@ const screen = {
   'screen.command.wrapGroup': 'Wrap in group box',
   'screen.command.unwrap': 'Unwrap',
   'screen.command.delete': 'Delete',
+  'screen.canvas.addRowBelow': 'Add row below',
+  'screen.canvas.addColumnRight': 'Add column to the right',
   'screen.command.insertRow': 'Insert row',
   'screen.command.deleteRow': 'Delete row',
   'screen.command.insertColumn': 'Insert column',

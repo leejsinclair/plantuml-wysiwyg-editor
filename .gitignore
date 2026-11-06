@@ -7,3 +7,4 @@ test-results/
 playwright-report/
 tools/*.jar
 .specify/extensions/grill-specify/
+*.tsbuildinfo

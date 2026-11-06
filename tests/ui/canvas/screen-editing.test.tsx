@@ -353,3 +353,18 @@ describe('Move to and drag offer the same destinations (VO-049)', () => {
     expect(moveTo).toBeTruthy();
   });
 });
+
+// ─── On-canvas insert handles ────────────────────────────────────────────────────────────────────
+describe('Insert handles on a cell', () => {
+  it('"Add row below" and "Add column to the right" grow the grid from the cell itself', async () => {
+    const user = userEvent.setup();
+    const { store } = setup(TWO_BY_TWO);
+    const grid = () => screen.getAllByRole('row').filter((r) => r.getAttribute('data-path')?.length === 1 || r.getAttribute('data-path') === '0' || r.getAttribute('data-path') === '1' || /^\d+$/.test(r.getAttribute('data-path') ?? ''));
+    const before = grid().length;
+    await user.click(screen.getAllByRole('button', { name: t('screen.canvas.addRowBelow'), hidden: true })[0]!);
+    expect(store.getState()!.source.split('\n').length).toBeGreaterThan(TWO_BY_TWO.split('\n').length - 1);
+    expect(grid().length).toBe(before + 1);
+    await user.click(screen.getAllByRole('button', { name: t('screen.canvas.addColumnRight'), hidden: true })[0]!);
+    expect(store.getState()!.source).toContain('. |');
+  });
+});

@@ -4,7 +4,7 @@ import { useState, type KeyboardEvent, type MouseEvent } from 'react';
 import type { Path } from '../../core/types.ts';
 import type { CellContent, Grid, ScrollArea, SaltScreen } from '../../core/salt/model.ts';
 import type { CanvasContext } from './canvas-keys.ts';
-import { cmdMoveByKey, navigateCell } from './canvas-keys.ts';
+import { cmdMoveByKey, navigateCell, cmdInsertRow, cmdInsertColumn } from './canvas-keys.ts';
 import { screenDoc } from '../../core/salt/destinations.ts';
 import { mainTextProperty, setProperty } from '../../core/salt/ops/properties.ts';
 import { shiftEdits } from './canvas-keys.ts';
@@ -285,6 +285,28 @@ export function CellView({
       >
         {visual}
         {zones}
+        {!readOnly && (
+          <>
+            <button
+              type="button"
+              tabIndex={-1}
+              className="salt-add salt-add--row"
+              aria-label={t('screen.canvas.addRowBelow')}
+              title={t('screen.canvas.addRowBelow')}
+              onPointerDown={(e) => e.stopPropagation()}
+              onClick={(e) => { e.stopPropagation(); cmdInsertRow(path, ctx); }}
+            />
+            <button
+              type="button"
+              tabIndex={-1}
+              className="salt-add salt-add--column"
+              aria-label={t('screen.canvas.addColumnRight')}
+              title={t('screen.canvas.addColumnRight')}
+              onPointerDown={(e) => e.stopPropagation()}
+              onClick={(e) => { e.stopPropagation(); cmdInsertColumn(path, ctx); }}
+            />
+          </>
+        )}
       </div>
       {contextMenu && (
         <CanvasContextMenu
